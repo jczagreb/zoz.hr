@@ -1,47 +1,106 @@
-
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
+const util = require('util'); // dump filter
+const del = require('del'); // deleting _site folder
+const got = require("got"); // HTTP request library
+const pluginRSS = require("@11ty/eleventy-plugin-rss");
+const { wordCount } = require("eleventy-plugin-wordcount");
 
 module.exports = function(config) {
 
   // A useful way to reference the context we are runing eleventy in
   let env = process.env.ELEVENTY_ENV;
 
+  // Brisanje _site foldera prije builda
+  const dirToClean = '_site/*';
+  del(dirToClean);
+
   // Layout aliases can make templates more portable
   config.addLayoutAlias('default', 'layouts/base.njk');
 
-  // Add some utility filters
+  /* Filters */
   config.addFilter("squash", require("./src/utils/filters/squash.js") );
-  config.addFilter("dateDisplay", require("./src/utils/filters/date.js") );
-
-
-  // add support for syntax highlighting
-  config.addPlugin(syntaxHighlight);
-
-  // minify the html output
-  config.addTransform("htmlmin", require("./src/utils/minify-html.js"));
-
-  // compress and combine js files
-  config.addFilter("jsmin", function(code) {
-    const UglifyJS = require("uglify-js");
-    let minified = UglifyJS.minify(code);
-      if( minified.error ) {
-          console.log("UglifyJS error: ", minified.error);
-          return code;
-      }
-      return minified.code;
+  config.addFilter("dateDisplay", require("./src/utils/filters/date.js"));
+  config.addFilter('dump', obj => {
+    return util.inspect(obj);
+  });
+  config.addFilter('debugger', (...args) => {
+    console.log(...args)
+    debugger;
+  });
+  // Limit umjesto slice
+  config.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
+  // JSON-LD escape special characters
+  config.addFilter("jsonldesc", obj => {
+    const json = JSON.stringify(obj);
+    const jsonesc = JSON.stringify(json);
+    const escstring = JSON.parse(jsonesc);
+    return escstring;
   });
 
+  /* RSS */
+  config.addPlugin(pluginRSS);
+  // RSS file size filter
+  config.addNunjucksAsyncFilter("size", async (url, callback) => {
+    try {
+      const { headers } = await got.head(url);
+      const clength = headers.hasOwnProperty("content-length")
+        ? headers["content-length"]
+        : "Unknown";
+      callback(null, clength);
+    } catch (err) {
+      console.error(err);
+      callback(err);
+    }
+  });
+  // RSS file MIME type
+  config.addNunjucksAsyncFilter("type", async (url, callback) => {
+    try {
+      const { headers } = await got.head(url);
+      const clength = headers.hasOwnProperty("content-type")
+        ? headers["content-type"]
+        : "Unknown";
+      callback(null, clength);
+    } catch (err) {
+      console.error(err);
+      callback(err);
+    }
+  });
+  // RSS RFC822 time
+  config.addFilter("rfc822", dateObj => {
+    return new Date(dateObj).toUTCString();
+  });
 
-  // pass some assets right through
+  /* Shortcodes */
+  config.addShortcode("og_updated_time", () => new Date()
+  );
+
+  /* Plugins */
+  config.addPlugin(wordCount);
+
+  /* minify the html output */
+  if (env != 'dev') {
+    config.addTransform("htmlmin", require("./src/utils/minify-html.js"));
+  }
+
+  /* compress and combine js files */
+  config.addFilter("jsmin", function (code) {
+    const UglifyJS = require("uglify-js");
+    let minified = UglifyJS.minify(code);
+    if (minified.error) {
+      console.log("UglifyJS error: ", minified.error);
+      return code;
+    }
+    return minified.code;
+  });
+
+  /* pass some assets right through */
   config.addPassthroughCopy("./src/site/images");
 
-  // make the seed target act like prod
+  /* make the seed target act like prod */
   env = (env=="seed") ? "prod" : env;
   return {
     dir: {
       input: "src/site",
-      output: "dist",
+      output: "_site",
       data: `_data/${env}`
     },
     templateFormats : ["njk", "md", "11ty.js"],
