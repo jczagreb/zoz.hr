@@ -3,7 +3,6 @@ const del = require('del'); // deleting _site folder
 const got = require("got"); // HTTP request library
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
-const metagen = require('eleventy-plugin-metagen');
 
 module.exports = function(config) {
 
@@ -76,7 +75,6 @@ module.exports = function(config) {
 
   /* Plugins */
   config.addPlugin(wordCount);
-  config.addPlugin(metagen);
 
   /* minify the html output */
   if (env != 'dev') {
