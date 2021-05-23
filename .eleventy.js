@@ -83,19 +83,12 @@ module.exports = function(config) {
     config.addTransform("htmlmin", require("./src/utils/minify-html.js"));
   }
 
-  /* compress and combine js files */
-  config.addFilter("jsmin", function (code) {
-    const UglifyJS = require("uglify-js");
-    let minified = UglifyJS.minify(code);
-    if (minified.error) {
-      console.log("UglifyJS error: ", minified.error);
-      return code;
-    }
-    return minified.code;
-  });
-
-  /* pass some assets right through */
+    /* pass some assets right through */
   config.addPassthroughCopy("./src/site/images");
+  config.addPassthroughCopy("./src/site/css");
+  config.addPassthroughCopy("./src/site/js");
+  config.addPassthroughCopy("./src/site/plugins");
+  config.addPassthroughCopy("./src/site/colors");
 
   /* make the seed target act like prod */
   env = (env=="seed") ? "prod" : env;

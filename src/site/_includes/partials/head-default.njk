@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if renderData.p_title %}
+    <title>{{ renderData.p_title }} | ŽOZ</title>
+    <meta name="description" content="{{ renderData.p_description }}" />
+{% else  %}
+{% if page.fileSlug === "hr" %}
+    <title>Dobrodošli | ŽOZ</title>
+    <meta name="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje." />
+{% else %}
+    <title>Welcome | ŽOZ</title>
+    <meta name="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje." />
+{% endif %}
+{% endif %}
+<!-- RSS feeds -->
+<link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+<link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<!-- CSS -->
+<link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="/plugins/mediaelement/mediaelementplayer.css" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<link href="/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie8.css" media="screen" /><![endif]-->
+<!-- Color Style -->
+<link href="/colors/color1.css" rel="stylesheet" type="text/css"> 
+<link href="/css/custom.css" rel="stylesheet" type="text/css">
+<!-- SCRIPTS -->
+<script src="/js/modernizr.js"></script><!-- Modernizr -->

@@ -1,0 +1,119 @@
+<!-- css -->
+<link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/all.css" />
+<!-- favicon icon -->
+<link rel="shortcut icon" href="/images/favicon/cropped-favicon512x512-32x32.png" />
+<link rel="icon" href="/images/favicon/cropped-favicon512x512-32x32.png" sizes="32x32" />
+<link rel="icon" href="/images/favicon/cropped-favicon512x512-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="/images/favicon/cropped-favicon512x512-180x180.png" />
+<meta name="msapplication-TileImage" content="/images/favicon/cropped-favicon512x512-270x270.png" />
+<!--Twitter Card-->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ twUrl or metadata.twUrl }}">
+<meta name="twitter:title" content="{{ twTitle or metadata.twTitle }}">
+<meta name="twitter:description" content="{{ twDescription or metadata.twDescription }}">
+<meta name="twitter:image" content="{{ ogImage or metadata.ogImage }}">
+<!--Schema-->
+<link rel="author" href="{{ scAuthor or metadata.scAuthor }}">
+<link rel="publisher" href="{{ scPublisher or metadata.scPublisher }}">
+<meta itemprop="name" content="{{ scName or metadata.scName }}">
+<meta itemprop="description" content="{{ scDescription or metadata.scDescription }}">
+<meta itemprop="image" content="{{ ogImage or metadata.ogImage }}">
+<!-- Facebook OpenGraph -->
+<meta property="og:locale" content="{{ ogLocale or metadata.ogLocale }}">
+<meta property="og:type" content="{{ ogType or metadata.ogType }}">
+<meta property="og:title" content="{{ ogTitle or metadata.ogTitle }}">
+<meta property="og:description" content="{{ ogDescription or metadata.ogDescription }}">
+<meta property="og:url" content="{{ ogUrl or metadata.ogUrl }}">
+<meta property="og:site_name" content="{{ ogSiteName or metadata.ogSiteName }}">
+<meta property="og:image" content="{{ ogImage or metadata.ogImage }}">
+<meta property="og:image:secure_url" content="{{ ogImageSecureUrl or metadata.ogImageSecureUrl }}">
+<meta property="og:image:width" content="{{ ogImageWidth or metadata.ogImageWidth }}">
+<meta property="og:image:height" content="{{ ogImageHeight or metadata.ogImageHeight }}">
+<meta property="og:image:alt" content="{{ ogImageAlt or metadata.ogImageAlt }}">
+<meta property="og:image:type" content="{{ ogImageType or metadata.ogImageType }}">
+<!-- json-ld website -->
+<script type="application/ld+json">
+    [{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id":"https://zoz.hr/#organization",
+        "name": "Židovska općina Zagreb",
+        "legalname": "Židovska općina Zagreb",
+        "url": "https://zoz.hr/",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Palmotićeva 16",
+            "addressLocality": "Zagreb",
+            "postalCode": "10000",
+            "addressCountry": "Hrvatska"
+        },
+        "logo":{
+            "@type":"ImageObject",
+            "@id":"https://zoz.hr/#logo",
+            "inLanguage":"hr",
+            "url":"https://zoz.hr/logo.jpg",
+            "width":177,
+            "height":76,
+            "caption":"zoz.hr"
+        },
+        "image":{
+            "@id":"https://zoz.hr/#logo"
+        },
+        "sameAs": [
+            "https://www.facebook.com/EdukacijEhr-390679021469000/",
+            "https://www.instagram.com/edukacije.hr/",
+            "https://www.linkedin.com/company/18852729/"
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id":"https://zoz.hr/#website",
+        "name":"Židovska općina Zagreb",
+        "description":"Web stranice Židovske općine Zagreb",
+        "publisher": {
+            "@id": "https://zoz.hr/#organization",
+        },
+        "url": "https://www.zoz.hr",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https:www.edukacije.hr/images/logo-img.png",
+            "width": 359,
+            "height": 55,
+            "caption":"Židovska općina Zagreb"
+        }
+    }]
+</script>
+
+{% if p_type === 'article' %}
+<!-- json-ld article -->
+<script type="application/ld+json">
+{
+   "@context":"https://schema.org",
+   "@type":"Article",
+   "headline":"{{ page_title }}",
+   "image":"{{ objavaimage }}",
+   "author":"{{ objava.author }}",
+   "keywords":"{{ page_title }}",
+   "wordcount":"{{ textcount }}",
+   "publisher":{
+      "@type":"Organization",
+      "name":"Gastro Mreža",
+      "logo":{
+         "@type":"ImageObject",
+         "url":"{{ site.url }}/images/logo-img.png"
+      }
+   },
+   "url":"{{ site.url }}{{ page.url }}",
+   "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"{{ site.url }}{{ page.url }}"
+   },
+   "datePublished":"{{ objava.dateUpdated }}",
+   "dateModified":"{{ objava.dateUpdated }}",
+   "description":"{{ page_description | jsonldesc }}",
+   "articleBody":"{{ objava.bodytext }}"
+}
+</script>
+{% endif %}

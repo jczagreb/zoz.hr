@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting according to language</title>
+</head>
+<body>
+    <!-- Redirecting to according to browser language -->
+    <script>
+        var availableLanguages = ["hr","en"];
+
+        var locale =
+        [
+            ...(window.navigator.languages || []),
+            window.navigator.language,
+            window.navigator.browserLanguage,
+            window.navigator.userLanguage,
+            window.navigator.systemLanguage
+        ]
+            .filter(Boolean)
+            .map(language => language.substr(0, 2))
+            .find(language => availableLanguages.includes(language)) || "{{ site.defaultLang }}";
+
+        let redirUrl = "{{ '/' | url }}" + locale + "/";
+        console.log("Redirecting to :" + redirUrl);
+        window.location.replace(redirUrl);
+    </script>
+
+</body>
+</html>

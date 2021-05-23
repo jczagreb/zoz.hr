@@ -1,4 +1,15 @@
 module.exports = {
-  "rootUrl" : "https://site-root-url.com",
-  "buildTime" : new Date()
+  "rootUrl": "https://zoz.hr",
+  "buildTime": new Date(),
+  "defaultLang": "hr",
+  "langs": [
+    {
+      "id": "hr",
+      "name": "Hrvatski"
+    },
+    {
+      "id": "en",
+      "name": "English"
+    }
+  ]
 }
