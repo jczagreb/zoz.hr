@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="hr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting according to language</title>
-</head>
-<body>
-    <!-- Redirecting to according to browser language -->
-    <script>
-        var availableLanguages = ["hr","en"];
+<!doctype html><html lang="hr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Redirecting according to language</title></head><body><script>var availableLanguages = ["hr","en"];
 
         var locale =
         [
@@ -24,8 +14,4 @@
 
         let redirUrl = "/" + locale + "/";
         console.log("Redirecting to :" + redirUrl);
-        window.location.replace(redirUrl);
-    </script>
-
-</body>
-</html>
+        window.location.replace(redirUrl);</script></body></html>
