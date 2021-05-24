@@ -7,9 +7,16 @@
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
 
     <div class="body">
-      {% include "partials/header.njk" %}
+    {% if (page.fileSlug === "hr") or (lang === "hr") %}
+      {% include "partials/header-hr.njk" %}
       {{ content | safe }}
-      {% include "partials/footer.njk" %}
+      {% include "partials/footer-hr.njk" %}
+    {% else %}
+      {% include "partials/header-en.njk" %}
+      {{ content | safe }}
+      {% include "partials/footer-en.njk" %}
+    {% endif %}
+      
 
     <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
     </div>
