@@ -2,13 +2,13 @@
 <header class="site-header">
   <div class="topbar">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-md-4 col-sm-6 col-xs-8">
           <h1 class="logo"> <a href="index.html"><img src="/images/logo.png" alt="Logo"></a> </h1>
         </div>
         <div class="col-md-8 col-sm-6 col-xs-4">
           <ul class="top-navigation hidden-sm hidden-xs">
-            <li><a href="/hr">HR</a></li>
+            <li><a href="/hr" style="color: #0CC9E8;">HR</a></li>
             <li><a href="/en">EN</a></li>
           </ul>
           <a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i></a> </div>
@@ -33,17 +33,17 @@
               </li>
               <li><a href="#">Publikacije</a>
                 <ul class="dropdown">
-                  <li><a href="/hr/novosti">Ha-kol</a></li>
-                  <li><a href="/hr/najave">Novi Omanut</a></li>
-                  <li><a href="/hr/osvrti">Hada</a></li>
+                  <li><a href="/hr/publikacije/ha-kol">Ha-kol</a></li>
+                  <li><a href="/hr/publikacije/novi-omanut">Novi Omanut</a></li>
+                  <li><a href="/hr/publikacije/hada">Hada</a></li>
                 </ul>
               </li>
               <li><a href="#">Baština</a>
                 <ul class="dropdown">
-                  <li><a href="/hr/novosti">Kultura</a></li>
-                  <li><a href="/hr/najave">Tradicija</a></li>
-                  <li><a href="/hr/osvrti">Pjesme i plesovi</a></li>
-                  <li><a href="/hr/osvrti">Kuhinja</a></li>
+                  <li><a href="/hr/bastina/kultura">Kultura</a></li>
+                  <li><a href="/hr/bastina/tradicija">Tradicija</a></li>
+                  <li><a href="/hr/bastina/pjesme-i-plesovi">Pjesme i plesovi</a></li>
+                  <li><a href="/hr/bastina/kuhinja">Kuhinja</a></li>
                 </ul>
               </li>
               <li class="megamenu"><a href="#">O nama</a>
@@ -53,28 +53,29 @@
                       <div class="row">
                         <div class="col-md-3"> <span class="megamenu-sub-title"> Ustanove i udruge</span>
                           <ul class="sub-menu">
-                            <li><a href="ministry.html">ŽOZ</a></li>
-                            <li><a href="ministry.html">Vrtić</a></li>
-                            <li><a href="ministry.html">DZLS</a></li>
-                            <li><a href="ministry.html">Židovski muzej</a></li>
-                            <li><a href="ministry.html">Edukacije</a></li>
+                            {% for nav in stranicehr %}
+                              {% if nav.navigacija === "ustanove_i_udruge" %}
+                                <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>    
+                              {% endif %}
+                            {% endfor %}
                           </ul>
                         </div>
                         <div class="col-md-3"> <span class="megamenu-sub-title"> Aktivnosti i programi</span>
                           <ul class="sub-menu">
-                            <li><a href="ministry.html">Djeca</a></li>
-                            <li><a href="ministry.html">Omladina</a></li>
-                            <li><a href="ministry.html">Seniori</a></li>
-                            <li><a href="ministry.html">Edukacije</a></li>
+                            {% for nav in stranicehr %}
+                              {% if nav.navigacija === "aktivnosti_i_programi" %}
+                                <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>    
+                              {% endif %}
+                            {% endfor %}
                           </ul>
                         </div>
                         <div class="col-md-3"> <span class="megamenu-sub-title"> Židovstvo</span>
                           <ul class="sub-menu">
-                            <li><a href="ministry.html">Židovski ciklus</a></li>
-                            <li><a href="ministry.html">Bar i Bar micva</a></li>
-                            <li><a href="ministry.html">Blagdani</a></li>
-                            <li><a href="ministry.html">Šabat</a></li>
-                            <li><a href="ministry.html">Košer</a></li>
+                            {% for nav in stranicehr %}
+                              {% if nav.navigacija === "zidovstvo" %}
+                                <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>    
+                              {% endif %}
+                            {% endfor %}
                           </ul>
                         </div>
                         <div class="col-md-3"> <span class="megamenu-sub-title"> Kontakti</span>
@@ -148,10 +149,3 @@
   </div>
 </div>
 <!-- End Site Header --> 
-<!-- Start Hero Slider -->
-<div class="hero-slider flexslider clearfix" data-autoplay="no" data-pagination="no" data-arrows="no" data-style="fade" data-pause="yes">
-  <ul class="slides">
-    <li class=" parallax" style="background-image:url(/images/banner.jpg);"></li>
-  </ul>
-</div>
-<!-- End Hero Slider --> 

@@ -20,7 +20,7 @@
         ]
             .filter(Boolean)
             .map(language => language.substr(0, 2))
-            .find(language => availableLanguages.includes(language)) || "";
+            .find(language => availableLanguages.includes(language)) || "hr";
 
         let redirUrl = "/" + locale + "/";
         console.log("Redirecting to :" + redirUrl);

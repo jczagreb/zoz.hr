@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/hr/</loc>
+    <loc>https://zoz.hr/hr/</loc>
   </url>
   <url>
-    <loc>/</loc>
+    <loc>https://zoz.hr/</loc>
   </url>
   <url>
-    <loc>/en/</loc>
+    <loc>https://zoz.hr/en/</loc>
+  </url>
+  <url>
+    <loc>https://zoz.hr/hr/zidovska-opcina-zagreb/</loc>
+  </url>
+  <url>
+    <loc>https://zoz.hr/en/jewish-community-zagreb/</loc>
   </url>
 </urlset>

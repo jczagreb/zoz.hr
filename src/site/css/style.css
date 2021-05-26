@@ -703,8 +703,7 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 	float:left;
 	letter-spacing:2px;
 	text-transform:uppercase;
-	font-size:12px;
-	font-weight:bold;
+	font-size:1.2em;
 }
 .top-navigation li a{
 	display:inline-block;
