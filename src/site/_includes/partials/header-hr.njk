@@ -24,63 +24,67 @@
               <li>
                 <a href="/hr">Početna</a>
               </li>
-              <li>
-                <a href="/hr/zidovska-opcina-zagreb">O nama</a>
-              </li>
+              {% for nav in stranicehr %}
+                {% if nav.navigacija === "o_nama" %}
+                  <li><a href="/hr/{{ nav.slug }}">O nama</a></li>
+                {% endif %}
+              {% endfor%}
               <li><a href="#" class="sf-with-ul">Ustanove</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
-                  <li><a href="gallery-masonry.html">Dječji vrtić "Mirjam Weiller"</a></li>
-                  <li><a href="gallery-masonry.html">Dom zaklade "Lavoslav Schwarz"</a></li>
-                  <li><a href="gallery-masonry.html">Odmaralište Pirovac</a></li>
-                  <li><a href="gallery-2cols-pagination.html" class="sf-with-ul">Udruge kojima je Osnivač ili suosnivač ŽOZ</a>
+                  {% for nav in stranicehr %}
+                    {% if nav.navigacija === "ustanove" %}
+                      <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                    {% endif %}
+                  {% endfor%}
+                  <li><a href="#" class="sf-with-ul">Udruge kojima je Osnivač ili suosnivač ŽOZ</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
-                      <li><a href="gallery-2cols-pagination.html">Kulturno društvo "Mirosalv Šalom Freiberger"</a></li>
-                      <li><a href="gallery-3cols-pagination.html">CENDO - Istraživački i dokumentacijski centar</a></li>
-                      <li><a href="gallery-4cols-pagination.html">Udruga preživjelih Holokausta</a></li>
-                      <li><a href="gallery-4cols-pagination.html">Bnai Brith loža Gavro Schwarz</a></li>
+                      {% for nav in stranicehr %}
+                        {% if nav.navigacija === "ustanove_2" %}
+                          <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
                     </ul>
                   </li>
                 </ul>
               </li>
               <li><a href="#" class="sf-with-ul">Aktualnosti</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
-                  <li><a href="gallery-masonry.html">Novosti</a></li>
-                  <li><a href="gallery-masonry.html">Najave događanja</a></li>
-                  <li><a href="gallery-masonry.html">Osvrti</a></li>
-                  <li><a href="gallery-2cols-pagination.html" class="sf-with-ul">Publikacije</a>
+                  <li><a href="/hr/novosti">Novosti</a></li>
+                  <li><a href="/hr/najave">Najave događanja</a></li>
+                  <li><a href="/hr/osvrti">Osvrti</a></li>
+                  <li><a href="#" class="sf-with-ul">Publikacije</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
-                      <li><a href="gallery-2cols-pagination.html">Ha-kol</a></li>
-                      <li><a href="gallery-3cols-pagination.html">Novi Omanut</a></li>
-                      <li><a href="gallery-4cols-pagination.html">Hada</a></li>
+                      <li><a href="/hr/ha-kol">Ha-kol</a></li>
+                      <li><a href="/hr/novi-omanut">Novi Omanut</a></li>
+                      <li><a href="/hr/hada">Hada</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
               <li><a href="#" class="sf-with-ul">Židovstvo</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
-                  <li><a href="gallery-masonry.html">Židovski ciklus</a></li>
-                  <li><a href="gallery-masonry.html">Bar i Bat Micva</a></li>
-                  <li><a href="gallery-masonry.html">Šabat</a></li>
-                  <li><a href="gallery-masonry.html">Blagdani</a></li>
-                  <li><a href="gallery-masonry.html">Kašrut</a></li>
-                  <li><a href="gallery-masonry.html">Dostupni Košer proizvodi u RH</a></li>
-                  <li><a href="gallery-2cols-pagination.html" class="sf-with-ul">Baština</a>
+                  {% for nav in stranicehr %}
+                    {% if nav.navigacija === "zidovstvo" %}
+                      <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                    {% endif %}
+                  {% endfor%}
+                  <li><a href="#" class="sf-with-ul">Baština</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
-                      <li><a href="gallery-2cols-pagination.html">Kultura</a></li>
-                      <li><a href="gallery-3cols-pagination.html">Tradicija</a></li>
-                      <li><a href="gallery-4cols-pagination.html">Pjesme i plesovi</a></li>
-                      <li><a href="gallery-4cols-pagination.html">Kuhinja</a></li>
+                      <li><a href="/hr/kultura">Kultura</a></li>
+                      <li><a href="/hr/tradicija">Tradicija</a></li>
+                      <li><a href="/hr/pjesme-i-plesovi">Pjesme i plesovi</a></li>
+                      <li><a href="/hr/kuhinja">Kuhinja</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
               <li><a href="#" class="sf-with-ul">Aktivnosti i programi</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
-                  <li><a href="gallery-masonry.html">Djeca</a></li>
-                  <li><a href="gallery-masonry.html">Omladina</a></li>
-                  <li><a href="gallery-masonry.html">Seniori</a></li>
-                  <li><a href="gallery-masonry.html">Edukacije</a></li>
-                  <li><a href="gallery-masonry.html">Kultura</a></li>
+                  {% for nav in stranicehr %}
+                    {% if nav.navigacija === "aktivnosti" %}
+                      <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                    {% endif %}
+                  {% endfor%}
                 </ul>
               </li>
               <li>
