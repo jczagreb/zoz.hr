@@ -1,0 +1,45 @@
+---
+layout: default
+lang: hr
+pagination:
+  data: novostihr
+  size: 1
+  alias: novost
+permalink: /hr/novosti/{{ novost.slug }}/index.html
+---
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+            <li><a href="/hr">Početna</a></li>
+            <li><a href="/hr/novosti">Novosti</a></li>
+            <li class="active">{{ novost.naslov }}</li>
+            </ol>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Start Page Header -->
+<div class="page-header">
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        <h1>{{ novost.naslov }}</h1>
+    </div>
+    </div>
+</div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+<div id="content" class="content full">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {{ novost.sadrzaj | safe }}
+        </div>
+    </div>
+    </div>
+</div>
+</div>

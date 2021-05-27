@@ -1,0 +1,62 @@
+---
+title: Novosti
+description: Novosti
+layout: default
+lang: hr
+pagination:
+  data: novostihr
+  size: 10
+  alias: novosti
+permalink: "/hr/novosti{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+---
+<!-- Start Nav Backed Header -->
+  <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Početna</a></li>
+            <li class="active">Novosti ŽOZ</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Nav Backed Header --> 
+  <!-- Start Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Novosti iz Židovske općine Zagreb</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Header --> 
+  <!-- Start Content -->
+  <div class="main" role="main">
+    <div id="content" class="content full">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 posts-archive blog-full-width">
+            {% for item in pagination.items %}
+            <article class="post">
+              <div class="row">
+                <div class="col-md-3 col-sm-3">
+                  <span class="post-meta meta-data"> <span><i class="fa fa-calendar"></i>{{ item.datum | friendlyDate('LLLL dd, yyyy.') }}</span></span>
+                </div>
+                <div class="col-md-9 col-sm-9">
+                  <h3><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></h3>
+                	<a href="/hr/novosti/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:427/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a>
+                  <p>{{ item.isjecak }}</p>
+                  <p><a href="/hr/novosti/{{ item.slug }}" class="btn btn-primary">Nastavite čitati <i class="fa fa-long-arrow-right"></i></a></p>
+                </div>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

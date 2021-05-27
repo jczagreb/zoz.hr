@@ -19,7 +19,7 @@ module.exports = function(config) {
 
   /* Filters */
   config.addFilter("squash", require("./src/utils/filters/squash.js") );
-  config.addFilter("dateDisplay", require("./src/utils/filters/date.js"));
+  config.addFilter("friendlyDate", require("./src/utils/filters/date.js"));
   config.addFilter('dump', obj => {
     return util.inspect(obj);
   });
