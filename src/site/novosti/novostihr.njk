@@ -44,7 +44,7 @@ permalink: "/hr/novosti{% if pagination.pageNumber > 0 %}/stranica{{ pagination.
             <article class="post">
               <div class="row">
                 <div class="col-md-3 col-sm-3">
-                  <span class="post-meta meta-data"> <span><i class="fa fa-calendar"></i>{{ item.datum | friendlyDate }}</span></span>
+                  <span class="post-meta meta-data"> <span style="font-size:1.2em"><i class="fa fa-calendar"></i>{{ item.datum | dateHr }}</span></span>
                 </div>
                 <div class="col-md-9 col-sm-9">
                   <h3><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></h3>

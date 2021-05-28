@@ -1,5 +1,4 @@
-
- const { DateTime } = require("luxon");
+const { DateTime } = require("luxon");
 
 // Add a friendly date filter to nunjucks.
 // Defaults to format of LLLL d, y unless an
@@ -8,6 +7,6 @@
 // List of supported tokens: https://moment.github.io/luxon/docs/manual/formatting.html#table-of-tokens
 
 module.exports = (dateObj, format = 'yyyy LLL dd') => {
-  return DateTime.fromISO(dateObj, { zone: "Europe/Amsterdam" }).toFormat(format);
+  return DateTime.fromISO(dateObj, { zone: "Europe/Amsterdam", locale: "en" }).toFormat(format);
 };
 
