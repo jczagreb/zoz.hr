@@ -1,0 +1,25 @@
+ <!-- Start Sidebar -->
+<div class="col-md-3 sidebar">
+    <div class="widget sidebar-widget">
+        <div class="sidebar-widget-title">
+            <h3>Zadnje novosti</h3>
+        </div>
+        <ul>
+            {% for item in novostihr %}
+                <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="widget sidebar-widget">
+        <div class="sidebar-widget-title">
+            <h3>Nadolazeći događaji</h3>
+        </div>
+        <ul>
+            <li><a href="#">Faith</a> (10)</li>
+            <li><a href="#">Missions</a> (12)</li>
+            <li><a href="#">Salvation</a> (34)</li>
+            <li><a href="#">Worship</a> (14)</li>
+        </ul>
+    </div>
+</div>

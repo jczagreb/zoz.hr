@@ -458,7 +458,8 @@ $(window).resize(function(){
 });
 // List Styles
 $('ul.checks li').prepend('<i class="fa fa-check"></i> ');
-$('ul.angles li, .nav-list-primary li a, .widget ul > li > a:first-child').prepend('<i class="fa fa-angle-right"></i> ');
+//$('ul.angles li, .nav-list-primary li a, .widget ul > li > a:first-child').prepend('<i class="fa fa-angle-right"></i> ');
+$('ul.angles li, .nav-list-primary li a').prepend('<i class="fa fa-angle-right"></i> ');
 $('ul.inline li').prepend('<i class="fa fa-check-circle-o"></i> ');
 $('ul.chevrons li').prepend('<i class="fa fa-chevron-right"></i> ');
 $('ul.carets li').prepend('<i class="fa fa-caret-right"></i> ');

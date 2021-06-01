@@ -51,20 +51,15 @@
         "logo":{
             "@type":"ImageObject",
             "@id":"https://zoz.hr/#logo",
-            "inLanguage":"hr",
+            "inLanguage":"{{ lang }}",
             "url":"https://zoz.hr/logo.jpg",
             "width":177,
             "height":76,
-            "caption":"zoz.hr"
+            "caption":"Židovska općina Zagreb"
         },
         "image":{
             "@id":"https://zoz.hr/#logo"
-        },
-        "sameAs": [
-            "https://www.facebook.com/EdukacijEhr-390679021469000/",
-            "https://www.instagram.com/edukacije.hr/",
-            "https://www.linkedin.com/company/18852729/"
-        ]
+        }
     },
     {
         "@context": "https://schema.org",
@@ -78,42 +73,78 @@
         "url": "https://www.zoz.hr",
         "image": {
             "@type": "ImageObject",
-            "url": "https:www.edukacije.hr/images/logo-img.png",
-            "width": 359,
-            "height": 55,
+            "url":"https://zoz.hr/logo.jpg",
+            "width":177,
+            "height":76,
             "caption":"Židovska općina Zagreb"
         }
     }]
 </script>
-
-{% if p_type === 'article' %}
+{% if p_type === 'osvrt' %}
 <!-- json-ld article -->
 <script type="application/ld+json">
 {
    "@context":"https://schema.org",
    "@type":"Article",
-   "headline":"{{ page_title }}",
-   "image":"{{ objavaimage }}",
-   "author":"{{ objava.author }}",
-   "keywords":"{{ page_title }}",
-   "wordcount":"{{ textcount }}",
+   "headline":"{{ p_title }}",
+   "image":"{{ p_image }}",
+   "author": {
+    "@type": "Organization",
+    "name": "Židovska općina Zagreb"
+    },
+   "keywords":"{{ p_title }}",
+   "wordcount":"{{ p_textcount }}",
    "publisher":{
       "@type":"Organization",
-      "name":"Gastro Mreža",
+      "name":"Židovska općina Zagreb",
       "logo":{
          "@type":"ImageObject",
-         "url":"{{ site.url }}/images/logo-img.png"
+         "url":"{{ site.rootUrl }}/images/logo.jpg"
       }
    },
-   "url":"{{ site.url }}{{ page.url }}",
+   "url":"{{ site.rootUrl }}{{ page.url }}",
    "mainEntityOfPage":{
       "@type":"WebPage",
-      "@id":"{{ site.url }}{{ page.url }}"
+      "@id":"{{ site.rootUrl }}{{ page.url }}"
    },
-   "datePublished":"{{ objava.dateUpdated }}",
-   "dateModified":"{{ objava.dateUpdated }}",
-   "description":"{{ page_description | jsonldesc }}",
-   "articleBody":"{{ objava.bodytext }}"
+   "datePublished":"{{ p_datum }}",
+   "dateModified":"{{ p_datum }}",
+   "description":"{{ p_description | jsonldesc }}",
+   "articleBody":"{{ p_tekst }}"
+}
+</script>
+{% endif %}
+{% if p_type === 'novost' %}
+<!-- json-ld news -->
+<script type="application/ld+json">
+{
+   "@context":"https://schema.org",
+   "@type":"NewsArticle",
+   "headline":"{{ p_title }}",
+   "image":"{{ p_image }}",
+   "author": {
+    "@type": "Organization",
+    "name": "Židovska općina Zagreb"
+    },
+   "keywords":"{{ p_title }}",
+   "wordcount":"{{ p_textcount }}",
+   "publisher":{
+      "@type":"Organization",
+      "name":"Židovska općina Zagreb",
+      "logo":{
+         "@type":"ImageObject",
+         "url":"{{ site.rootUrl }}/images/logo.jpg"
+      }
+   },
+   "url":"{{ site.rootUrl }}{{ page.url }}",
+   "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"{{ site.rootUrl }}{{ page.url }}"
+   },
+   "datePublished":"{{ p_datum }}",
+   "dateModified":"{{ p_datum }}",
+   "description":"{{ p_description | jsonldesc }}",
+   "articleBody":"{{ p_tekst }}"
 }
 </script>
 {% endif %}

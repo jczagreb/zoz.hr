@@ -6,7 +6,7 @@ const { DateTime } = require("luxon");
 // {{ date | friendlyDate('OPTIONAL FORMAT STRING') }}
 // List of supported tokens: https://moment.github.io/luxon/docs/manual/formatting.html#table-of-tokens
 
-module.exports = (dateObj, format = 'yyyy LLL dd') => {
+module.exports = (dateObj, format = 'dd. LLLL yyyy.') => {
   return DateTime.fromISO(dateObj, { zone: "Europe/Amsterdam", locale: "en" }).toFormat(format);
 };
 
