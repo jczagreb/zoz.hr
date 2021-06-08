@@ -26,12 +26,12 @@
         </div>
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
-                <h3>Latest reviews</h3>
+                <h3>Latest opinions</h3>
             </div>
             <ul>
-                {% for item in novostien %}
+                {% for item in osvrtien %}
                     <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <li><a href="/en/opinions/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -53,20 +53,20 @@
                 <h3>Upcoming events</h3>
             </div>
             <ul>
-                <li><a href="#">Faith</a> (10)</li>
-                <li><a href="#">Missions</a> (12)</li>
-                <li><a href="#">Salvation</a> (34)</li>
-                <li><a href="#">Worship</a> (14)</li>
+                {% for item in dogadjanjaen %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
+                    <li><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></li>    
+                {% endfor %}
             </ul>
         </div>
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
-                <h3>Latest reviews</h3>
+                <h3>Latest opinions</h3>
             </div>
             <ul>
-                {% for item in novostien %}
+                {% for item in osvrtien %}
                     <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <li><a href="/en/opinions/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -88,10 +88,10 @@
                 <h3>Upcoming events</h3>
             </div>
             <ul>
-                <li><a href="#">Faith</a> (10)</li>
-                <li><a href="#">Missions</a> (12)</li>
-                <li><a href="#">Salvation</a> (34)</li>
-                <li><a href="#">Worship</a> (14)</li>
+                {% for item in dogadjanjaen %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
+                    <li><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></li>    
+                {% endfor %}
             </ul>
         </div>
         <div class="widget sidebar-widget">
