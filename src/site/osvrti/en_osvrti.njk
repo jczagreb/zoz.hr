@@ -1,0 +1,76 @@
+---
+title: Osvrti
+description: Osvrti
+layout: default
+lang: hr
+pagination:
+  data: osvrtien
+  size: 10
+  alias: osvrti
+permalink: "/en/opinions{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+  p_title: "Opinions from Židovska općina Zagreb"
+  p_description: "Opinions from Židovska općina Zagreb"
+  p_id: "osvrt"
+---
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Početna</a></li>
+          <li class="active">Opinions</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Nav Backed Header --> 
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size:30px!important;">Opinions from Židovska općina Zagreb</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 posts-archive">
+          {% for item in pagination.items %}
+          <article class="post">
+            <div class="row">
+              <div class="col-md-4 col-sm-4"> <a href="/en/opinions/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a> </div>
+              <div class="col-md-8 col-sm-8">
+                <h3><a href="/en/opinions/{{ item.slug }}">{{ item.naslov }}</a></h3>
+                <span class="post-meta meta-data"> <span style="font-size:1.2em;"><i class="fa fa-calendar"></i> {{item.datum | dateEn }}</span></span>
+                <p>{{ item.isjecak }}</p>
+                <p><a href="/en/opinions/{{ item.slug }}" class="btn btn-primary">Continue reading <i class="fa fa-long-arrow-right"></i></a></p>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+          <ul class="pagination">
+            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+        </div>
+
+        {% include "partials/sidebar-page-en.njk" %}
+
+      </div>
+    </div>
+  </div>
+</div>

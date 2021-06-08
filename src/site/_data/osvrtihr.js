@@ -3,11 +3,10 @@ const fetch = require("node-fetch");
 const slugify = require('slugify');
 
 // get Objave
-async function getNajave() {
+async function getOsvrti() {
 
     // Objave array
-    let svenajave = [];
-    const today = new Date().toISOString();
+    let sviosvrti = [];
 
     try {
         // initiate fetch
@@ -18,17 +17,17 @@ async function getNajave() {
                 Accept: "application/json",
             },
             body: JSON.stringify({
-                variables: { today },
-                query: `query SveNajave($today: DateTime!) {
-                    najave (orderBy: datumIVrijemeDogadanja_ASC, stage: PUBLISHED, where: {datumIVrijemeDogadanja_gt: $today}, locales: [en,hr]) {
-                        nazivDogadanja
-                        datumIVrijemeDogadanja
-                        datumIVrijemeZavrsetkaDogadaja
-                        lokacija
-                        locale
-                        publishedAt
+                query: `{
+                    osvrti(stage: PUBLISHED, orderBy: datum_DESC, locales: hr) {
+                        datum
+                        naslov
                         slug
-                        opisDogadanja {
+                        locale
+                        naslovnaFotografija{
+                            handle
+                        }
+                        isjecak
+                        sadrzajOsvrta {
                             html
                             text
                         }
@@ -50,34 +49,30 @@ async function getNajave() {
         }
 
         // update blogpost array with the data from the JSON response
-        svenajave = svenajave.concat(response.data.najave);
+        sviosvrti = sviosvrti.concat(response.data.osvrti);
 
     } catch (error) {
         throw new Error(error);
     }
 
     // format blogposts objects
-    const formatnajave = svenajave.map((item) => {
+    const osvrti = sviosvrti.map((item) => {
+
         return {
-            naziv: item.nazivDogadanja,
-            datum: item.datumIVrijemeDogadanja,
-            datumend: item.datumIVrijemeZavrsetkaDogadaja,
-            lokacija: item.lokacija,
-            lang: item.locale,
-            objavljeno: item.publishedAt,
+            naslov: item.naslov,
             slug: item.slug,
-            opis: item.opisDogadanja.html,
-            opistekst: item.opisDogadanja.text.replace(/\n /, "\n")
+            lang: item.locale,
+            foto: item.naslovnaFotografija,
+            sadrzaj: item.sadrzajOsvrta.html,
+            sadrzajtekst: item.sadrzajOsvrta.text.replace(/\n /, "\n"),
+            isjecak: item.isjecak,
+            datum: item.datum
         };
     }).filter(Boolean);
 
-    if (formatnajave === undefined || formatnajave.length == 0) {
-        formatnajave.push("prazno");
-    }
-    
     // return formatted blogposts
-    return formatnajave;
+    return osvrti;
 }
 
 // export for 11ty
-module.exports = getNajave;
+module.exports = getOsvrti;

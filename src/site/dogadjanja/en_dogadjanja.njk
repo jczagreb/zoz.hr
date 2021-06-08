@@ -1,16 +1,16 @@
 ---
-title: Događanja
-description: Događanja
+title: Events
+description: Upcoming events
 layout: default
-lang: hr
+lang: en
 pagination:
-  data: dogadjanjahr
+  data: dogadjanjaen
   size: 10
   alias: dogadjanja
-permalink: "/hr/najave{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+permalink: "/en/events{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-  p_title: "Najave događanja"
-  p_description: "Događanja u Židovskoj općini Zagreb"
+  p_title: "Events"
+  p_description: "Events in Židovska općina Zagreb"
   p_id: "najava"
 ---
 <!-- Start Nav Backed Header -->
@@ -19,8 +19,8 @@ eleventyComputed:
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
-          <li><a href="index.html">Početna</a></li>
-          <li class="active">Najave događanja</li>
+          <li><a href="/en">Home</a></li>
+          <li class="active">Upcoming events</li>
         </ol>
       </div>
     </div>
@@ -49,7 +49,7 @@ eleventyComputed:
                     <header class="listing-header">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                        <h3>Najave događanja</h3>
+                        <h3>Upcoming events</h3>
                     </div>
                     </div>
                     </header>
@@ -57,12 +57,12 @@ eleventyComputed:
                     <ul>
                     {% for item in pagination.items %}
                         <li class="item event-item">
-                        <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
+                        <div class="event-date"> <span class="date">{{item.datum | dateEn('dd') }}</span> <span class="month">{{item.datum | dateEn('LLL') }}</span> </div>
                         <div class="event-detail">
-                            <h4><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></h4>
-                            <span class="event-dayntime meta-data">{{item.datum | dateHr('cccc') }} | {{item.datum | dateHr('HH:mm') }}h | {{ item.lokacija }}</span> </div>
+                            <h4><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></h4>
+                            <span class="event-dayntime meta-data">{{item.datum | dateEn('cccc') }} | {{item.datum | dateEn('HH:mm') }}h | {{ item.lokacija }}</span> </div>
                         <div class="to-event-url">
-                            <div><a href="/hr/najave/{{ item.slug }}" class="btn btn-default btn-sm">Detalji</a></div>
+                            <div><a href="/en/events/{{ item.slug }}" class="btn btn-default btn-sm">Details</a></div>
                         </div>
                         </li>
                     {% endfor %}
@@ -71,7 +71,7 @@ eleventyComputed:
                 </div>
             </div>
 
-            {% include "partials/sidebar-page-hr.njk" %}
+            {% include "partials/sidebar-page-en.njk" %}
 
         </div>
     </div>

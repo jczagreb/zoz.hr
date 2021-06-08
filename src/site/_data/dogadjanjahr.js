@@ -66,7 +66,8 @@ async function getNajave() {
             lang: item.locale,
             objavljeno: item.publishedAt,
             slug: item.slug,
-            opis: item.opisDogadanja
+            opis: item.opisDogadanja.html,
+            opistekst: item.opisDogadanja.text.replace(/\n /, "\n")
         };
     }).filter(Boolean);
 

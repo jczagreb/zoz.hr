@@ -1,0 +1,66 @@
+---
+layout: default
+lang: hr
+pagination:
+  data: osvrtihr
+  size: 1
+  alias: osvrt
+permalink: /hr/osvrti/{{ osvrt.slug }}/index.html
+eleventyComputed:
+  p_title: "{{ osvrt.naslov }}"
+  p_description: "{{ osvrt.isjecak }}"
+  p_type: "osvrt"
+  p_image: "https://media.graphcms.com/resize=width:1200/{{ osvrt.foto.handle }}}"
+  p_textcount: "{{ osvrt.sadrzajtekst | wordCount }}"
+  p_tekst: "{{ osvrt.sadrzajtekst }}"
+  p_datum: "{{ osvrt.datum }}"
+  p_id: "osvrt"
+---
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+            <li><a href="/hr">Početna</a></li>
+            <li><a href="/hr/osvrti">Osvrti</a></li>
+            <li class="active">{{ osvrt.naslov }}</li>
+            </ol>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Start Page Header -->
+<div class="page-header">
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        <h1 style="font-size:30px!important;">Osvrti</h1>
+    </div>
+    </div>
+</div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+    <div id="content" class="content full">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <header class="single-post-header clearfix">
+                <h2 class="post-title">{{ osvrt.naslov }}</h2>
+                </header>
+                <article class="post-content">
+                    <div class="featured-image"> <img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:635/output=format:webp/{{ osvrt.foto.handle }}" alt=""> </div>
+                    <span class="post-meta meta-data"><span style="font-size:1.2em;"><i class="fa fa-calendar"></i> Datum objave {{ osvrt.datum | dateHr }}</span></span>
+                    <br/>
+                    
+                    {{ osvrt.sadrzaj | safe }}
+                    
+                </article>
+            </div>
+
+            {% include "partials/sidebar-page-hr.njk" %}
+
+        </div>
+    </div>
+</div>
