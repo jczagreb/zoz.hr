@@ -1,0 +1,98 @@
+---
+layout: default
+lang: hr
+pagination:
+  data: dogadjanjahr
+  size: 1
+  alias: event
+permalink: /hr/najave/{{ event.slug }}/index.html
+eleventyComputed:
+  p_title: "{{ event.naziv }}"
+  p_type: "najava"
+  p_textcount: "{{ event.opis.text | wordCount }}"
+  p_tekst: "{{ event.opis.text }}"
+  p_datum: "{{ event.objavljeno }}"
+  p_datumeventa: "{{ event.datum }}"
+  p_id: "najava"
+---
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+            <li><a href="/hr">Početna</a></li>
+            <li><a href="/hr/najave">Najave događanja</a></li>
+            <li class="active">{{ event.naziv }}</li>
+            </ol>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Start Page Header -->
+<div class="page-header">
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        <h1 style="font-size:30px!important;">Najave</h1>
+    </div>
+    </div>
+</div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+    <div id="content" class="content full">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <header class="single-post-header clearfix">
+                <h2 class="post-title">{{ event.naziv }}</h2>
+                </header>
+                <article class="post-content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="background-color: #0CC9E8;color:#fff">
+                                    <h3 class="panel-title">Detalji događaja</h3>
+                                </div>
+                                <div class="panel-body" style="padding: 15px 0!important;">
+                                    <ul class="info-table">
+                                        <li style="padding: 10px 10px!important;"><i class="fa fa-calendar"></i> <strong>Početak:</strong> {{ event.datum | dateHr('cccc')}}, {{ event.datum | dateHr}}
+                                        
+                                        {%if (event.datum | dateHr('HH:mm')) != "00:00" %}
+                                            u {{event.datum | dateHr('HH:mm') }}h
+                                        {% endif %}    
+                                        </li>
+                                        <li style="padding: 10px 10px!important;"><i class="fa fa-calendar"></i> <strong>Završetak:</strong> {{ event.datumend | dateHr('cccc')}}, {{ event.datumend | dateHr}}</li>
+                                        <li style="padding: 10px 10px!important;"><i class="fa fa-map-marker"></i><strong>Lokacija:</strong> {{ event.lokacija }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="background-color: #0CC9E8;color:#fff">
+                                    <h3 class="panel-title">Dodatne informacije</h3>
+                                </div>
+                                <div class="panel-body" style="padding: 15px 0!important;">
+                                    <ul class="info-table">
+                                        <li style="padding: 10px 10px!important;"><i class="fa fa-phone"></i> 1 800 321 4321</li>
+                                        <li style="padding: 10px 10px!important;"><i class="fa fa-envelope"></i> <a href="mailto:jcz@zg.t-com.hr" target="_blank">jcz@zg.t-com.hr</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span style="font-size:0.9em;font-style:italic;float:right;">Datum objave {{ event.datum | dateHr }}</span>
+                    <hr/><br/>
+                    
+                    {{ event.opis.html | safe }}
+                    
+                </article>
+            </div>
+
+            {% include "partials/sidebar-page-hr.njk" %}
+
+        </div>
+    </div>
+</div>

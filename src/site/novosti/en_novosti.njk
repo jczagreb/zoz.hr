@@ -8,9 +8,10 @@ pagination:
   size: 10
   alias: novosti
 permalink: "/en/news{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-renderData:
+eleventyComputed:
   p_title: "News from Židovska općine Zagreb"
   p_description: "News from Židovska općine Zagreb"
+  p_id: "novost"
 ---
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
@@ -18,7 +19,7 @@ renderData:
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/en">Home</a></li>
           <li class="active">News from ŽOZ</li>
         </ol>
       </div>

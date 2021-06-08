@@ -1,6 +1,6 @@
 <!-- css -->
-<link rel="stylesheet" href="/assets/css/main.css" />
-<link rel="stylesheet" href="/assets/css/all.css" />
+<link rel="stylesheet" href="/assets/css/main.css"/>
+<link rel="stylesheet" href="/assets/css/all.css"/>
 <!-- favicon icon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
@@ -38,117 +38,153 @@
 <meta property="og:image:type" content="{{ ogImageType or metadata.ogImageType }}">
 <!-- json-ld website -->
 <script type="application/ld+json">
-    [{
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id":"https://zoz.hr/#organization",
-        "name": "Židovska općina Zagreb",
-        "legalname": "Židovska općina Zagreb",
-        "url": "https://zoz.hr/",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Palmotićeva 16",
-            "addressLocality": "Zagreb",
-            "postalCode": "10000",
-            "addressCountry": "Hrvatska"
-        },
-        "logo":{
-            "@type":"ImageObject",
-            "@id":"https://zoz.hr/#logo",
-            "inLanguage":"{{ lang }}",
-            "url":"https://zoz.hr/logo.jpg",
-            "width":177,
-            "height":76,
-            "caption":"Židovska općina Zagreb"
-        },
-        "image":{
-            "@id":"https://zoz.hr/#logo"
-        }
-    },
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id":"https://zoz.hr/#website",
-        "name":"Židovska općina Zagreb",
-        "description":"Web stranice Židovske općine Zagreb",
-        "publisher": {
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
             "@id": "https://zoz.hr/#organization",
-        },
-        "url": "https://www.zoz.hr",
-        "image": {
-            "@type": "ImageObject",
-            "url":"https://zoz.hr/logo.jpg",
-            "width":177,
-            "height":76,
-            "caption":"Židovska općina Zagreb"
+            "name": "Židovska općina Zagreb",
+            "legalname": "Židovska općina Zagreb",
+            "url": "https://zoz.hr/",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Palmotićeva 16",
+                "addressLocality": "Zagreb",
+                "postalCode": "10000",
+                "addressCountry": "Hrvatska"
+            },
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https://zoz.hr/#logo",
+                "inLanguage": "{{ lang }}",
+                "url": "https://zoz.hr/logo.jpg",
+                "width": 177,
+                "height": 76,
+                "caption": "Židovska općina Zagreb"
+            },
+            "image": {
+                "@id": "https://zoz.hr/#logo"
+            }
+        }, {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://zoz.hr/#website",
+            "name": "Židovska općina Zagreb",
+            "description": "Web stranice Židovske općine Zagreb",
+            "publisher": {
+                "@id": "https://zoz.hr/#organization"
+            },
+            "url": "https://www.zoz.hr",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://zoz.hr/logo.jpg",
+                "width": 177,
+                "height": 76,
+                "caption": "Židovska općina Zagreb"
+            }
         }
-    }]
+    ]
 </script>
 {% if p_type === 'osvrt' %}
-<!-- json-ld article -->
-<script type="application/ld+json">
-{
-   "@context":"https://schema.org",
-   "@type":"Article",
-   "headline":"{{ p_title }}",
-   "image":"{{ p_image }}",
-   "author": {
-    "@type": "Organization",
-    "name": "Židovska općina Zagreb"
-    },
-   "keywords":"{{ p_title }}",
-   "wordcount":"{{ p_textcount }}",
-   "publisher":{
-      "@type":"Organization",
-      "name":"Židovska općina Zagreb",
-      "logo":{
-         "@type":"ImageObject",
-         "url":"{{ site.rootUrl }}/images/logo.jpg"
-      }
-   },
-   "url":"{{ site.rootUrl }}{{ page.url }}",
-   "mainEntityOfPage":{
-      "@type":"WebPage",
-      "@id":"{{ site.rootUrl }}{{ page.url }}"
-   },
-   "datePublished":"{{ p_datum }}",
-   "dateModified":"{{ p_datum }}",
-   "description":"{{ p_description | jsonldesc }}",
-   "articleBody":"{{ p_tekst }}"
-}
-</script>
+    <!-- json-ld article -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "{{ p_title }}",
+            "image": "{{ p_image }}",
+            "author": {
+                "@type": "Organization",
+                "name": "Židovska općina Zagreb"
+            },
+            "keywords": "{{ p_title }}",
+            "wordcount": "{{ p_textcount }}",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Židovska općina Zagreb",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ site.rootUrl }}/images/logo.jpg"
+                }
+            },
+            "url": "{{ site.rootUrl }}{{ page.url }}",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ site.rootUrl }}{{ page.url }}"
+            },
+            "datePublished": "{{ p_datum }}",
+            "dateModified": "{{ p_datum }}",
+            "description": "{{ p_description | jsonldesc }}",
+            "articleBody": "{{ p_tekst }}"
+        }
+    </script>
 {% endif %}
 {% if p_type === 'novost' %}
-<!-- json-ld news -->
-<script type="application/ld+json">
-{
-   "@context":"https://schema.org",
-   "@type":"NewsArticle",
-   "headline":"{{ p_title }}",
-   "image":"{{ p_image }}",
-   "author": {
-    "@type": "Organization",
-    "name": "Židovska općina Zagreb"
-    },
-   "keywords":"{{ p_title }}",
-   "wordcount":"{{ p_textcount }}",
-   "publisher":{
-      "@type":"Organization",
-      "name":"Židovska općina Zagreb",
-      "logo":{
-         "@type":"ImageObject",
-         "url":"{{ site.rootUrl }}/images/logo.jpg"
-      }
-   },
-   "url":"{{ site.rootUrl }}{{ page.url }}",
-   "mainEntityOfPage":{
-      "@type":"WebPage",
-      "@id":"{{ site.rootUrl }}{{ page.url }}"
-   },
-   "datePublished":"{{ p_datum }}",
-   "dateModified":"{{ p_datum }}",
-   "description":"{{ p_description | jsonldesc }}",
-   "articleBody":"{{ p_tekst }}"
-}
-</script>
+    <!-- json-ld news -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": "{{ p_title }}",
+            "image": "{{ p_image }}",
+            "author": {
+                "@type": "Organization",
+                "name": "Židovska općina Zagreb"
+            },
+            "keywords": "{{ p_title }}",
+            "wordcount": "{{ p_textcount }}",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Židovska općina Zagreb",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ site.rootUrl }}/images/logo.jpg"
+                }
+            },
+            "url": "{{ site.rootUrl }}{{ page.url }}",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ site.rootUrl }}{{ page.url }}"
+            },
+            "datePublished": "{{ p_datum }}",
+            "dateModified": "{{ p_datum }}",
+            "description": "{{ p_description | jsonldesc }}",
+            "articleBody": "{{ p_tekst }}"
+        }
+    </script>
+{% endif %}
+{% if p_type === 'event' %}
+    <!-- json-ld event -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "The Adventures of Kira and Morrison",
+            "startDate": "2025-07-21T19:00-05:00",
+            "endDate": "2025-07-21T23:00-05:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "location": {
+                "@type": "Place",
+                "name": "Snickerpark Stadium",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "100 West Snickerpark Dr",
+                    "addressLocality": "Snickertown",
+                    "postalCode": "19019",
+                    "addressRegion": "PA",
+                    "addressCountry": "US"
+                }
+            },
+            "image": [
+                "https://example.com/photos/1x1/photo.jpg", "https://example.com/photos/4x3/photo.jpg", "https://example.com/photos/16x9/photo.jpg"
+            ],
+            "description": "The Adventures of Kira and Morrison is coming to Snickertown in a can't miss performance.",
+            "organizer": {
+                "@type": "Organization",
+                "name": "Kira and Morrison Music",
+                "url": "https://kiraandmorrisonmusic.com"
+            }
+        }
+    </script>
 {% endif %}

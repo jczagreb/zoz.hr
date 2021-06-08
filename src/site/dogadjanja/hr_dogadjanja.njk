@@ -1,0 +1,80 @@
+---
+title: Događanja
+description: Događanja
+layout: default
+lang: hr
+pagination:
+  data: dogadjanjahr
+  size: 10
+  alias: dogadjanja
+permalink: "/hr/najave{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+  p_title: "Najave događanja"
+  p_description: "Događanja u Židovskoj općini Zagreb"
+  p_id: "najava"
+---
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Početna</a></li>
+          <li class="active">Najave događanja</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Nav Backed Header --> 
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size:30px!important;">{{ p_description }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+    <div id="content" class="content full">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-9"> 
+                <!-- Events Listing -->
+                <div class="listing events-listing">
+                    <header class="listing-header">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                        <h3>Najave događanja</h3>
+                    </div>
+                    </div>
+                    </header>
+                    <section class="listing-cont">
+                    <ul>
+                    {% for item in pagination.items %}
+                        <li class="item event-item">
+                        <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
+                        <div class="event-detail">
+                            <h4><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></h4>
+                            <span class="event-dayntime meta-data">{{item.datum | dateHr('cccc') }} | {{item.datum | dateHr('HH:mm') }}h | {{ item.lokacija }}</span> </div>
+                        <div class="to-event-url">
+                            <div><a href="/hr/najave/{{ item.slug }}" class="btn btn-default btn-sm">Detalji</a></div>
+                        </div>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    </section>
+                </div>
+            </div>
+
+            {% include "partials/sidebar-page-hr.njk" %}
+
+        </div>
+    </div>
+  </div>
+</div>
+<pre>{{ najave }}</pre>

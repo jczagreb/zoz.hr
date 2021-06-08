@@ -14,14 +14,15 @@ eleventyComputed:
   p_textcount: "{{ novost.sadrzajtekst | wordCount }}"
   p_tekst: "{{ novost.sadrzajtekst }}"
   p_datum: "{{ novost.datum }}"
+  p_id: "novost"
 ---
 <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
     <div class="container">
         <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-            <li><a href="/hr">Home</a></li>
-            <li><a href="/hr/novosti">News</a></li>
+            <li><a href="/en">Home</a></li>
+            <li><a href="/en/news">News</a></li>
             <li class="active">{{ novost.naslov }}</li>
             </ol>
         </div>

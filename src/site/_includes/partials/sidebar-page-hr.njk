@@ -1,25 +1,111 @@
  <!-- Start Sidebar -->
 <div class="col-md-3 sidebar">
-    <div class="widget sidebar-widget">
-        <div class="sidebar-widget-title">
-            <h3>Zadnje novosti</h3>
+
+    {% if p_id === "najava" %}
+
+        {% if page.url === "/hr/najave/" %}
+
+        <div class="widget sidebar-widget search-form-widget">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Pretražite najave" id="search-najave">
+            </div>
         </div>
-        <ul>
-            {% for item in novostihr %}
-                <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="widget sidebar-widget">
-        <div class="sidebar-widget-title">
-            <h3>Nadolazeći događaji</h3>
+
+        {% endif %}
+
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Zadnje novosti</h3>
+            </div>
+            <ul>
+                {% for item in novostihr %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
         </div>
-        <ul>
-            <li><a href="#">Faith</a> (10)</li>
-            <li><a href="#">Missions</a> (12)</li>
-            <li><a href="#">Salvation</a> (34)</li>
-            <li><a href="#">Worship</a> (14)</li>
-        </ul>
-    </div>
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Zadnji osvrti</h3>
+            </div>
+            <ul>
+                {% for item in novostihr %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% elseif p_id === "novost" %}
+
+        {% if page.url === "/hr/novosti/" %}
+
+        <div class="widget sidebar-widget search-form-widget">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Pretražite novosti" id="search-novosti">
+            </div>
+        </div>
+
+        {% endif %}
+
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Nadolazeći događaji</h3>
+            </div>
+            <ul>
+                <li><a href="#">Faith</a> (10)</li>
+                <li><a href="#">Missions</a> (12)</li>
+                <li><a href="#">Salvation</a> (34)</li>
+                <li><a href="#">Worship</a> (14)</li>
+            </ul>
+        </div>
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Zadnji osvrti</h3>
+            </div>
+            <ul>
+                {% for item in novostihr %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% elseif p_id === "osvrt" %}
+
+        {% if page.url === "/hr/osvrti/" %}
+
+        <div class="widget sidebar-widget search-form-widget">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Pretražite osvrte" id="search-osvrti">
+            </div>
+        </div>
+
+        {% endif %}
+        
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Nadolazeći događaji</h3>
+            </div>
+            <ul>
+                <li><a href="#">Faith</a> (10)</li>
+                <li><a href="#">Missions</a> (12)</li>
+                <li><a href="#">Salvation</a> (34)</li>
+                <li><a href="#">Worship</a> (14)</li>
+            </ul>
+        </div>
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Zadnje novosti</h3>
+            </div>
+            <ul>
+                {% for item in novostihr %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% endif %}
+
 </div>

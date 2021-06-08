@@ -1,25 +1,111 @@
  <!-- Start Sidebar -->
 <div class="col-md-3 sidebar">
-    <div class="widget sidebar-widget">
-        <div class="sidebar-widget-title">
-            <h3>Latest news</h3>
+
+    {% if p_id === "najava" %}
+
+        {% if page.url === "/en/events/" %}
+
+        <div class="widget sidebar-widget search-form-widget">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Search events" id="search-events">
+            </div>
         </div>
-        <ul>
-            {% for item in novostien %}
-                <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn('dd. LLLL yyyy.') }}</span>
-                <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="widget sidebar-widget">
-        <div class="sidebar-widget-title">
-            <h3>Upcoming events</h3>
+
+        {% endif %}
+
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Latest news</h3>
+            </div>
+            <ul>
+                {% for item in novostien %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
+                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
         </div>
-        <ul>
-            <li><a href="#">Faith</a> (10)</li>
-            <li><a href="#">Missions</a> (12)</li>
-            <li><a href="#">Salvation</a> (34)</li>
-            <li><a href="#">Worship</a> (14)</li>
-        </ul>
-    </div>
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Latest reviews</h3>
+            </div>
+            <ul>
+                {% for item in novostien %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
+                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% elseif p_id === "novost" %}
+
+        {% if page.url === "/en/news/" %}
+
+        <div class="widget sidebar-widget search-form-widget">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Search news" id="search-news">
+            </div>
+        </div>
+
+        {% endif %}
+
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Upcoming events</h3>
+            </div>
+            <ul>
+                <li><a href="#">Faith</a> (10)</li>
+                <li><a href="#">Missions</a> (12)</li>
+                <li><a href="#">Salvation</a> (34)</li>
+                <li><a href="#">Worship</a> (14)</li>
+            </ul>
+        </div>
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Latest reviews</h3>
+            </div>
+            <ul>
+                {% for item in novostien %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
+                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% elseif p_id === "osvrt" %}
+
+        {% if page.url === "/en/reviews/" %}
+
+        <div class="widget sidebar-widget search-form-widget">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Pretražite osvrte" id="search-reviews">
+            </div>
+        </div>
+
+        {% endif %}
+        
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Upcoming events</h3>
+            </div>
+            <ul>
+                <li><a href="#">Faith</a> (10)</li>
+                <li><a href="#">Missions</a> (12)</li>
+                <li><a href="#">Salvation</a> (34)</li>
+                <li><a href="#">Worship</a> (14)</li>
+            </ul>
+        </div>
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Latest news</h3>
+            </div>
+            <ul>
+                {% for item in novostien %}
+                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
+                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% endif %}
+
 </div>
