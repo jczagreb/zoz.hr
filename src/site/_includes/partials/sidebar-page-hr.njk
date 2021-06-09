@@ -1,17 +1,13 @@
  <!-- Start Sidebar -->
 <div class="col-md-3 sidebar">
 
-    {% if p_id === "najava" %}
-
-        {% if page.url === "/hr/najave/" %}
-
-        <div class="widget sidebar-widget search-form-widget">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Pretražite najave" id="search-najave">
-            </div>
+    <div class="widget sidebar-widget search-form-widget">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="Pretražite zoz.hr" id="searchInput" name="s" value="" autocomplete="off" onkeypress="return 13!=event.keyCode">
         </div>
+    </div>
 
-        {% endif %}
+    {% if p_id === "najava" %}
 
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
@@ -38,16 +34,6 @@
 
     {% elseif p_id === "novost" %}
 
-        {% if page.url === "/hr/novosti/" %}
-
-        <div class="widget sidebar-widget search-form-widget">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Pretražite novosti" id="search-novosti">
-            </div>
-        </div>
-
-        {% endif %}
-
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
                 <h3>Nadolazeći događaji</h3>
@@ -72,16 +58,6 @@
         </div>
 
     {% elseif p_id === "osvrt" %}
-
-        {% if page.url === "/hr/osvrti/" %}
-
-        <div class="widget sidebar-widget search-form-widget">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Pretražite osvrte" id="search-osvrti">
-            </div>
-        </div>
-
-        {% endif %}
         
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">

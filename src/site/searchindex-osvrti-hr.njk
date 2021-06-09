@@ -1,0 +1,13 @@
+---
+permalink: /searchindex-osvrti-hr.json
+eleventyExcludeFromCollections: true
+---
+
+[
+{% for osvrt in osvrtihr %}
+{
+   "title":"{{ osvrt.naslov }}",
+   "url":"/hr/osvrti/{{ osvrt.slug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %} 
+]
