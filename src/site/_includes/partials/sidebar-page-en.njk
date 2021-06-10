@@ -40,8 +40,17 @@
             </div>
             <ul>
                 {% for item in dogadjanjaen %}
+
+                {% if item.naziv != "prazno" %}
+
                     <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
                     <li><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></li>    
+
+                {% else %}
+
+                <p><em>Currently we don't have any upcoming events</em></p>
+
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>
