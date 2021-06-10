@@ -74,8 +74,17 @@
             </div>
             <ul>
                 {% for item in dogadjanjahr %}
+
+                {% if item.naziv != "prazno" %}
+
                     <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
                     <li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>    
+
+                {% else %}
+
+                <p><em>Na žalost trenutno nemamo najavljenih događanja</em></p>
+
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>

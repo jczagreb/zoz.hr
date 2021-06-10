@@ -63,7 +63,13 @@ eleventyComputed:
                         <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
                         <div class="event-detail">
                             <h4><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></h4>
-                            <span class="event-dayntime meta-data">{{item.datum | dateHr('cccc') }} | {{item.datum | dateHr('HH:mm') }}h | {{ item.lokacija }}</span> </div>
+                            <span class="event-dayntime meta-data">{{item.datum | dateHr('cccc') }} 
+                            
+                            {%if (item.datum | dateHr('HH:mm')) != "00:00" %}
+                              | {{item.datum | dateHr('HH:mm') }}h 
+                            {% endif %}  
+                            
+                            | {{ item.lokacija }}</span> </div>
                         <div class="to-event-url">
                             <div><a href="/hr/najave/{{ item.slug }}" class="btn btn-default btn-sm">Detalji</a></div>
                         </div>
