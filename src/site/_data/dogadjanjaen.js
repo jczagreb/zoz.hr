@@ -72,9 +72,19 @@ async function getNajave() {
     }).filter(Boolean);
 
     if (formatnajave === undefined || formatnajave.length == 0) {
-        formatnajave.push("prazno");
+        formatnajave.push({
+            'naziv': 'prazno',
+            'datum': 'prazno',
+            'datumend': 'prazno',
+            'lokacija': 'prazno',
+            'lang': 'en',
+            'objavljeno': 'prazno',
+            'slug': 'prazno',
+            'opis': 'prazno',
+            'opistekst': 'prazno'
+        });
     }
-    
+
     // return formatted blogposts
     return formatnajave;
 }

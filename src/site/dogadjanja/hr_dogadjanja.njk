@@ -56,6 +56,9 @@ eleventyComputed:
                     <section class="listing-cont">
                     <ul>
                     {% for item in pagination.items %}
+
+                    {% if item.naziv != "prazno" %}
+
                         <li class="item event-item">
                         <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
                         <div class="event-detail">
@@ -65,6 +68,13 @@ eleventyComputed:
                             <div><a href="/hr/najave/{{ item.slug }}" class="btn btn-default btn-sm">Detalji</a></div>
                         </div>
                         </li>
+
+                    {% else %}
+
+                    <h4 style="margin-top:50px;">Na žalost trenutno nemamo najavljenih događanja</h4>
+
+                    {% endif %}
+
                     {% endfor %}
                     </ul>
                     </section>
