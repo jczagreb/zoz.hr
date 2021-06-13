@@ -45,6 +45,15 @@
                       {% endfor%}
                     </ul>
                   </li>
+                  <li><a href="#" class="sf-with-ul">Partner associations</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in straniceen %}
+                        {% if nav.navigacija === "ustanove_3" %}
+                          <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li><a href="#" class="sf-with-ul">Current events</a>
@@ -54,9 +63,9 @@
                   <li><a href="/en/opinions">Opinions</a></li>
                   <li><a href="#" class="sf-with-ul">Publications</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
-                      <li><a href="/en/ha-kol">Ha-kol</a></li>
-                      <li><a href="/en/novi-omanut">Novi Omanut</a></li>
-                      <li><a href="/en/hada">Hada</a></li>
+                      <li><a href="/en/publications/ha-kol">Ha-kol</a></li>
+                      <li><a href="/en/publications/novi-omanut">Novi Omanut</a></li>
+                      <li><a href="/en/publications/hadason">Hadašon</a></li>
                     </ul>
                   </li>
                 </ul>
