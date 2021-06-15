@@ -4,8 +4,11 @@ const got = require("got"); // HTTP request library
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const metagen = require('eleventy-plugin-metagen');
+const { getStranice } = import('./src/site/_data/stranicehr.js');
 
-module.exports = function(config) {
+module.exports = function (config) {
+
+  //console.log(JSON.stringify({ getStranice }));
 
   // A useful way to reference the context we are runing eleventy in
   let env = process.env.ELEVENTY_ENV;

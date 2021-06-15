@@ -7,6 +7,8 @@ pagination:
 permalink: /{{ stranica.lang }}/{{ stranica.slug }}/index.html
 eleventyComputed:
     lang: "{{ stranica.lang }}"
+    p_title: "{{ stranica.naslov }}"
+    p_description: "{{ stranica.naslov }}"
 ---
 {% if stranica.banner %}
     <div class="nav-backed-header parallax" style="background-image:url({{ stranica.banner.handle }});">

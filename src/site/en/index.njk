@@ -45,28 +45,23 @@ p_description: Homepage
             </header>
             <section class="listing-cont">
               <ul>
+                
+                {% for item in novostien | limit(5) %}
+
                 <li class="item post">
                   <div class="row">
-                    <div class="col-md-4"> <a href="#" class="media-box"> <img src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER+800x600" alt="" class="img-thumbnail"> </a></div>
+                    <div class="col-md-4"><a href="/en/news/{{ item.slug }}" class="media-box"> <img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"> </a></div>
                     <div class="col-md-8">
                       <div class="post-title">
-                        <h2><a href="blog-post.html">Voluptatum deleniti atque corrupti</a></h2>
-                        <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                        <h2><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></h2>
+                        <span class="meta-data" style="font-size: 1em;"><i class="fa fa-calendar"></i> {{item.datum | dateEn }}</span></div>
+                      <p>{{ item.isjecak }}</p>
                     </div>
                   </div>
                 </li>
-                <li class="item post">
-                  <div class="row">
-                    <div class="col-md-4"> <a href="blog-post.html" class="media-box"> <img src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER+800x600" alt="" class="img-thumbnail"> </a></div>
-                    <div class="col-md-8">
-                      <div class="post-title">
-                        <h2><a href="blog-post.html">Voluptatum deleniti atque corrupti</a></h2>
-                        <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
-                    </div>
-                  </div>
-                </li>
+                  
+                {% endfor %}
+
               </ul>
             </section>
           </div>
@@ -74,29 +69,40 @@ p_description: Homepage
         </div>
         <!-- Start Sidebar -->
         <div class="col-md-4 sidebar">
+
+          {% include 'partials/search.njk' %}
+
           <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
               <h3>Upcoming Events</h3>
             </div>
             <ul>
+              
+            {% if dogadjanjaen|length %}
+
+            {% for item in dogadjanjaen | limit(5) %}
+
               <li class="item event-item clearfix">
-                <div class="event-date"> <span class="date">06</span> <span class="month">Aug</span> </div>
+                <div class="event-date"> <span class="date">{{item.datum | dateEn('dd') }}</span> <span class="month">{{item.datum | dateEn('LLL') }}</span> </div>
                 <div class="event-detail">
-                  <h4><a href="#" style="color: #0CC9E8;">Monday Prayer</a></h4>
-                  <span class="event-dayntime meta-data">Monday | 07:00 AM</span> </div>
+                  <h4><a href="#" style="color: #0CC9E8;">{{ item.naziv }}</a></h4>
+                  <span class="event-dayntime meta-data">{{item.datum | dateEn('cccc') }}
+                  
+                  {%if (item.datum | dateEn('HH:mm')) != "00:00" %}
+                    | {{item.datum | dateEn('HH:mm') }}h 
+                  {% endif %}  
+                  
+                  </span> </div>
               </li>
-              <li class="item event-item clearfix">
-                <div class="event-date"> <span class="date">28</span> <span class="month">Aug</span> </div>
-                <div class="event-detail">
-                  <h4><a href="#" style="color: #0CC9E8;">Staff members meet</a></h4>
-                  <span class="event-dayntime meta-data">Monday | 01:00 PM</span> </div>
-              </li>
-              <li class="item event-item clearfix">
-                <div class="event-date"> <span class="date">25</span> <span class="month">Sep</span> </div>
-                <div class="event-detail">
-                  <h4><a href="#" style="color: #0CC9E8;">Evening Prayer</a></h4>
-                  <span class="event-dayntime meta-data">Friday | 06:00 PM</span> </div>
-              </li>
+              
+            {% endfor %}
+
+            {% else %}
+
+              <p>Currently we don't have any upcoming events</p>
+
+            {% endif %}
+
             </ul>
           </div>
         </div>
@@ -104,17 +110,3 @@ p_description: Homepage
     </div>
   </div>
 </div>
-<!-- Start Featured Gallery -->
-<div class="featured-gallery">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-sm-3">
-        <h4>Updates from our gallery</h4>
-        <a href="#" class="btn btn-default btn-lg">More Galleries</a> </div>
-      <div class="col-md-3 col-sm-3 post format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""> </a> </div>
-      <div class="col-md-3 col-sm-3 post format-video"> <a href="http://youtu.be/NEFfnbQlGo8" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""> </a> </div>
-      <div class="col-md-3 col-sm-3 post format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""> </a> </div>
-    </div>
-  </div>
-</div>
-<!-- End Featured Gallery --> 

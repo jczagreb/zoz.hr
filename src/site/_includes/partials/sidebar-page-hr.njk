@@ -1,11 +1,7 @@
  <!-- Start Sidebar -->
 <div class="col-md-3 sidebar">
 
-    <div class="widget sidebar-widget search-form-widget">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" placeholder="Pretražite zoz.hr" id="searchInput" name="s" value="" autocomplete="off" onkeypress="return 13!=event.keyCode">
-        </div>
-    </div>
+     {% include 'partials/search.njk' %}
 
     {% if p_id === "najava" %}
 
