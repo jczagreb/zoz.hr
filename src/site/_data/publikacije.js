@@ -3,10 +3,10 @@ const fetch = require("node-fetch");
 const slugify = require('slugify');
 
 // get Objave
-async function getStranice() {
+async function getPublikacije() {
 
     // Objave array
-    let svestranice = [];
+    let svepublikacije = [];
 
     try {
         // initiate fetch
@@ -18,19 +18,15 @@ async function getStranice() {
             },
             body: JSON.stringify({
                 query: `{
-                    stranice(stage: PUBLISHED, orderBy: redoslijed_ASC, locales: [en,hr]) {
-                        naslov
-                        slug
-                        locale
-                        banner{
+                    publikacijes(orderBy: updatedAt_DESC, stage: PUBLISHED) {
+                        izdanje
+                        brojIzdanja
+                        period
+                        naslovnica {
                             handle
+                            url
                         }
-                        sadrzaj {
-                            html
-                        }
-                        redoslijed
-                        navigacija
-                        inlineSlika {
+                        pdf {
                             url
                         }
                     }
@@ -51,30 +47,27 @@ async function getStranice() {
         }
 
         // update blogpost array with the data from the JSON response
-        svestranice = svestranice.concat(response.data.stranice);
+        svepublikacije = svepublikacije.concat(response.data.publikacijes);
 
     } catch (error) {
         throw new Error(error);
     }
 
     // format blogposts objects
-    const stranice = svestranice.map((item) => {
+    const publikacije = svepublikacije.map((item) => {
 
         return {
-            naslov: item.naslov,
-            slug: item.slug,
-            lang: item.locale,
-            banner: item.banner,
-            sadrzaj: item.sadrzaj.html,
-            navigacija: item.navigacija,
-            red: item.redoslijed,
-            inlineslika: item.inlineSlika
+            izdanje: item.izdanje,
+            broj: item.brojIzdanja,
+            period: item.period,
+            naslovnica: item.naslovnica,
+            pdf: item.pdf
         };
     }).filter(Boolean);
-    
+
     // return formatted blogposts
-    return stranice;
+    return publikacije;
 }
 
 // export for 11ty
-module.exports = getStranice;
+module.exports = getPublikacije;

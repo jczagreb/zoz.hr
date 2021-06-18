@@ -30,6 +30,9 @@ async function getStranice() {
                         }
                         redoslijed
                         navigacija
+                        inlineSlika {
+                            url
+                        }
                     }
                 }`
             })
@@ -64,7 +67,8 @@ async function getStranice() {
             banner: item.banner,
             sadrzaj: item.sadrzaj.html,
             navigacija: item.navigacija,
-            red: item.redoslijed
+            red: item.redoslijed,
+            inlineslika: item.inlineSlika
         };
     }).filter(Boolean);
 

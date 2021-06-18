@@ -4,9 +4,11 @@ pagination:
   data: straniceen
   size: 1
   alias: stranica
-permalink: /{{ stranica.lang }}/{{ stranica.slug }}/index.html
+permalink: /en/{{ stranica.slug }}/index.html
 eleventyComputed:
     lang: "{{ stranica.lang }}"
+    p_title: "{{ stranica.naslov }}"
+    p_description: "{{ stranica.naslov }}"
 ---
 {% if stranica.banner %}
     <div class="nav-backed-header parallax" style="background-image:url({{ stranica.banner.handle }});">
@@ -41,7 +43,14 @@ eleventyComputed:
     <div class="container">
     <div class="row">
         <div class="col-md-12">
-            {{ stranica.sadrzaj | safe }}
+            {% if stranica.inlineslika.url %}
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <img src="{{ stranica.inlineslika.url }}" width="90%" alt="" style="padding-bottom:20px;">
+            </div>
+            {% endif %}
+            <div class="single-post-content-wrapper p-3">
+                {{ stranica.sadrzaj | safe }}
+            </div>
         </div>
     </div>
     </div>
