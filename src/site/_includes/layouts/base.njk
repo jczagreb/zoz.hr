@@ -30,6 +30,15 @@
     <script src="/plugins/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider --> 
     <script src="/plugins/countdown/js/jquery.countdown.min.js"></script> <!-- Jquery Timer -->
     <script src="/js/search.js"></script> <!-- Search function --> 
+    <script>
+    $(document).ready(function() {
+        $('input[type="text"]').keyup(function(e){
+            if(e.keyCode == 27) {
+                $(this).val('');
+            }
+        });
+    });
+    </script>
 
   </body>
 </html>
