@@ -9,224 +9,132 @@ $(function () {
     // fetch JSON data
 
     if (lang === "hr") {
-        const najavehr = [];
-        fetch('/searchindex-najave-hr.json')
-            .then(blob => blob.json())
-            .then(data => objave.push(...data));
-        const novostihr = [];
+        var novosti = [];
         fetch('/searchindex-novosti-hr.json')
             .then(blob => blob.json())
-            .then(data => objave.push(...data));
-        const osvrtihr = [];
+            .then(data => novosti.push(...data));
+        var najave = [];
+        fetch('/searchindex-najave-hr.json')
+            .then(blob => blob.json())
+            .then(data => najave.push(...data));
+        var osvrti = [];
         fetch('/searchindex-osvrti-hr.json')
             .then(blob => blob.json())
-            .then(data => objave.push(...data));
+            .then(data => osvrti.push(...data));
     } else {
-        const najaveen = [];
-        fetch('/searchindex-najave-en.json')
-            .then(blob => blob.json())
-            .then(data => objave.push(...data));
-        const novostien = [];
+        var novosti = [];
         fetch('/searchindex-novosti-en.json')
             .then(blob => blob.json())
-            .then(data => objave.push(...data));
-        const osvrtien = [];
+            .then(data => novosti.push(...data));
+        var najave = [];
+        fetch('/searchindex-najave-en.json')
+            .then(blob => blob.json())
+            .then(data => najave.push(...data));
+        var osvrti = [];
         fetch('/searchindex-osvrti-en.json')
             .then(blob => blob.json())
-            .then(data => objave.push(...data));
+            .then(data => osvrti.push(...data));
     }
 
     //search functions
-    function findRezNajaveHr(wordToMatch, najavehr) {
-        return najavehr.filter(rezNajaveHr => {
+    function findRezNovosti(wordToMatch, novosti) {
+        return novosti.filter(rezNovosti => {
             const regex = new RegExp(wordToMatch, 'gi');
-            return rezNajaveHr.title.match(regex);
+            return rezNovosti.title.match(regex);
         });
     }
-    function findRezNajaveEn(wordToMatch, najaveen) {
-        return najaveen.filter(rezNajaveEn => {
+    function findRezNajave(wordToMatch, najave) {
+        return najave.filter(rezNajave => {
             const regex = new RegExp(wordToMatch, 'gi');
-            return rezNajaveEn.title.match(regex);
+            return rezNajave.title.match(regex);
         });
     }
-    function findRezOsvrtiHr(wordToMatch, osvrtihr) {
-        return osvrtihr.filter(rezOsvrtiHr => {
+    function findRezOsvrti(wordToMatch, osvrti) {
+        return osvrti.filter(rezOsvrti => {
             const regex = new RegExp(wordToMatch, 'gi');
-            return rezOsvrtiHr.title.match(regex);
-        });
-    }
-    function findRezOsvrtiEn(wordToMatch, osvrtien) {
-        return osvrtien.filter(rezOsvrtiEn => {
-            const regex = new RegExp(wordToMatch, 'gi');
-            return rezOsvrtiEn.title.match(regex);
-        });
-    }
-    function findRezNovostiHr(wordToMatch, novostihr) {
-        return novostihr.filter(rezNovostiHr => {
-            const regex = new RegExp(wordToMatch, 'gi');
-            return rezNovostiHr.title.match(regex);
-        });
-    }
-    function findRezNovostiEn(wordToMatch, novostien) {
-        return novostien.filter(rezNovostiEn => {
-            const regex = new RegExp(wordToMatch, 'gi');
-            return rezNovostiEn.title.match(regex);
+            return rezOsvrti.title.match(regex);
         });
     }
 
     // display search results
     function displayRez() {
-
-        if (lang === "hr") {
             
-            //najavehr
-            const matchObjave = findRezObjave(this.value, objave);
-            if ((matchObjave.length > 0) && (searchInput.value.length > 2)) {
-
-                var elem1 = $('.header_search_content');
-                if (!elem1.hasClass('on')) {
-                    elem1.addClass('on');
-                }
-
-                document.getElementById('objavebanner').style.display = "block";
-                const htmlobjave = matchObjave.map(rezObjave => {
-                    const regex = new RegExp(this.value, 'gi');
-                    const posttitle = rezObjave.title.replace(regex, '<span class="hi">' + this.value + '</span>')
-                    return '<li><span class="name"><a href="' + rezObjave.url + '">' + posttitle + '</a></span>';
-                }).join('');
-                suggobjave.innerHTML = htmlobjave;
-            }
-            else {
-                document.getElementById('objavebanner').style.display = "none";
-                suggobjave.innerHTML = '';
+        // novosti
+        const matchNovosti = findRezNovosti(this.value, novosti);
+        if ((matchNovosti.length > 0) && (searchInput.value.length > 2)) {
+            
+            var elem1 = $('.header_search_content');
+            if (!elem1.hasClass('on')) {
+                elem1.addClass('on');
             }
 
-            // osvrtihr
-            const matchSeminari = findRezSeminari(this.value, seminari);
-            if ((matchSeminari.length > 0) && (searchInput.value.length > 2)) {
-
-                var elem2 = $('.header_search_content');
-                if (!elem2.hasClass('on')) {
-                    elem2.addClass('on');
-                }
-
-                document.getElementById('seminaribanner').style.display = "block";
-                const htmlseminari = matchSeminari.map(rezSeminari => {
-                    const regex = new RegExp(this.value, 'gi');
-                    const seminarititle = rezSeminari.title.replace(regex, '<span class="hi">' + this.value + '</span>')
-                    return '<li><span class="name"><a href="' + rezSeminari.url + '">' + seminarititle + '</a></span>';
-                }).join('');
-                suggseminari.innerHTML = htmlseminari;
-            }
-            else {
-                document.getElementById('seminaribanner').style.display = "none";
-                suggseminari.innerHTML = '';
-            }
-
-            // novostihr
-            const matchEdukacije = findRezEdukacije(this.value, edukacije);
-            if ((matchEdukacije.length > 0) && (searchInput.value.length > 2)) {
-
-                var elem3 = $('.header_search_content');
-                if (!elem3.hasClass('on')) {
-                    elem3.addClass('on');
-                }
-
-                document.getElementById('edukacijebanner').style.display = "block";
-                const htmledukacije = matchEdukacije.map(rezEdukacije => {
-                    const regex = new RegExp(this.value, 'gi');
-                    const edukacijetitle = rezEdukacije.title.replace(regex, '<span class="hi">' + this.value + '</span>')
-                    return '<li><span class="name"><a href="' + rezEdukacije.url + '">' + edukacijetitle + '</a></span>';
-                }).join('');
-                suggedukacije.innerHTML = htmledukacije;
-            }
-            else {
-                document.getElementById('edukacijebanner').style.display = "none";
-                suggedukacije.innerHTML = '';
-            }
-
-            if (searchInput.value.length < 3) {
-                document.getElementById('hsc').classList.remove("on");
-            }
-
-        } else {
-
-            //najaveen
-            const matchObjave = findRezObjave(this.value, objave);
-            if ((matchObjave.length > 0) && (searchInput.value.length > 2)) {
-
-                var elem1 = $('.header_search_content');
-                if (!elem1.hasClass('on')) {
-                    elem1.addClass('on');
-                }
-
-                document.getElementById('objavebanner').style.display = "block";
-                const htmlobjave = matchObjave.map(rezObjave => {
-                    const regex = new RegExp(this.value, 'gi');
-                    const posttitle = rezObjave.title.replace(regex, '<span class="hi">' + this.value + '</span>')
-                    return '<li><span class="name"><a href="' + rezObjave.url + '">' + posttitle + '</a></span>';
-                }).join('');
-                suggobjave.innerHTML = htmlobjave;
-            }
-            else {
-                document.getElementById('objavebanner').style.display = "none";
-                suggobjave.innerHTML = '';
-            }
-
-            // osvrtien
-            const matchSeminari = findRezSeminari(this.value, seminari);
-            if ((matchSeminari.length > 0) && (searchInput.value.length > 2)) {
-
-                var elem2 = $('.header_search_content');
-                if (!elem2.hasClass('on')) {
-                    elem2.addClass('on');
-                }
-
-                document.getElementById('seminaribanner').style.display = "block";
-                const htmlseminari = matchSeminari.map(rezSeminari => {
-                    const regex = new RegExp(this.value, 'gi');
-                    const seminarititle = rezSeminari.title.replace(regex, '<span class="hi">' + this.value + '</span>')
-                    return '<li><span class="name"><a href="' + rezSeminari.url + '">' + seminarititle + '</a></span>';
-                }).join('');
-                suggseminari.innerHTML = htmlseminari;
-            }
-            else {
-                document.getElementById('seminaribanner').style.display = "none";
-                suggseminari.innerHTML = '';
-            }
-
-            // novostien
-            const matchEdukacije = findRezEdukacije(this.value, edukacije);
-            if ((matchEdukacije.length > 0) && (searchInput.value.length > 2)) {
-
-                var elem3 = $('.header_search_content');
-                if (!elem3.hasClass('on')) {
-                    elem3.addClass('on');
-                }
-
-                document.getElementById('edukacijebanner').style.display = "block";
-                const htmledukacije = matchEdukacije.map(rezEdukacije => {
-                    const regex = new RegExp(this.value, 'gi');
-                    const edukacijetitle = rezEdukacije.title.replace(regex, '<span class="hi">' + this.value + '</span>')
-                    return '<li><span class="name"><a href="' + rezEdukacije.url + '">' + edukacijetitle + '</a></span>';
-                }).join('');
-                suggedukacije.innerHTML = htmledukacije;
-            }
-            else {
-                document.getElementById('edukacijebanner').style.display = "none";
-                suggedukacije.innerHTML = '';
-            }
-
-            if (searchInput.value.length < 3) {
-                document.getElementById('hsc').classList.remove("on");
-            }
+            document.getElementById('novostibanner').style.display = "block";
+            const htmlnovosti = matchNovosti.map(rezNovosti => {
+                const regex = new RegExp(this.value, 'gi');
+                const novostititle = rezNovosti.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezNovosti.url + '">' + novostititle + '</a></span>';
+            }).join('');
+            suggnovosti.innerHTML = htmlnovosti;
         }
+        else {
+            document.getElementById('novostibanner').style.display = "none";
+            suggnovosti.innerHTML = '';
+        }
+
+        if (searchInput.value.length < 3) {
+            document.getElementById('hsc').classList.remove("on");
+        }
+
+        //najave
+        const matchNajave = findRezNajave(this.value, najave);
+        if ((matchNajave.length > 0) && (searchInput.value.length > 2)) {
+
+            var elem2 = $('.header_search_content');
+            if (!elem2.hasClass('on')) {
+                elem2.addClass('on');
+            }
+
+            document.getElementById('najavebanner').style.display = "block";
+            const htmlnajave = matchNajave.map(rezNajave => {
+                const regex = new RegExp(this.value, 'gi');
+                const najavetitle = rezNajave.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezNajave.url + '">' + najavetitle + '</a></span>';
+            }).join('');
+            suggnajave.innerHTML = htmlnajave;
+        }
+        else {
+            document.getElementById('najavebanner').style.display = "none";
+            suggnajave.innerHTML = '';
+        }
+
+        // osvrti
+        const matchOsvrti = findRezOsvrti(this.value, osvrti);
+        if ((matchOsvrti.length > 0) && (searchInput.value.length > 2)) {
+
+            var elem3 = $('.header_search_content');
+            if (!elem3.hasClass('on')) {
+                elem3.addClass('on');
+            }
+
+            document.getElementById('osvrtibanner').style.display = "block";
+            const htmlosvrti = matchOsvrti.map(rezOsvrti => {
+                const regex = new RegExp(this.value, 'gi');
+                const osvrtititle = rezOsvrti.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezOsvrti.url + '">' + osvrtititle + '</a></span>';
+            }).join('');
+            suggosvrti.innerHTML = htmlosvrti;
+        }
+        else {
+            document.getElementById('osvrtibanner').style.display = "none";
+            suggosvrti.innerHTML = '';
+        }
+
     }
 
     const searchInput = document.querySelector('#searchInput');
-    const suggobjave = document.querySelector('#suggNajave');
-    const suggedukacije = document.querySelector('#suggNovosti');
-    const suggseminari = document.querySelector('#suggOsvrti');
+    const suggnovosti = document.querySelector('#suggNovosti');
+    const suggnajave = document.querySelector('#suggNajave');
+    const suggosvrti = document.querySelector('#suggOsvrti');
 
     searchInput.addEventListener('keyup', displayRez, { passive: true });
 

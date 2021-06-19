@@ -1,0 +1,13 @@
+---
+permalink: /searchindex-novosti-en.json
+eleventyExcludeFromCollections: true
+---
+
+[
+{% for novost in novostien %}
+{
+   "title":"{{ novost.naslov }}",
+   "url":"/hr/novosti/{{ novost.slug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %} 
+]

@@ -1,0 +1,13 @@
+---
+permalink: /searchindex-najave-en.json
+eleventyExcludeFromCollections: true
+---
+
+[
+{% for najava in dogadjanjaen %}
+{
+   "title":"{{ najava.naziv }}",
+   "url":"/hr/najave/{{ najava.slug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %} 
+]

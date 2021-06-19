@@ -1,16 +1,40 @@
 {% if (page.fileSlug === "en") or (lang === "en") %}
 
-<div class="widget sidebar-widget search-form-widget">
-    <div class="input-group input-group-lg">
-        <input type="text" class="form-control" placeholder="Search zoz.hr" id="searchInput" name="s" value="" autocomplete="off" onkeypress="return 13!=event.keyCode">
+<form class="navbar-form" id="searchbox" method="get" action="#" style="padding:0;">
+    <div class="widget sidebar-widget search-form-widget">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="Search zoz.hr" id="searchInput" name="s" value="" autocomplete="off" onkeypress="return 13!=event.keyCode">
+        </div>
+    </div>    
+</form>
+<div class="header_search">
+    <div class="header_search_content" id="hsc">
+        <p id="novostibanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #eea236;">NEWS</p>
+        <ul id="suggNovosti"></ul>
+        <p id="najavebanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #eea236;">EVENTS</p>
+        <ul id="suggNajave"></ul>
+        <p id="osvrtibanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #eea236;">OPINIONS</p>
+        <ul id="suggOsvrti"></ul>
     </div>
 </div>
 
 {% else %}
 
-<div class="widget sidebar-widget search-form-widget">
-    <div class="input-group input-group-lg">
-        <input type="text" class="form-control" placeholder="Pretražite zoz.hr" id="searchInput" name="s" value="" autocomplete="off" onkeypress="return 13!=event.keyCode">
+<form class="navbar-form" id="searchbox" method="get" action="#" style="padding:0;">
+    <div class="widget sidebar-widget search-form-widget">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="Pretražite zoz.hr" id="searchInput" name="s" value="" autocomplete="off" onkeypress="return 13!=event.keyCode">
+        </div>
+    </div>    
+</form>
+<div class="header_search">
+    <div class="header_search_content" id="hsc">
+        <p id="novostibanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #eea236;">NOVOSTI</p>
+        <ul id="suggNovosti"></ul>
+        <p id="najavebanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #eea236;">NAJAVE</p>
+        <ul id="suggNajave"></ul>
+        <p id="osvrtibanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #eea236;">OSVRTI</p>
+        <ul id="suggOsvrti"></ul>
     </div>
 </div>
 

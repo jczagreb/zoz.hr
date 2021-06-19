@@ -3,15 +3,11 @@ title: Novi Omanut
 description: Novi Omanut
 layout: default
 lang: hr
-pagination:
-  data: dogadjanjahr
-  size: 10
-  alias: dogadjanja
-permalink: "/hr/publikacije/novi-omanut{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+permalink: /hr/publikacije/novi-omanut/index.html
 eleventyComputed:
   p_title: "Novi Omanut"
   p_description: "Novi Omanut"
-  p_id: "najava"
+  p_id: "publikacija"
 ---
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
@@ -61,29 +57,26 @@ eleventyComputed:
                           <h3>Preuzmite Novi Omanut u PDF formatu</h3>
                         </div>
                     </div>
-                    <section class="listing-cont">
-                    <ul>
-                    {% for item in pagination.items %}
+                    <section class="listing-cont" style="padding-top:15px;">
 
-                    {% if item.naziv != "prazno" %}
+                    <ul class="isotope-grid isotope" data-sort-id="gallery" style="position: relative; overflow: hidden; height: 368.375px;">
 
-                        <li class="item event-item" style="padding-top:0px;">
-                        <div class="event-date" style="padding-top:0px;"> <span class="month">Broj</span> <span class="date">21</span>  </div>
-                        <div class="event-detail" style="padding-top:15px;">
-                            <span class="event-dayntime meta-data"><h4>Objavljen {{item.datum | dateHr }} </h4></span>
-                        </div>
-                        <div class="to-event-url">
-                            <div><a href="/hr/najave/{{ item.slug }}" class="btn btn-default btn-sm">Preuzmi PDF</a></div>
-                        </div>
-                        </li>
+                    {% for item in publikacije %}
 
-                    {% else %}
-
-                    <h4 style="margin-top:50px;">Na žalost trenutno nemamo najavljenih događanja</h4>
+                    {% if item.izdanje === "NoviOmanut" %}
+                        
+                          <li class="col-md-3 col-sm-3 grid-item post format-image isotope-item" style="border:none!important">
+                            <div class="grid-item-inner"> <a href="{{ item.naslovnica.url }}" data-rel="prettyPhoto" class="media-box"> <img src="https://media.graphcms.com/resize=fit:clip,width:158/output=format:webp/{{ item.naslovnica.handle }}" alt=""> <span class="zoom" style="width: 230px; height: 153px; line-height: 153px;"><i class="fa fa-search"></i></span></a>
+                            </div>
+                            <h5 style="text-align:center;margin:10px 0 5px;">Broj {{ item.broj }}</h5>
+                            <h6><i>{{ item.period }}</i></h6>
+                            <a href="{{ item.pdf.url }}" target="_blank" class="btn btn-default btn-sm" style="display:block;margin-left:auto;margin-right:auto">Preuzmi PDF</a>
+                          </li>
 
                     {% endif %}
 
                     {% endfor %}
+                    
                     </ul>
                     </section>
                 </div>
