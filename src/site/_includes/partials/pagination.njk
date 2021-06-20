@@ -1,0 +1,101 @@
+<div style="display: flex;justify-content: center;">
+    <ul class="pagination">
+        {% if pagination.href.previous %}
+            <li><a href="{{ pagination.href.previous }}" title="Prethodna"><i class="fa fa-chevron-left"></i></a></li>
+        {% endif %}
+        {% set pages = pagination.pages | length %}
+        {%- for pageEntry in pagination.pages %}
+            {% if page.url == pagination.hrefs[ loop.index0 ] %}
+                {% if (loop.index == 1) and (pagination.pages | length == 1) %}
+                {% elif (loop.index == 1) and (pagination.pages | length == 2) %}
+                    <li class="active"><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                {% elif (loop.index == 1) and (pagination.pages | length == 3) %}
+                    <li class="active"><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+2 ] }}">{{ loop.index+2 }}</a></li>
+                {% elif (loop.index == 1) and (pagination.pages | length == 4) %}
+                    <li class="active"><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+2 ] }}">{{ loop.index+2 }}</a> </li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+3 ] }}">{{ loop.index+3 }}</a></li>
+                {% elif (loop.index == 1) and (pagination.pages | length > 4) %}
+                    <li class="current"><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+2 ] }}">{{ loop.index+2 }}</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% elif (loop.index == 2) and (pagination.pages | length == 2) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                {% elif (loop.index == 2) and (pagination.pages | length == 3) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a>
+                {% elif (loop.index == 2) and (pagination.pages | length == 4) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+2 ] }}">{{ loop.index+2 }}</a></li>
+                {% elif (loop.index == 2) and (pagination.pages | length > 4) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% elif (loop.index == 3) and (pagination.pages | length == 3) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                {% elif (loop.index == 3) and (pagination.pages | length == 4) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                {% elif (loop.index == 3) and (pagination.pages | length > 4) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% elif (loop.index > 3) and (loop.index < (pages - 2)) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% elif loop.index == (pages - 2) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
+                    <li><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% elif loop.index == (pages - 1) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
+                    <li><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% elif (loop.index == pages) and (pagination.pages | length != 4) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><span>. . .</span></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-2 ] }}">{{ loop.index-2 }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% elif (loop.index == pages) and (pagination.pages | length == 4) %}
+                    <li><a href="{{ pagination.href.first }}">1</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-2 ] }}">{{ loop.index-2 }}</a></li>
+                    <li><a href="{{ pagination.hrefs[ loop.index0-1 ] }}">{{ loop.index-1 }}</a></li>
+                    <li class="active"><a href="{{ pagination.href.last }}">{{ pagination.pages | length }}</a></li>
+                {% endif %}
+            {% endif %}
+        {%- endfor %}
+        {% if pagination.href.next %}
+            <li><a href="{{ pagination.href.next }}" title="Sljedeća"><i class="fa fa-chevron-right"></i></a></li>
+        {% endif %}
+    </ul>
+</div>

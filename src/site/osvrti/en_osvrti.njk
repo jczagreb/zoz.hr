@@ -7,7 +7,7 @@ pagination:
   data: osvrtien
   size: 10
   alias: osvrti
-permalink: "/en/opinions{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+permalink: "/en/opinions{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
   p_title: "Opinions from Židovska općina Zagreb"
   p_description: "Opinions from Židovska općina Zagreb"
@@ -58,13 +58,9 @@ eleventyComputed:
           </article>
           {% endfor %}
           <ul class="pagination">
-            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+            
+          {% include "partials/pagination.njk" %}
+          
           </ul>
         </div>
 
