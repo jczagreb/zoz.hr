@@ -62,8 +62,8 @@ eleventyComputed:
                         <li class="item event-item">
                         <div class="event-date"> <span class="date">{{item.datum | dateEn('dd') }}</span> <span class="month">{{item.datum | dateEn('LLL') }}</span> </div>
                         <div class="event-detail">
-                            <h4><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></h4>
-                            <span class="event-dayntime meta-data">{{item.datum | dateEn('cccc') }}
+                            <h4><a href="/en/events/{{ item.slug }}" style="color:#000;">{{ item.naziv }}</a></h4>
+                            <span class="event-dayntime meta-data" style="color:#0CC9E8;">{{item.datum | dateEn('cccc') }}
                             
                             {%if (item.datum | dateEn('HH:mm')) != "00:00" %}
                                 | {{item.datum | dateEn('HH:mm') }}h

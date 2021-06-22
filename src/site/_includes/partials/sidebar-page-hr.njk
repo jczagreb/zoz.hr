@@ -11,8 +11,8 @@
             </div>
             <ul>
                 {% for item in novostihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/novosti/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -22,8 +22,8 @@
             </div>
             <ul>
                 {% for item in osvrtihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/osvrti/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -39,8 +39,8 @@
 
                 {% if item.naziv != "prazno" %}
 
-                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>    
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/najave/{{ item.slug }}"><strong>{{ item.naziv }}</strong></a></li>    
 
                 {% else %}
 
@@ -56,8 +56,8 @@
             </div>
             <ul>
                 {% for item in osvrtihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/osvrti/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -73,8 +73,8 @@
 
                 {% if item.naziv != "prazno" %}
 
-                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>    
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/najave/{{ item.slug }}"><strong>{{ item.naziv }}</strong></a></li>    
 
                 {% else %}
 
@@ -90,8 +90,8 @@
             </div>
             <ul>
                 {% for item in novostihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+                    <li><a href="/hr/novosti/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
                 {% endfor %}
             </ul>
         </div>

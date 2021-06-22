@@ -31,7 +31,7 @@
                 {% elif (loop.index == 2) and (pagination.pages | length == 3) %}
                     <li><a href="{{ pagination.href.first }}">1</a></li>
                     <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>
-                    <a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a>
+                    <li><a href="{{ pagination.hrefs[ loop.index0+1 ] }}">{{ loop.index+1 }}</a></li>
                 {% elif (loop.index == 2) and (pagination.pages | length == 4) %}
                     <li><a href="{{ pagination.href.first }}">1</a></li>
                     <li class="active"><a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a></li>

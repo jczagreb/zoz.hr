@@ -8,7 +8,7 @@ pagination:
 permalink: /en/events/{{ event.slug }}/index.html
 eleventyComputed:
   p_title: "{{ event.naziv }}"
-  p_type: "najava"
+  p_type: "event"
   p_textcount: "{{ event.opistekst | wordCount }}"
   p_tekst: "{{ event.opistekst }}"
   p_datum: "{{ event.objavljeno }}"
