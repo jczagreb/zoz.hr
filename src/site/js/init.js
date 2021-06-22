@@ -329,7 +329,8 @@ var NATIVE = window.NATIVE || {};
 				var IsoTopeCont = $(".isotope-grid");
 				IsoTopeCont.isotope({
 					itemSelector: ".grid-item",
-					layoutMode: 'sloppyMasonry'
+					layoutMode: 'sloppyMasonry',
+					transitionDuration: 0
 				});
 				if ($(".grid-holder").length > 0){	
 					var $container_blog = $('.grid-holder');

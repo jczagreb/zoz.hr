@@ -1,23 +1,39 @@
----
-title: Hadašon
-description: Hadašon
-layout: default
-lang: hr
-permalink: /hr/publikacije/hadason/index.html
-eleventyComputed:
-  p_title: "Hadašon"
-  p_description: "Hadašon"
-  p_id: "publikacija"
+---js
+{
+  pagination: {
+    data: "publikacije",
+    size: 12,
+    before: function(data) {
+      const publikacija = [];
+      for (const pub of data) {
+        if (pub.izdanje === "Hadason") {
+            publikacija.push(pub); 
+          }
+      }
+      return publikacija;
+    }
+  },
+  layout: "default",
+  title: "Hadašon",
+  description: "Novi Omanut",
+  lang: "hr",
+  permalink: "/hr/publikacije/hadason{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  eleventyComputed: {
+    p_title: "Hadašon",
+    p_description: "Hadašon",
+    p_id: "publikacija"
+  }
+} 
 ---
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
-  <div class="container">
+  <div class="container">{% include "partials/pagination.njk" %}
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
           <li><a href="/hr">Početna</a></li>
           <li class="active">Publikacije</li>
-          <li class="active">Hadašon</li>
+          <li class="active">{{ p_title }}</li>
         </ol>
       </div>
     </div>
@@ -29,7 +45,11 @@ eleventyComputed:
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 style="font-size:30px!important;">{{ p_description }}</h1>
+        <h1 style="font-size:30px!important;">{{ p_title }}
+          {% if pagination.pages | length > 1 %}
+            <span style="text-transform:none;font-size:20px;">(stranica {{ pagination.pageNumber + 1 }} od {{ pagination.pages | length }})</span>
+          {% endif %}    
+        </h1>
       </div>
     </div>
   </div>
@@ -37,54 +57,50 @@ eleventyComputed:
 <!-- End Page Header --> 
 <!-- Start Content -->
 <div class="main" role="main">
-    <div id="content" class="content full">
-        <div class="container">
+  <div id="content" class="content full">
+    <div class="container">
         <div class="row">
-            <div class="col-md-9"> 
-                <!-- Events Listing -->
-                <div class="listing events-listing">
-                    <header class="listing-header">
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4"><img src="/images/hadason.jpg" alt="" class="img-thumbnail" style="margin-bottom:20px;"></div>
-                      <div class="col-md-8 col-sm-8">
-                        <h3><a href="/hr/novosti/povezivanje-vise-platformi">Glasilo Židovske zajednice u Hrvatskoj</a></h3>
-                        <p>Časopis Ha-Kol glasilo je židovske zajednice u Hrvatskoj, a izlazi pet puta godišnje. Kod oblikovanja časopisa korištena je tipografija prilagođena kontinuiranom tekstu — Lyon dok su naslovi u display tipografiji Marlene. S obzirom na to da su čitatelji časopisa uglavnom starije dobi i nerijetko imaju problema s vidom, veličina tipografije (point size) je nešto veća no što je bila u ranijim izdanjima, što je uvjetovalo i povećanje formata (nekad A4) zbog ograničenog broja stranica. Jednako tako je postavljena hijerarhija veličina — naslov, ‘okvir’, podnaslov i tekući tekst. Kroz cijeli časopis koristi se plava boja Izraelskih nacionalnih simbola.</p>
-                      </div>
-                    </div>
-                    </header>
-                    <div class="row" style="margin-top:50px;">
-                        <div class="col-md-9 col-sm-9">
-                          <h3>Preuzmite Hadašon u PDF formatu</h3>
-                        </div>
-                    </div>
-                    <section class="listing-cont" style="padding-top:15px;">
-
-                    <ul class="isotope-grid isotope" data-sort-id="gallery" style="position: relative; overflow: hidden; height: 368.375px;">
-
-                    {% for item in publikacije %}
-
-                    {% if item.izdanje === "Hadason" %}
-                        
-                          <li class="col-md-3 col-sm-3 grid-item post format-image isotope-item" style="border:none!important">
-                            <div class="grid-item-inner"> <a href="{{ item.naslovnica.url }}" data-rel="prettyPhoto" class="media-box"> <img src="https://media.graphcms.com/resize=fit:clip,width:158/output=format:webp/{{ item.naslovnica.handle }}" alt=""> <span class="zoom" style="width: 230px; height: 153px; line-height: 153px;"><i class="fa fa-search"></i></span></a>
-                            </div>
-                            <h5 style="text-align:center;margin:10px 0 5px;">Broj {{ item.broj }}</h5>
-                            <h6><i>{{ item.period }}</i></h6>
-                            <a href="{{ item.pdf.url }}" target="_blank" class="btn btn-default btn-sm" style="display:block;margin-left:auto;margin-right:auto">Preuzmi PDF</a>
-                          </li>
-
-                    {% endif %}
-
-                    {% endfor %}
-                    
-                    </ul>
-                    </section>
+          <div class="col-md-9">
+            <div class="listing events-listing">
+              {% if '/stranica' not in page.url %}
+              <header class="listing-header">
+                <div class="row">
+                  <div class="col-md-4 col-sm-4"><img src="https://media.graphcms.com/resize=fit:clip,width:230/output=format:webp/{{ pagination.items[0].naslovnica.handle }}" alt="" class="img-thumbnail" style="margin-bottom:20px;"></div>
+                  <div class="col-md-8 col-sm-8">
+                    <h3><a href="/hr/novosti/povezivanje-vise-platformi">Glasilo Židovske zajednice u Hrvatskoj</a></h3>
+                    <p>Časopis Ha-Kol glasilo je židovske zajednice u Hrvatskoj, a izlazi pet puta godišnje. Kod oblikovanja časopisa korištena je tipografija prilagođena kontinuiranom tekstu — Lyon dok su naslovi u display tipografiji Marlene. S obzirom na to da su čitatelji časopisa uglavnom starije dobi i nerijetko imaju problema s vidom, veličina tipografije (point size) je nešto veća no što je bila u ranijim izdanjima, što je uvjetovalo i povećanje formata (nekad A4) zbog ograničenog broja stranica. Jednako tako je postavljena hijerarhija veličina — naslov, ‘okvir’, podnaslov i tekući tekst. Kroz cijeli časopis koristi se plava boja Izraelskih nacionalnih simbola.</p>
+                  </div>
                 </div>
+              </header>
+              <div class="row" style="margin-top:30px;">
+                  <div class="col-md-9 col-sm-9">
+                    <h3>Preuzmite {{ p_title }} u PDF formatu</h3>
+                  </div>
+              </div>
+
+              {% endif %}
+
+              <section class="listing-cont" style="padding-top:15px;">
+                <ul class="isotope-grid isotope">
+                  {% for item in pagination.items %}
+                    
+                      <li class="col-md-3 col-sm-3 grid-item post format-image" style="border:none!important;">
+                        <div class="grid-item-inner" style="min-height:190px;"> <a href="{{ item.naslovnica.url }}" data-rel="prettyPhoto" class="media-box"> <img src="https://media.graphcms.com/resize=fit:crop,width:158,height:200/output=format:webp/{{ item.naslovnica.handle }}" alt=""> <span class="zoom"><i class="fa fa-search"></i></span></a>
+                        </div>
+                        <h5 style="text-align:center;margin:10px 0 5px;">Broj {{ item.broj }}</h5>
+                        <h6 style="min-height:36px;"><i>{{ item.period }}</i></h6>
+                        <a href="{{ item.pdf.url }}" target="_blank" class="btn btn-default btn-sm" style="display:block;margin-left:auto;margin-right:auto">Preuzmi PDF</a>
+                      </li>
+
+                  {% endfor %}
+                </ul>
+              </section>
             </div>
-
-            {% include "partials/sidebar-page-hr.njk" %}
-
-        </div>
+          </div>
+          {% include "partials/sidebar-page-hr.njk" %}
+      </div>
+      <hr/>
+      {% include "partials/pagination.njk" %}
     </div>
   </div>
 </div>

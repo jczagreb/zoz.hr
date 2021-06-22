@@ -4,13 +4,13 @@
     data: "publikacije",
     size: 12,
     before: function(data) {
-      const hakol = [];
-      for (const publikacija of data) {
-        if (publikacija.izdanje === "HaKol") {
-            hakol.push(publikacija); 
+      const publikacija = [];
+      for (const pub of data) {
+        if (pub.izdanje === "HaKol") {
+            publikacija.push(pub); 
           }
       }
-      return hakol;
+      return publikacija;
     }
   },
   layout: "default",
@@ -33,7 +33,7 @@
         <ol class="breadcrumb">
           <li><a href="/hr">Početna</a></li>
           <li class="active">Publikacije</li>
-          <li class="active">Ha-Kol</li>
+          <li class="active">{{ p_title }}</li>
         </ol>
       </div>
     </div>
@@ -45,7 +45,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 style="font-size:30px!important;">Ha-Kol ({{ pagination.pageNumber + 1 }} od {{ pagination.pages | length }})</h1>
+        <h1 style="font-size:30px!important;">{{ p_title }}
+          {% if pagination.pages | length > 1 %}
+            <span style="text-transform:none;font-size:20px;">(stranica {{ pagination.pageNumber + 1 }} od {{ pagination.pages | length }})</span>
+          {% endif %}    
+        </h1>
       </div>
     </div>
   </div>
@@ -70,7 +74,7 @@
               </header>
               <div class="row" style="margin-top:30px;">
                   <div class="col-md-9 col-sm-9">
-                    <h3>Preuzmite Ha-Kol u PDF formatu</h3>
+                    <h3>Preuzmite {{ p_title }} u PDF formatu</h3>
                   </div>
               </div>
 
@@ -81,7 +85,7 @@
                   {% for item in pagination.items %}
                     
                       <li class="col-md-3 col-sm-3 grid-item post format-image" style="border:none!important;">
-                        <div class="grid-item-inner" style="min-height:208px;"> <a href="{{ item.naslovnica.url }}" data-rel="prettyPhoto" class="media-box"> <img src="https://media.graphcms.com/resize=fit:crop,width:158/output=format:webp/{{ item.naslovnica.handle }}" alt=""> <span class="zoom"><i class="fa fa-search"></i></span></a>
+                        <div class="grid-item-inner" style="min-height:190px;"> <a href="{{ item.naslovnica.url }}" data-rel="prettyPhoto" class="media-box"> <img src="https://media.graphcms.com/resize=fit:crop,width:158,height:200/output=format:webp/{{ item.naslovnica.handle }}" alt=""> <span class="zoom"><i class="fa fa-search"></i></span></a>
                         </div>
                         <h5 style="text-align:center;margin:10px 0 5px;">Broj {{ item.broj }}</h5>
                         <h6 style="min-height:36px;"><i>{{ item.period }}</i></h6>
@@ -93,8 +97,9 @@
               </section>
             </div>
           </div>
-         {% include "partials/sidebar-page-hr.njk" %}
+          {% include "partials/sidebar-page-hr.njk" %}
       </div>
+      <hr/>
       {% include "partials/pagination.njk" %}
     </div>
   </div>
