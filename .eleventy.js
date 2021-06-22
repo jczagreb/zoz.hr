@@ -19,6 +19,7 @@ module.exports = function (config) {
 
   // Layout aliases can make templates more portable
   config.addLayoutAlias('default', 'layouts/base.njk');
+  config.addLayoutAlias('static', 'layouts/page.njk');
 
   /* Filters */
   config.addFilter("squash", require("./src/utils/filters/squash.js") );
