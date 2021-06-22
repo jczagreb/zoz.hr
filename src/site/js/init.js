@@ -271,7 +271,7 @@ var NATIVE = window.NATIVE || {};
 
 						destination.isotope({
 							itemSelector: ".grid-item",
-							layoutMode: 'sloppyMasonry'
+							layoutMode: 'sloppyMasonry',
 						});
 
 						source.find("a").on('click',function(e) {

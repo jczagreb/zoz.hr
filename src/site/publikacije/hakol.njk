@@ -10,7 +10,6 @@
             hakol.push(publikacija); 
           }
       }
-      console.log(hakol);
       return hakol;
     }
   },
@@ -28,7 +27,7 @@
 ---
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
-  <div class="container">
+  <div class="container">{% include "partials/pagination.njk" %}
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
@@ -46,7 +45,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 style="font-size:30px!important;">{{ p_description }}</h1>
+        <h1 style="font-size:30px!important;">Ha-Kol ({{ pagination.pageNumber + 1 }} od {{ pagination.pages | length }})</h1>
       </div>
     </div>
   </div>
@@ -62,7 +61,7 @@
               {% if '/stranica' not in page.url %}
               <header class="listing-header">
                 <div class="row">
-                  <div class="col-md-4 col-sm-4"><img src="/images/ha-kol.jpg" alt="" class="img-thumbnail" style="margin-bottom:20px;"></div>
+                  <div class="col-md-4 col-sm-4"><img src="https://media.graphcms.com/resize=fit:clip,width:230/output=format:webp/{{ pagination.items[0].naslovnica.handle }}" alt="" class="img-thumbnail" style="margin-bottom:20px;"></div>
                   <div class="col-md-8 col-sm-8">
                     <h3><a href="/hr/novosti/povezivanje-vise-platformi">Glasilo Židovske zajednice u Hrvatskoj</a></h3>
                     <p>Časopis Ha-Kol glasilo je židovske zajednice u Hrvatskoj, a izlazi pet puta godišnje. Kod oblikovanja časopisa korištena je tipografija prilagođena kontinuiranom tekstu — Lyon dok su naslovi u display tipografiji Marlene. S obzirom na to da su čitatelji časopisa uglavnom starije dobi i nerijetko imaju problema s vidom, veličina tipografije (point size) je nešto veća no što je bila u ranijim izdanjima, što je uvjetovalo i povećanje formata (nekad A4) zbog ograničenog broja stranica. Jednako tako je postavljena hijerarhija veličina — naslov, ‘okvir’, podnaslov i tekući tekst. Kroz cijeli časopis koristi se plava boja Izraelskih nacionalnih simbola.</p>
@@ -76,13 +75,13 @@
               </div>
 
               {% endif %}
-            
+
               <section class="listing-cont" style="padding-top:15px;">
-                <ul style="position: relative;">
+                <ul class="isotope-grid isotope">
                   {% for item in pagination.items %}
                     
-                      <li class="col-md-3 col-sm-3 grid-item post format-image isotope-item" style="border:none!important">
-                        <div class="grid-item-inner" style="min-height:208px;"> <a href="{{ item.naslovnica.url }}" data-rel="prettyPhoto" class="media-box"> <img src="https://media.graphcms.com/resize=fit:crop,width:158/output=format:webp/{{ item.naslovnica.handle }}" alt=""> <span class="zoom" style="width: 158px; height: 208px; line-height: 153px;"><i class="fa fa-search"></i></span></a>
+                      <li class="col-md-3 col-sm-3 grid-item post format-image" style="border:none!important;">
+                        <div class="grid-item-inner" style="min-height:208px;"> <a href="{{ item.naslovnica.url }}" data-rel="prettyPhoto" class="media-box"> <img src="https://media.graphcms.com/resize=fit:crop,width:158/output=format:webp/{{ item.naslovnica.handle }}" alt=""> <span class="zoom"><i class="fa fa-search"></i></span></a>
                         </div>
                         <h5 style="text-align:center;margin:10px 0 5px;">Broj {{ item.broj }}</h5>
                         <h6 style="min-height:36px;"><i>{{ item.period }}</i></h6>

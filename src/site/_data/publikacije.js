@@ -18,7 +18,7 @@ async function getPublikacije() {
             },
             body: JSON.stringify({
                 query: `{
-                    publikacijes(orderBy: updatedAt_DESC, stage: PUBLISHED) {
+                    publikacijes(orderBy: brojIzdanja_DESC, stage: PUBLISHED) {
                         izdanje
                         brojIzdanja
                         period
