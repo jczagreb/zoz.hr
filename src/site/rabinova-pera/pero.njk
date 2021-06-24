@@ -1,0 +1,54 @@
+---
+layout: default
+lang: hr
+pagination:
+  data: pera
+  size: 1
+  alias: pero
+permalink: /hr/iz-rabinovog-pera/{{ pero.slug }}/index.html
+eleventyComputed:
+  p_title: "{{ pero.naslov }}"
+  p_description: "{{ pero.naslov }}"
+  p_id: "pero"
+---
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+            <li><a href="/hr">Početna</a></li>
+            <li><a href="/hr/novosti">Iz rabinovog pera</a></li>
+            <li class="active">{{ pero.naslov }}</li>
+            </ol>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Start Content -->
+<div class="main" role="main">
+    <div id="content" class="content full">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <header class="single-post-header clearfix">
+                <h2 class="post-title">{{ pero.naziv }}</h2>
+                </header>
+                <article class="post-content">
+                    {% if pero.naslovnica %}
+                        <div class="featured-image"> <img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:635/output=format:webp/{{ pero.naslovnica.handle }}" alt=""> </div>
+                    {% else %}
+                        <div class="featured-image"> <img src="/images/iz-rabinovog-pera.jpg" alt=""> </div>
+                    {% endif %}
+                    <span class="post-meta meta-data"><span style="font-size:1.2em;"><i class="fa fa-calendar"></i> Datum objave {{ pero.datum | dateHr }}</span></span>
+                    <br/>
+                    
+                    {{ pero.sadrzaj.html | safe }}
+                    
+                </article>
+            </div>
+
+            {% include "partials/sidebar-page-hr.njk" %}
+
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: default
 pagination:
   data: stranicehr
   size: 1
@@ -9,6 +9,7 @@ eleventyComputed:
     lang: "{{ stranica.lang }}"
     p_title: "{{ stranica.naslov }}"
     p_description: "{{ stranica.naslov }}"
+    p_type: "static"
 ---
 {% if stranica.banner %}
     <div class="nav-backed-header parallax" style="background-image:url({{ stranica.banner.handle }});">

@@ -1,0 +1,35 @@
+---
+permalink: /hr/feed.xml
+eleventyExcludeFromCollections: true
+date: Last Modified
+metadata:
+  title: ŽOZ novosti
+  subtitle: Novosti na web stranicama Židovske općine Zagreb
+  url: https://www.zoz.hr
+  feedUrl: https://www.zoz.hr/hr/feed.xml
+  author:
+    name: zoz.hr
+    email: jcz@zg.t-com.hr
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ metadata.feedUrl }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ novostihr[0].datum }}</updated>
+  <id>{{ metadata.url }}/</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+  {%- for novost in novostihr.slice(0,20) %}
+  <entry>
+    <title>{{ novost.naslov }}</title>
+    <link href="{{ metadata.url + '/hr/novosti/' + novost.slug }}"/>
+    <updated>{{ novost.datum }}</updated>
+    <id>{{ metadata.url + '/hr/novosti/' + novost.slug }}</id>
+    <content type="text/xml;charset=UTF-8">{{ novost.sadrzajtekst }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

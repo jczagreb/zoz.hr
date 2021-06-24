@@ -757,7 +757,7 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 	font-size:13px;
 }
 .navigation > ul > li > a{
-	padding:0 25px;
+	padding:0 15px;
 	display:block;
 	text-decoration:none;
 }
@@ -1585,7 +1585,7 @@ html[xmlns] .slides {
 }
 .event-item .event-detail{
 	float:left;
-	width:70%;
+	width:60%;
 	margin-right:3%
 }
 .event-item .to-event-url{

@@ -10,14 +10,17 @@
             publikacija.push(pub); 
           }
       }
+      if (!publikacija.length){
+        publikacija.push("prazno")
+      }
       return publikacija;
     }
   },
   layout: "default",
   title: "Hadašon",
-  description: "Novi Omanut",
+  description: "Hadašon",
   lang: "hr",
-  permalink: "/hr/publikacije/hadason{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  permalink: "/hr/hadason{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html",
   eleventyComputed: {
     p_title: "Hadašon",
     p_description: "Hadašon",
@@ -32,7 +35,7 @@
       <div class="col-md-12">
         <ol class="breadcrumb">
           <li><a href="/hr">Početna</a></li>
-          <li class="active">Publikacije</li>
+          <li class="active">Izdavaštvo</li>
           <li class="active">{{ p_title }}</li>
         </ol>
       </div>

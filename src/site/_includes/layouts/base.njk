@@ -29,6 +29,7 @@
     <script src="/js/init.js"></script> <!-- All Scripts --> 
     <script src="/plugins/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider --> 
     <script src="/plugins/countdown/js/jquery.countdown.min.js"></script> <!-- Jquery Timer -->
+    {% if p_type != "static"%}
     <script src="/js/search.js"></script> <!-- Search function --> 
     <script>
     $(document).ready(function() {
@@ -39,6 +40,6 @@
         });
     });
     </script>
-
+    {% endif %}
   </body>
 </html>

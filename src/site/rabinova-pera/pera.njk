@@ -1,0 +1,97 @@
+---
+title: Iz rabinovog pera
+description: Iz rabinovog pera
+layout: default
+lang: hr
+pagination:
+  data: pera
+  size: 10
+  alias: pero
+permalink: "/hr/iz-rabinovog-pera{% if pagination.pageNumber > 0 %}/stranica{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+  p_title: "Iz rabinovog pera"
+  p_description: "Iz rabinovog pera"
+---
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Početna</a></li>
+          <li class="active">Iz rabinovog pera</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Nav Backed Header --> 
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size:30px!important;">{{ p_description }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+    <div id="content" class="content full">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-9"> 
+                <!-- Events Listing -->
+                <div class="listing events-listing">
+                    <header class="listing-header">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                        <h3>{{ p_title }}</h3>
+                    </div>
+                    </div>
+                    </header>
+                    <section class="listing-cont">
+                    <ul>
+                    {% for item in pagination.items %}
+
+                    {% if item.naziv != "prazno" %}
+
+                        <li class="item event-item">
+                        <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
+                        <div class="event-date" style="width:45px;display:inline-block;">
+                        {% if item.parshat %}
+                            <img src="/images/torah.png" alt="">
+                        {% endif %}
+                        </div>
+                        <div class="event-detail">
+                            <h4><a href="/hr/iz-rabinovog-pera/{{ item.slug }}" style="color:#000;">{{ item.naslov }}</a></h4>
+                            <span class="event-dayntime meta-data" style="color:#0CC9E8;">{{item.datum | dateHr('cccc') }} 
+                            {% if item.parshat %}
+                              | PARSHAT 
+                            {% endif %}
+                        </div>
+                        <div class="to-event-url">
+                            <div><a href="/hr/iz-rabinovog-pera/{{ item.slug }}" class="btn btn-default btn-sm">Detalji</a></div>
+                        </div>
+                        </li>
+
+                    {% else %}
+
+                    <h4 style="margin-top:50px;">Na žalost trenutno nemamo najavljenih događanja</h4>
+
+                    {% endif %}
+
+                    {% endfor %}
+                    </ul>
+                    </section>
+                </div>
+              </div>
+
+            {% include "partials/sidebar-page-hr.njk" %}
+
+        </div>
+    </div>
+  </div>
+</div>

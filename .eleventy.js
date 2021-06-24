@@ -4,7 +4,7 @@ const got = require("got"); // HTTP request library
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const metagen = require('eleventy-plugin-metagen');
-const { getStranice } = import('./src/site/_data/stranicehr.js');
+const hebrewDate = require("hebrew-date");
 
 module.exports = function (config) {
 
@@ -19,7 +19,6 @@ module.exports = function (config) {
 
   // Layout aliases can make templates more portable
   config.addLayoutAlias('default', 'layouts/base.njk');
-  config.addLayoutAlias('static', 'layouts/page.njk');
 
   /* Filters */
   config.addFilter("squash", require("./src/utils/filters/squash.js") );
