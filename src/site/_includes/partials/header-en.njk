@@ -24,22 +24,21 @@
               <li>
                 <a href="/en">Home</a>
               </li>
-              {% for nav in straniceen %}
-                {% if (nav.navigacija === "o_nama") and (nav.red === 1) %}
-                  <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
-                {% endif %}
-              {% endfor%}
-              <li><a href="#" class="sf-with-ul">Institutions</a>
+              <li><a href="#" class="sf-with-ul">About us</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
-                  {% for nav in straniceen %}
-                    {% if nav.navigacija === "ustanove" %}
-                      <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
-                    {% endif %}
-                  {% endfor%}
+                  <li><a href="#" class="sf-with-ul">Institutions</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in straniceen %}
+                        {% if nav.navigacija === "ONamaUstanove" %}
+                          <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
                   <li><a href="#" class="sf-with-ul">Associations founded or co-founded by ŽOZ</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
                       {% for nav in straniceen %}
-                        {% if nav.navigacija === "ustanove_2" %}
+                        {% if nav.navigacija === "ONamaUdruge" %}
                           <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
                         {% endif %}
                       {% endfor%}
@@ -48,7 +47,7 @@
                   <li><a href="#" class="sf-with-ul">Partner associations</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
                       {% for nav in straniceen %}
-                        {% if nav.navigacija === "ustanove_3" %}
+                        {% if nav.navigacija === "ONamaPartneri" %}
                           <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
                         {% endif %}
                       {% endfor%}

@@ -18,7 +18,7 @@ async function getStranice() {
             },
             body: JSON.stringify({
                 query: `{
-                    stranice(stage: PUBLISHED, orderBy: redoslijed_ASC, locales: [en,hr]) {
+                    stranice(stage: PUBLISHED, orderBy: redoslijed_ASC, locales: en) {
                         naslov
                         slug
                         locale
