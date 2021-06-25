@@ -26,7 +26,7 @@
               </li>
               <li><a href="#" class="sf-with-ul">O nama</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
-                  <li><a href="#" class="sf-with-ul">Ustanove</a>
+                  <li><a href="#" class="sf-with-ul">Ustanove i institucije</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
                       {% for nav in stranicehr %}
                         {% if nav.navigacija === "ONamaUstanove" %}
@@ -73,35 +73,64 @@
               <li><a href="#" class="sf-with-ul">Židovstvo</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
                   {% for nav in stranicehr %}
-                    {% if nav.navigacija === "zidovstvo" %}
+                    {% if nav.navigacija === "Zidovstvo" %}
                       <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
                     {% endif %}
                   {% endfor%}
                   <li><a href="/hr/iz-rabinovog-pera">Iz rabinovog pera</a></li>
-                  <li><a href="#" class="sf-with-ul">Baština</a>
-                    <ul class="dropdown" style="display: none; left: -40px;">
-                      <li><a href="/hr/kultura">Kultura</a></li>
-                      <li><a href="/hr/tradicija">Tradicija</a></li>
-                      <li><a href="/hr/pjesme-i-plesovi">Pjesme i plesovi</a></li>
-                      <li><a href="/hr/kuhinja">Kuhinja</a></li>
-                    </ul>
-                  </li>
                 </ul>
               </li>
               <li><a href="#" class="sf-with-ul">Aktivnosti i programi</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
                   {% for nav in stranicehr %}
-                    {% if nav.navigacija === "aktivnosti" %}
+                    {% if nav.navigacija === "Aktivnosti" %}
+                      <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                    {% endif %}
+                  {% endfor%}
+                  <li><a href="#" class="sf-with-ul">Edukacija</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in stranicehr %}
+                        {% if nav.navigacija === "AktivnostiEdukacija" %}
+                          <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
+                  <li><a href="#" class="sf-with-ul">Kultura</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in stranicehr %}
+                        {% if nav.navigacija === "AktivnostiKultura" %}
+                          <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
+                  <li><a href="#" class="sf-with-ul">Tradicija</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in stranicehr %}
+                        {% if nav.navigacija === "AktivnostiTradicija" %}
+                          <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
+                  <li><a href="#" class="sf-with-ul">Baština</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      <li><a href="/hr/folklor">Folklor</a></li>
+                      <li><a href="/hr/kuhinja">Kuhinja</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#" class="sf-with-ul">Kontakti</a>
+                <ul class="dropdown" style="display: none; left: -40px;">
+                  {% for nav in stranicehr %}
+                    {% if nav.navigacija === "Kontakti" %}
                       <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
                     {% endif %}
                   {% endfor%}
                 </ul>
               </li>
-              {% for nav in stranicehr %}
-                {% if (nav.navigacija === "kontakti") and (nav.red === 1) %}
-                  <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
-                {% endif %}
-              {% endfor %}
             </ul>
           </nav>
         </div>

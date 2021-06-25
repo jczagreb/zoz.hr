@@ -21,9 +21,7 @@
         <div class="col-md-12">
           <nav class="navigation">
              <ul class="sf-menu">
-              <li>
-                <a href="/en">Home</a>
-              </li>
+              <li><a href="/en">Home</a></li>
               <li><a href="#" class="sf-with-ul">About us</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
                   <li><a href="#" class="sf-with-ul">Institutions</a>
@@ -62,37 +60,67 @@
                   <li><a href="/en/opinions">Opinions</a></li>
                 </ul>
               </li>
+              <li><a href="/en/books">Books</a></li>
               <li><a href="#" class="sf-with-ul">Judaism</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
                   {% for nav in straniceen %}
-                    {% if nav.navigacija === "zidovstvo" %}
+                    {% if nav.navigacija === "Zidovstvo" %}
                       <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
                     {% endif %}
                   {% endfor%}
+                </ul>
+              </li>
+              <li><a href="#" class="sf-with-ul">Activities & Programs</a>
+                <ul class="dropdown" style="display: none; left: -40px;">
+                  {% for nav in straniceen %}
+                    {% if nav.navigacija === "Aktivnosti" %}
+                      <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                    {% endif %}
+                  {% endfor%}
+                  <li><a href="#" class="sf-with-ul">Education</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in straniceen %}
+                        {% if nav.navigacija === "AktivnostiEdukacija" %}
+                          <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
+                  <li><a href="#" class="sf-with-ul">Culture</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in straniceen %}
+                        {% if nav.navigacija === "AktivnostiKultura" %}
+                          <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
+                  <li><a href="#" class="sf-with-ul">Tradicion</a>
+                    <ul class="dropdown" style="display: none; left: -40px;">
+                      {% for nav in straniceen %}
+                        {% if nav.navigacija === "AktivnostiTradicija" %}
+                          <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
+                    </ul>
+                  </li>
                   <li><a href="#" class="sf-with-ul">Heritage</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
-                      <li><a href="/en/culture">Culture</a></li>
-                      <li><a href="/en/tradition">Tradition</a></li>
-                      <li><a href="/en/songs-and-dance">Songs & dance</a></li>
+                      <li><a href="/en/folclore">Folclore</a></li>
                       <li><a href="/en/cuisine">Cuisine</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li><a href="#" class="sf-with-ul">Activities</a>
+              <li><a href="#" class="sf-with-ul">Contact us</a>
                 <ul class="dropdown" style="display: none; left: -40px;">
                   {% for nav in straniceen %}
-                    {% if nav.navigacija === "aktivnosti" %}
+                    {% if nav.navigacija === "Kontakti" %}
                       <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
                     {% endif %}
                   {% endfor%}
                 </ul>
               </li>
-              {% for nav in straniceen %}
-                {% if (nav.navigacija === "kontakti") and (nav.red === 1) %}
-                  <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
-                {% endif %}
-              {% endfor %}
             </ul>
           </nav>
         </div>
