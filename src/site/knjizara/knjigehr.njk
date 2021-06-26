@@ -4,7 +4,7 @@ description: Knjige Židovske općine Zagreb
 layout: default
 lang: hr
 pagination:
-  data: novostihr
+  data: knjigehr
   size: 10
   alias: knjige
 permalink: "/hr/knjige{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
@@ -45,18 +45,28 @@ eleventyComputed:
     <div class="container">
       <div class="row">
         <div class="col-md-9 posts-archive">
+
           {% for item in pagination.items %}
+
+          {% if item.naziv != "prazno" %}
+
           <article class="post">
             <div class="row">
               <div class="col-md-4 col-sm-4"> <a href="/hr/knjige/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:230/output=format:webp/HjNWlhfpSmy8krD9UtRH" alt="" class="img-thumbnail"></a> </div>
               <div class="col-md-8 col-sm-8">
-                <h3><a href="/hr/knjige/{{ item.slug }}">{{ item.naslov }}</a></h3>
-                <span class="post-meta meta-data"> <span style="font-size:1.2em;">Autor: Saša Cvetković. ISBN: 9789538326233</span></span>
-                <p>{{ item.isjecak }}</p>
+                <h3><a href="/hr/knjige/{{ item.slug }}">{{ item.naziv }}</a></h3>
+                <span class="post-meta meta-data"> <span style="font-size:1.2em;">Autor: {{ item.autor }}. {% if item.isbn %}ISBN: {{ item.isbn }}.{% endif %} {% if item.cip %}CIP: {{ item.cip }}.{% endif %}</span></span>
                 <p><a href="/hr/knjige/{{ item.slug }}" class="btn btn-primary">Više o knjizi <i class="fa fa-long-arrow-right"></i></a></p>
               </div>
             </div>
           </article>
+
+          {% else %}
+
+          <h4 style="margin-top:50px;">Na žalost trenutno nemamo niti jednu knjigu na popisu</h4>
+
+          {% endif %}
+
           {% endfor %}
 
           {% include "partials/pagination.njk" %}

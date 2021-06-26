@@ -2920,9 +2920,9 @@ span.progress-bar-tooltip:after {
 	.staff-item{
 		margin-bottom:30px;
 	}
-	#back-to-top{
+	/*#back-to-top{
 		display:none!important;
-	}
+	}*/
 	/* Added in v1.2 */
 	.news-portal-cats{
 		margin-bottom:20px;

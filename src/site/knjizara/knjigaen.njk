@@ -1,13 +1,13 @@
 ---
 layout: default
-lang: hr
+lang: en
 pagination:
-  data: knjigehr
+  data: knjigeen
   size: 1
   alias: knjiga
-permalink: /hr/knjige/{{ knjiga.slug }}/index.html
+permalink: /en/books/{{ knjiga.slug }}/index.html
 eleventyComputed:
-  p_title: "{{ knjiga.naziv }}"
+  p_title: "{{ item.naziv }}"
   p_type: "knjiga"
   p_id: "knjige"
 ---

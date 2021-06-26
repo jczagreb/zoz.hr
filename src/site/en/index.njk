@@ -2,6 +2,7 @@
 layout: default
 p_title: Homepage
 p_description: Homepage
+p_id: home
 ---
 <!-- Start Hero Slider -->
 <div class="hero-slider flexslider clearfix" data-autoplay="no" data-pagination="no" data-arrows="no" data-style="fade" data-pause="yes">
@@ -41,14 +42,14 @@ p_description: Homepage
           <!-- Latest News -->
           <div class="listing post-listing">
             <header class="listing-header">
-              <h3>Latest News</h3>
+              <h2>Latest News</h2>
             </header>
             <section class="listing-cont">
               <ul>
                 
                 {% for item in novostien | limit(5) %}
 
-                <li class="item post">
+                <li class="item post" {% if loop.last %} style="border-bottom:none;" {% endif %}>
                   <div class="row">
                     <div class="col-md-4"><a href="/en/news/{{ item.slug }}" class="media-box"> <img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"> </a></div>
                     <div class="col-md-8">
@@ -71,6 +72,12 @@ p_description: Homepage
         <div class="col-md-4 sidebar">
 
           {% include 'partials/search.njk' %}
+          <ul class="ds-btn" style="margin-bottom:30px;">
+            <li>
+                <a class="btn btn-lg btn-info" style="display:block" href="#">
+                <i class="fa fa-calendar pull-left" style="font-size:2em;"></i><span>Calendar 2021. / 5781.<br><small style="font-size:85%;text-transform:none;font-weight:400">Download as PDF</small></span></a> 
+            </li>
+          </ul>
 
           <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
@@ -108,6 +115,9 @@ p_description: Homepage
         </div>
       </div>
       <div class="row">
+       <header class="listing-header">
+          <h2>About ŽOZ</h2>
+        </header>
         <div class="listing single-cause-teaser">
             <section class="listing-cont cause-item">
               <div class="row">
@@ -115,7 +125,6 @@ p_description: Homepage
                       <img src="/images/aboutus.jpg" alt="" style="padding-bottom:20px;">
                   </div>
                   <div class="col-md-9">
-                      <h3>About ŽOZ</h3>
                       <p>The Jewish community of Zagreb was founded in 1806, and its membership then consisted of about seventy members. Thanks to changes in society, Jews acquired civil rights which resulted in the growth and strengthening of the community.</p>
                       <p>The Jewish community in Zagreb reached its heyday and culmination in economic, cultural and sociological terms between the two wars. In 1941, it had 11,000 members, whose activities were organized through numerous cultural, charitable and sports Jewish organizations. Only one quarter of Zagreb's Jews survived World War II.</p>
                       <p>Today, the Jewish community of Zagreb has about 1,500 members, and continues its activities to preserve tradition, culture and identity, about which you can find out more on our website.</p>
