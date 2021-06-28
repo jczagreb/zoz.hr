@@ -52,7 +52,7 @@ eleventyComputed:
 
           <article class="post">
             <div class="row">
-              <div class="col-md-4 col-sm-4"> <a href="/hr/knjige/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:230/output=format:webp/HjNWlhfpSmy8krD9UtRH" alt="" class="img-thumbnail"></a> </div>
+              <div class="col-md-4 col-sm-4"> <a href="/hr/knjige/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:150/output=format:webp/{{ item.naslovnica.handle }}" alt="" class="img-thumbnail"></a> </div>
               <div class="col-md-8 col-sm-8">
                 <h3><a href="/hr/knjige/{{ item.slug }}">{{ item.naziv }}</a></h3>
                 <span class="post-meta meta-data"> <span style="font-size:1.2em;">Autor: {{ item.autor }}. {% if item.isbn %}ISBN: {{ item.isbn }}.{% endif %} {% if item.cip %}CIP: {{ item.cip }}.{% endif %}</span></span>

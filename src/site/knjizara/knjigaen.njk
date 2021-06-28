@@ -9,7 +9,7 @@ permalink: /en/books/{{ knjiga.slug }}/index.html
 eleventyComputed:
   p_title: "{{ item.naziv }}"
   p_type: "knjiga"
-  p_id: "knjige"
+  p_id: "knjiga"
 ---
 <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
     <div class="container">
@@ -44,34 +44,35 @@ eleventyComputed:
                 <article class="post-content">
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="/hr/novosti/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:230/output=format:webp/HjNWlhfpSmy8krD9UtRH" alt="" class="img-thumbnail"></a>
+                            <img src="https://media.graphcms.com/resize=fit:clip,width:230/output=format:webp/{{ knjiga.naslovnica.handle }}" alt="" class="img-thumbnail">
                         </div>
                         <div class="col-md-8">
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="background-color: #0CC9E8;color:#fff">
-                                    <h3 class="panel-title">Detalji knjige</h3>
+                                    <h3 class="panel-title">Book details</h3>
                                 </div>
                                 <div class="panel-body" style="padding: 15px 0!important;">
                                     <ul class="info-table">
-                                        <li style="padding: 10px 10px!important;"><strong>Naziv knjige:</strong><span style="margin-left:20px;">{{ knjiga.naziv }}</span></li>
-                                        <li style="padding: 10px 10px!important;"><strong>Autor:</strong><span style="margin-left:20px;">9789538326233</span></li>
-                                        <li style="padding: 10px 10px!important;"><strong>ISBN:</strong><span style="margin-left:20px;">Saša Cvetković</span></li>
-                                        <li style="padding: 10px 10px!important;"><strong>Izdavač:</strong><span style="margin-left:20px;">Ovaj i onaj</span></li>
-                                        <li style="padding: 10px 10px!important;"><strong>Jezik:</strong><span style="margin-left:20px;">Hrvatski</span></li>
-                                        <li style="padding: 10px 10px!important;"><strong>Broj stranica:</strong><span style="margin-left:20px;">537</span></li>
+                                        <li style="padding: 10px 10px!important;"><strong>Title:</strong><span style="margin-left:20px;">{{ knjiga.naziv }}</span></li>
+                                        <li style="padding: 10px 10px!important;"><strong>Author:</strong><span style="margin-left:20px;">{{ knjiga.autor }}</span></li>
+                                        <li style="padding: 10px 10px!important;"><strong>ISBN:</strong><span style="margin-left:20px;">{{ knjiga.isbn }}</span></li>
+                                        <li style="padding: 10px 10px!important;"><strong>CIP:</strong><span style="margin-left:20px;">{{ knjiga.cip }}</span></li>
+                                        <li style="padding: 10px 10px!important;"><strong>Publisher:</strong><span style="margin-left:20px;">{{ knjiga.izdavac }}</span></li>
+                                        <li style="padding: 10px 10px!important;"><strong>Language:</strong><span style="margin-left:20px;">{{ knjiga.jezik }}</span></li>
+                                        <li style="padding: 10px 10px!important;"><strong>Number of pages:</strong><span style="margin-left:20px;">{{ knjiga.brojStranica }}</span></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <hr/>
-                    <h2>Opis knjige</h2>
-                    Nina pomaže ljudima da pronađu idealno štivo za sebe. Uparivanje čitatelja s tom jednom savršenom knjigom njezina je strast… a ujedno i posao. Ili je barem bilo tako. Do jučer je bila knjižničarka u užurbanom gradu, no sada više nema posao koji je voljela. Odlučna sebi stvoriti novi život, Nina se seli u uspavano selo udaljeno mnogo kilometara od urbane vreve. Ondje kupuje kombi i pretvara ga u bookmobile – pokretnu knjižaru koju vozi iz susjedstva u susjedstvo, mijenjajući usput živote snagom pripovijedanja.
+                    <h2>Book description</h2>
+                    {{ knjiga.opis | safe }}
                     
                 </article>
             </div>
 
-            {% include "partials/sidebar-page-hr.njk" %}
+            {% include "partials/sidebar-page-en.njk" %}
 
         </div>
     </div>
