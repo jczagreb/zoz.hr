@@ -12,7 +12,7 @@ eleventyComputed:
     p_id: "{{ stranica.navigacija }}"
 ---
 {% if stranica.banner %}
-    <div class="nav-backed-header parallax" style="background-image:url({{ stranica.banner.handle }});">
+    <div class="nav-backed-header parallax" style="background-image:url(https://media.graphcms.com/output=format:webp/{{ stranica.banner.handle }});">
 {% else %}
     <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
 {% endif %}
