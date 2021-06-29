@@ -18,10 +18,24 @@ eleventyComputed:
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="/hr">Početna</a></li>
-            <li><a href="/hr/novosti">Iz rabinovog pera</a></li>
+            <li><a href="/hr/iz-rabinovog-pera">Iz rabinovog pera</a></li>
             <li class="active">{{ pero.naslov }}</li>
             </ol>
         </div>
+        </div>
+    </div>
+</div>
+<!-- Start Page Header -->
+<div class="page-header">
+    <div class="container">
+        <div class="col-md-10 col-sm-10 col-xs-8">
+            <h1 style="font-size:30px!important;">
+            {% if pero.parshat %}
+                Paraša
+            {% else %}
+                Rabinova riječ    
+            {% endif %}
+            </h1>
         </div>
     </div>
 </div>
@@ -32,7 +46,7 @@ eleventyComputed:
         <div class="row">
             <div class="col-md-9">
                 <header class="single-post-header clearfix">
-                <h2 class="post-title">{{ pero.naziv }}</h2>
+                <h2 class="post-title">{{ pero.naslov }}</h2>
                 </header>
                 <article class="post-content">
                     {% if pero.naslovnica %}

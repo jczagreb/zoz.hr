@@ -1585,12 +1585,12 @@ html[xmlns] .slides {
 }
 .event-item .event-detail{
 	float:left;
-	width:60%;
+	width:50%;
 	margin-right:3%
 }
 .event-item .to-event-url{
 	float:left;
-	width:17%;
+	width:25%;
 	text-align:right;
 	display:table;
 	vertical-align:middle;
@@ -3036,7 +3036,7 @@ span.progress-bar-tooltip:after {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     background-color: #f4f6f9;
-    color: #626569;
+    color: #626569;17%
     width: 100%;
     line-height: 47px;
     float: left;

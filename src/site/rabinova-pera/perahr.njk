@@ -18,7 +18,7 @@ eleventyComputed:
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
-          <li><a href="index.html">Početna</a></li>
+          <li><a href="/hr">Početna</a></li>
           <li class="active">Iz rabinovog pera</li>
         </ol>
       </div>
@@ -67,13 +67,24 @@ eleventyComputed:
                         </div>
                         <div class="event-detail">
                             <h4><a href="/hr/iz-rabinovog-pera/{{ item.slug }}" style="color:#000;">{{ item.naslov }}</a></h4>
-                            <span class="event-dayntime meta-data" style="color:#0CC9E8;">{{item.datum | dateHr('cccc') }} 
+                            <span class="event-dayntime meta-data" style="color:#0CC9E8;">
+                            {% if (item.datum | dateHr('cccc')) === "subota" %}
+                              šabat
+                            {% else %}
+                              {{item.datum | dateHr('cccc') }}
+                            {% endif %} 
                             {% if item.parshat %}
-                              | PARSHAT 
+                              | PARAŠA
                             {% endif %}
                         </div>
                         <div class="to-event-url">
-                            <div><a href="/hr/iz-rabinovog-pera/{{ item.slug }}" class="btn btn-default btn-sm">Pročitajte više</a></div>
+                            <div><a href="/hr/iz-rabinovog-pera/{{ item.slug }}" class="btn btn-default btn-sm">
+                            {% if item.parshat %}
+                              Tjedna porcija Tore
+                            {% else %}
+                              Rabinova riječ
+                            {% endif %}
+                            </a></div>
                         </div>
                         </li>
 

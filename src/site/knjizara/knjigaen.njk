@@ -56,8 +56,12 @@ eleventyComputed:
                                     <ul class="info-table">
                                         <li style="padding: 10px 10px!important;"><strong>Title:</strong><span style="margin-left:20px;">{{ knjiga.naziv }}</span></li>
                                         <li style="padding: 10px 10px!important;"><strong>Author:</strong><span style="margin-left:20px;">{{ knjiga.autor }}</span></li>
+                                        {% if knjiga.isbn %}
                                         <li style="padding: 10px 10px!important;"><strong>ISBN:</strong><span style="margin-left:20px;">{{ knjiga.isbn }}</span></li>
+                                        {% endif %}
+                                        {% if knjiga.cip %}
                                         <li style="padding: 10px 10px!important;"><strong>CIP:</strong><span style="margin-left:20px;">{{ knjiga.cip }}</span></li>
+                                        {% endif %}
                                         <li style="padding: 10px 10px!important;"><strong>Publisher:</strong><span style="margin-left:20px;">{{ knjiga.izdavac }}</span></li>
                                         <li style="padding: 10px 10px!important;"><strong>Language:</strong><span style="margin-left:20px;">{{ knjiga.jezik }}</span></li>
                                         <li style="padding: 10px 10px!important;"><strong>Number of pages:</strong><span style="margin-left:20px;">{{ knjiga.brojStranica }}</span></li>
@@ -67,7 +71,7 @@ eleventyComputed:
                         </div>
                     </div>
                     <hr/>
-                    <h2>Book description</h2>
+                    <h2>More about this book</h2>
                     {{ knjiga.opis | safe }}
                     
                 </article>

@@ -47,7 +47,13 @@ eleventyComputed:
           {% for item in pagination.items %}
           <article class="post">
             <div class="row">
-              <div class="col-md-4 col-sm-4"> <a href="/en/news/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a> </div>
+              <div class="col-md-4 col-sm-4">
+              {% if item.foto %}
+                <img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a>
+              {% else %}
+                <img src="/images/novosti.jpg" alt="" class="img-thumbnail"></a>
+              {% endif %}
+              </div>
               <div class="col-md-8 col-sm-8">
                 <h3><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></h3>
                 <span class="post-meta meta-data"> <span style="font-size:1.2em;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn('dd. LLLL yyyy.') }}</span></span>

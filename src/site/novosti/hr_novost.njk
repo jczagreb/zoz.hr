@@ -52,7 +52,13 @@ eleventyComputed:
                 <h2 class="post-title">{{ novost.naslov }}</h2>
                 </header>
                 <article class="post-content">
-                    <div class="featured-image"> <img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:635/output=format:webp/{{ novost.foto.handle }}" alt=""> </div>
+                    <div class="featured-image">
+                    {% if item.foto %}
+                        <img src="https://media.graphcms.com/resize=fit:clip,width:1200,height:635/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a>
+                    {% else %}
+                        <img src="/images/novosti.jpg" alt="" class="img-thumbnail"></a>
+                    {% endif %}
+                    </div>
                     <span class="post-meta meta-data"><span style="font-size:1.2em;"><i class="fa fa-calendar"></i> Datum objave {{ novost.datum | dateHr }}</span></span>
                     <br/>
                     

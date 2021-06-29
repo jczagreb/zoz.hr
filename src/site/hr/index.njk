@@ -17,14 +17,14 @@ p_id: home
     <div class="row">
         <div class="col-md-6">
           {% for nav in stranicehr %}
-            {% if (nav.navigacija === "sigurnost") and (nav.red === 1) %}
+            {% if (nav.navigacija === "Sigurnost") and (nav.red === 1) %}
               <a href="/hr/{{ nav.slug }}" class="btn btn-warning" type="button" style="margin-left:auto;margin-right:auto;display:block;width: 250px;">{{ nav.naslov }}</a>
             {% endif %}
           {% endfor %}
         </div>
         <div class="col-md-6">
           {% for nav in stranicehr %}
-            {% if (nav.navigacija === "sigurnost") and (nav.red === 2) %}
+            {% if (nav.navigacija === "Sigurnost") and (nav.red === 2) %}
               <a href="/hr/{{ nav.slug }}" class="btn btn-info" type="button" style="margin-left:auto;margin-right:auto;display:block;width: 250px;">{{ nav.naslov }}</a>
             {% endif %}
           {% endfor %}
@@ -39,31 +39,21 @@ p_id: home
     <div class="container">
       <div class="row">
         <div class="col-md-8">
+        
           <!-- Latest News -->
           <div class="listing post-listing">
             <header class="listing-header">
-              <h2>Najnovije vijesti</h2>
+              <h2>O nama</h2>
             </header>
             <section class="listing-cont">
-              <ul>
-
-                {% for item in novostihr | limit(5) %}
-
-                <li class="item post" {% if loop.last %} style="border-bottom:none;" {% endif %}>
-                  <div class="row">
-                    <div class="col-md-4"><a href="/hr/novosti/{{ item.slug }}" class="media-box"> <img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"> </a></div>
-                    <div class="col-md-8">
-                      <div class="post-title">
-                        <h2><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></h2>
-                        <span class="meta-data" style="font-size: 1em;"><i class="fa fa-calendar"></i> {{item.datum | dateHr }}</span></div>
-                      <p>{{ item.isjecak }}</p>
-                    </div>
-                  </div>
-                </li>
-                  
-                {% endfor %}
-
-              </ul>
+              <img src="/images/onama.jpg" alt="" style="margin-bottom:30px;">
+              <p>Židovska općina Zagreb osnovana je 1806. godine, a njezino članstvo se tada sastojalo od sedamdesetak članova. Zahvaljujući promjenama u društvu Židovi su stjecali građanska prava što je rezultiralo rastom i jačanjem zajednice.</p>
+              <p>Svoj procvat i kulminaciju u gospodarskom, kulturološkom i sociološkom smislu Židovska zajednica u Zagrebu postigla je između dva rata. Godine 1941. brojala je 11.000 članova, čije je djelovanje bilo organizirano kroz brojne kulturološke, karitativne i sportske židovske organizacije. Drugi svjetski rat preživjela je samo jedna četvrtina zagrebačkih Židova.</p>
+              <p>Danas Židovska općina Zagreb broji oko 1500 članova, te nastavlja djelatnosti na očuvanju tradicije, kulture i identiteta, o čemu više možete saznati na našim stranicama.</p>
+              <h3>Povijest</h3>
+              <p>Židovska općina Zagreb osnovana je 1806. godine, a njezino članstvo se tada sastojalo od sedamdesetak članova. Zahvaljujući promjenama u društvu Židovi su stjecali građanska prava što je rezultiralo rastom i jačanjem zajednice.</p>
+              <p>Svoj procvat i kulminaciju u gospodarskom, kulturološkom i sociološkom smislu Židovska zajednica u Zagrebu postigla je između dva rata. Godine 1941. brojala je 11.000 članova, čije je djelovanje bilo organizirano kroz brojne kulturološke, karitativne i sportske židovske organizacije. Drugi svjetski rat preživjela je samo jedna četvrtina zagrebačkih Židova.</p>
+              <p>Danas Židovska općina Zagreb broji oko 1500 članova, te nastavlja djelatnosti na očuvanju tradicije, kulture i identiteta, o čemu više možete saznati na našim stranicama.</p>
             </section>
           </div>
           <div class="spacer-30"></div>
@@ -136,28 +126,6 @@ p_id: home
 
             </ul>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <header class="listing-header">
-          <h2>O nama</h2>
-        </header>
-        <div class="listing single-cause-teaser">
-            <section class="listing-cont cause-item">
-              <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                      <img src="/images/aboutus.jpg" alt="" style="padding-bottom:20px;">
-                  </div>
-                  <div class="col-md-9">
-                      <p>Židovska općina Zagreb osnovana je 1806. godine, a njezino članstvo se tada sastojalo od sedamdesetak članova. Zahvaljujući promjenama u društvu Židovi su stjecali građanska prava što je rezultiralo rastom i jačanjem zajednice.</p>
-                      <p>Svoj procvat i kulminaciju u gospodarskom, kulturološkom i sociološkom smislu Židovska zajednica u Zagrebu postigla je između dva rata. Godine 1941. brojala je 11.000 članova, čije je djelovanje bilo organizirano kroz brojne kulturološke, karitativne i sportske židovske organizacije. Drugi svjetski rat preživjela je samo jedna četvrtina zagrebačkih Židova.</p>
-                      <p>Danas Židovska općina Zagreb broji oko 1500 članova, te nastavlja djelatnosti na očuvanju tradicije, kulture i identiteta, o čemu više možete saznati na našim stranicama.</p>
-                      <h3>Povijest</h3>
-                      <p>Židovska općina Zagreb osnovana je 1806. godine, a njezino članstvo se tada sastojalo od sedamdesetak članova. Zahvaljujući promjenama u društvu Židovi su stjecali građanska prava što je rezultiralo rastom i jačanjem zajednice.</p>
-                      <p>Svoj procvat i kulminaciju u gospodarskom, kulturološkom i sociološkom smislu Židovska zajednica u Zagrebu postigla je između dva rata. Godine 1941. brojala je 11.000 članova, čije je djelovanje bilo organizirano kroz brojne kulturološke, karitativne i sportske židovske organizacije. Drugi svjetski rat preživjela je samo jedna četvrtina zagrebačkih Židova.</p>
-                      <p>Danas Židovska općina Zagreb broji oko 1500 članova, te nastavlja djelatnosti na očuvanju tradicije, kulture i identiteta, o čemu više možete saznati na našim stranicama.</p>
-                  </div>
-              </div>
         </div>
       </div>
     </div>
