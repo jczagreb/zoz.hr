@@ -33,6 +33,9 @@ async function getStranice() {
                         inlineSlika {
                             url
                         }
+                        bojaBannera{
+                            css
+                        }
                     }
                 }`
             })
@@ -68,7 +71,8 @@ async function getStranice() {
             sadrzaj: item.sadrzaj.html,
             navigacija: item.navigacija,
             red: item.redoslijed,
-            inlineslika: item.inlineSlika
+            inlineslika: item.inlineSlika,
+            boja: item.bojaBannera
         };
     }).filter(Boolean);
 

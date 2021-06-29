@@ -3056,3 +3056,7 @@ span.progress-bar-tooltip:after {
     width: 100%;
     background-color: yellow;
 }
+.breadcrumb li {
+	font-size:1.1em;
+	text-shadow: 1px 1px #000;
+}

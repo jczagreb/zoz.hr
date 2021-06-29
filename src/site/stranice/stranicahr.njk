@@ -4,6 +4,7 @@ pagination:
   data: stranicehr
   size: 1
   alias: stranica
+  addAllPagesToCollections: true
 permalink: /hr/{{ stranica.slug }}/index.html
 eleventyComputed:
     lang: "{{ stranica.lang }}"
@@ -13,6 +14,8 @@ eleventyComputed:
 ---
 {% if stranica.banner %}
     <div class="nav-backed-header parallax" style="background-image:url(https://media.graphcms.com/output=format:webp/{{ stranica.banner.handle }});">
+{% elseif stranica.boja %}
+    <div class="nav-backed-header parallax" style="background-color:{{ stranica.boja }};">
 {% else %}
     <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
 {% endif %}
