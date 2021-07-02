@@ -3054,6 +3054,26 @@ span.progress-bar-tooltip:after {
 	text-shadow: 1px 1px #000;
 }
 .single-post-content-wrapper img {
-	display: block;
 	margin: 30px auto 30px;
+	display: block;
+    height: auto;
+    max-width: 100%;
+    padding: 4px;
+    line-height: 1.428571429;
+    background: #f8f7f3;
+    border: 1px solid #eceae4;
+    border-radius: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.inline-slika img {
+	display: block;
+	padding-bottom:20px;
+	padding: 4px;
+    line-height: 1.428571429;
+    background: #f8f7f3;
+    border: 1px solid #eceae4;
+    border-radius: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
