@@ -18,7 +18,7 @@
             <ul>
                 {% for item in novostien %}
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/news/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %};color:#0CC9E8;
             </ul>
         </div>
@@ -29,7 +29,7 @@
             <ul>
                 {% for item in osvrtien %}
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/opinions/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/opinions/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -46,7 +46,7 @@
                 {% if item.naziv != "prazno" %}
 
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/events/{{ item.slug }}"><strong>{{ item.naziv }}</strong></a></li>    
+                    <li><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></li>    
 
                 {% else %}
 
@@ -63,7 +63,7 @@
             <ul>
                 {% for item in osvrtien %}
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/opinions/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/opinions/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -80,7 +80,7 @@
                 {% if item.naziv != "prazno" %}
 
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/events/{{ item.slug }}"><strong>{{ item.naziv }}</strong></a></li>    
+                    <li><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></li>    
 
                 {% else %}
 
@@ -97,7 +97,7 @@
             <ul>
                 {% for item in novostien %}
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/news/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -113,7 +113,7 @@
                 {% if item.naziv != "prazno" %}
 
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/events/{{ item.slug }}"><strong>{{ item.naziv }}</strong></a></li>    
+                    <li><a href="/en/events/{{ item.slug }}">{{ item.naziv }}</a></li>    
 
                 {% else %}
 
@@ -130,7 +130,7 @@
             <ul>
                 {% for item in novostien %}
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/news/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -141,7 +141,7 @@
             <ul>
                 {% for item in osvrtien %}
                     <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn }}</span>
-                    <li><a href="/en/opinions/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/opinions/{{ item.slug }}">{{ item.naslov }}</a></li>    
                 {% endfor %}
             </ul>
         </div>
@@ -157,7 +157,7 @@
 
                 {% if item.navigacija === "ONamaUstanove" %}
 
-                    <li><a href="/en/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/{{ item.slug }}">{{ item.naslov }}</a></li>    
 
                 {% endif %}
 
@@ -176,7 +176,7 @@
 
                 {% if item.navigacija === "ONamaUdruge" %}
 
-                    <li><a href="/en/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/{{ item.slug }}">{{ item.naslov }}</a></li>    
 
                 {% endif %}
 
@@ -195,7 +195,7 @@
 
                 {% if item.navigacija === "ONamaPartneri" %}
 
-                    <li><a href="/en/{{ item.slug }}"><strong>{{ item.naslov }}</strong></a></li>    
+                    <li><a href="/en/{{ item.slug }}">{{ item.naslov }}</a></li>    
 
                 {% endif %}
 
