@@ -331,7 +331,7 @@ dl dt{
 	font-weight:700;
 }
 address.ico i{
-	display:inline-block;
+	display:block;
 	float: left;
 	clear:both;
 	padding-top: 3px;
@@ -761,8 +761,6 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 	display:block;
 	text-decoration:none;
 }
-.navigation ul > li > a:hover, .navigation ul > li > a.current{
-}
 .navigation > ul > li ul{
 	position:absolute;
 	top:60px;
@@ -995,7 +993,7 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 	height:20px;
 	text-align:center;
 	line-height:20px;
-	display:inline-block;
+	display:block;
 	margin-top:9px;
 	margin-right:5px;
 	float:left;
@@ -1169,6 +1167,7 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 .flexslider .slides > li {
 	display: none;
 	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 .slides:after {
 	content: ".";
@@ -1433,7 +1432,7 @@ html[xmlns] .slides {
 }
 /* End Added in v1.5 */
 .notice-bar-title-icon{
-	display:inline-block;
+	display:block;
 	float:left;
 	margin-right:15px;
 }
@@ -1797,8 +1796,6 @@ ol.breadcrumb > .active{
 .grid-content .fa-external-link{
 	margin-left:10px;
 }
-.events-grid .grid-item{
-}
 .grid-item h3{
 	line-height:1em;
 }
@@ -1824,8 +1821,6 @@ ol.breadcrumb > .active{
 }
 .single-post-header .sermon-actions, .post-comments-count{
 	margin-top:15px;
-}
-.event-description{
 }
 .event-description .panel-body{
 	padding:10px 0;
@@ -2313,8 +2308,6 @@ ol.breadcrumb > .active{
 ================================================== */
 .tabs{
 	margin-bottom:25px;
-}
-.nav-tabs{
 }
 .nav-tabs li{
 	position:relative;
@@ -3036,7 +3029,7 @@ span.progress-bar-tooltip:after {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     background-color: #f4f6f9;
-    color: #626569;17%
+    color: #626569;
     width: 100%;
     line-height: 47px;
     float: left;
@@ -3059,4 +3052,8 @@ span.progress-bar-tooltip:after {
 .breadcrumb li {
 	font-size:1.1em;
 	text-shadow: 1px 1px #000;
+}
+.single-post-content-wrapper img {
+	display: block;
+	margin: 30px auto 30px;
 }
