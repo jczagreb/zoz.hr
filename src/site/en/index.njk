@@ -97,6 +97,44 @@ p_id: home
 
             </ul>
           </div>
+          <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+              <h3>Latest news</h3>
+            </div>
+            <ul>
+
+            {% for item in novostien | limit(5) %}
+
+              <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+              <li><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></li>    
+              
+            {% endfor %}
+
+            </ul>
+          </div>
+          <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+              <h3>Opinions</h3>
+            </div>
+            <ul>
+
+            {% if osvrtien | length %}
+
+            {% for item in osvrtien | limit(5) %}
+
+              <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+              <li><a href="/en/opinions/{{ item.slug }}">{{ item.naslov }}</a></li>    
+              
+            {% endfor %}
+
+            {% else %}
+
+              <p>Currently we don't have any published opinions</p>
+
+            {% endif %}
+
+            </ul>
+          </div>
         </div>
       </div>
     </div>
