@@ -3,10 +3,10 @@ const fetch = require("node-fetch");
 const slugify = require('slugify');
 
 // get Objave
-async function getStranice() {
+async function getAktivnosti() {
 
     // Objave array
-    let svestranice = [];
+    let sveaktivnosti = [];
 
     try {
         // initiate fetch
@@ -18,25 +18,10 @@ async function getStranice() {
             },
             body: JSON.stringify({
                 query: `{
-                    stranice(stage: PUBLISHED, orderBy: redoslijed_ASC, locales: en) {
-                        id
+                    najaveAktivnosti(orderBy: publishedAt_DESC, stage: PUBLISHED) {
                         naslov
-                        slug
-                        locale
-                        banner{
-                            handle
-                        }
-                        sadrzaj {
-                            html
-                        }
-                        redoslijed
-                        navigacija
-                        inlineSlika {
-                            url
-                        }
-                        bojaBannera {
-                            css
-                        }
+                        stranica
+                        publishedAt
                     }
                 }`
             })
@@ -55,32 +40,25 @@ async function getStranice() {
         }
 
         // update blogpost array with the data from the JSON response
-        svestranice = svestranice.concat(response.data.stranice);
+        sveaktivnosti = sveaktivnosti.concat(response.data.najaveAktivnosti);
 
     } catch (error) {
         throw new Error(error);
     }
 
     // format blogposts objects
-    const stranice = svestranice.map((item) => {
+    const aktivnosti = sveaktivnosti.map((item) => {
 
         return {
-            id:item.id,
             naslov: item.naslov,
-            slug: item.slug,
-            lang: item.locale,
-            banner: item.banner,
-            sadrzaj: item.sadrzaj.html,
-            navigacija: item.navigacija,
-            red: item.redoslijed,
-            inlineslika: item.inlineSlika,
-            boja: item.bojaBannera
+            stranica: item.stranica,
+            datum: item.publishedAt
         };
     }).filter(Boolean);
-    
+
     // return formatted blogposts
-    return stranice;
+    return aktivnosti;
 }
 
 // export for 11ty
-module.exports = getStranice;
+module.exports = getAktivnosti;

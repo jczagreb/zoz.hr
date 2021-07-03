@@ -3053,7 +3053,7 @@ span.progress-bar-tooltip:after {
 	font-size:1.1em;
 	text-shadow: 1px 1px #000;
 }
-.single-post-content-wrapper img {
+.single-post-content-wrapper img, article.post-content img {
 	margin: 30px auto 30px;
 	display: block;
     height: auto;

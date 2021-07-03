@@ -45,21 +45,24 @@ eleventyComputed:
 <div class="main" role="main">
 <div id="content" class="content full">
     <div class="container">
-    <div class="row">
-        <div class="col-md-9">
-            {% if stranica.inlineslika.url %}
-            <div class="col-lg-3 col-md-3 col-sm-3 inline-slika">
-                <img src="{{ stranica.inlineslika.url }}" width="90%" alt="">
+        <div class="row">
+            <div class="col-md-9">
+                {% if stranica.inlineslika.url %}
+                <div class="col-lg-6 col-md-6 col-sm-6 inline-slika" style="padding: 0 0 20px;">
+                    <img src="{{ stranica.inlineslika.url }}" width="90%" alt="">
+                </div>
+                {% endif %}
+                <div class="single-post-content-wrapper p-3">
+                    {{ stranica.sadrzaj | safe }}
+                </div>
+                
+                {% include "partials/najave-aktivnosti.njk" %}
+                
             </div>
-            {% endif %}
-            <div class="single-post-content-wrapper p-3">
-                {{ stranica.sadrzaj | safe }}
-            </div>
+
+            {% include "partials/sidebar-page-en.njk" %}
+
         </div>
-
-        {% include "partials/sidebar-page-en.njk" %}
-
-    </div>
     </div>
 </div>
 </div>

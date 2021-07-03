@@ -4,7 +4,6 @@ const got = require("got"); // HTTP request library
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const metagen = require('eleventy-plugin-metagen');
-const hebrewDate = require("hebrew-date");
 
 module.exports = function (config) {
 

@@ -19,6 +19,7 @@ async function getStranice() {
             body: JSON.stringify({
                 query: `{
                     stranice(stage: PUBLISHED, orderBy: redoslijed_ASC, locales: hr) {
+                        id
                         naslov
                         slug
                         locale
@@ -64,6 +65,7 @@ async function getStranice() {
     const stranice = svestranice.map((item) => {
 
         return {
+            id:item.id,
             naslov: item.naslov,
             slug: item.slug,
             lang: item.locale,

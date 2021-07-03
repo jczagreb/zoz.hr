@@ -1,0 +1,123 @@
+{% if stranica.id === "ckp5sfvew1g6g0b57aol17z7g" %}
+    <header class="listing-header" style="margin-top:30px;">
+        <h4>
+        {% if lang === "hr" %}
+        Novosti iz nedjeljne škole ŽOZ
+        {% else %}
+        News from sunday school ŽOZ
+        {% endif %}
+        </h4>
+    </header>      
+    {% if lang === "hr" %}  
+        {% for aktivnost in aktivnostihr %}
+            {% if aktivnost.stranica === "NedjeljnaSkola" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateHr }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for aktivnost in aktivnostien %}
+            {% if aktivnost.stranica === "NedjeljnaSkola" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateEn }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if stranica.id === "ckp5smd7k1iz20b58t6qqjive" %}
+    <header class="listing-header" style="margin-top:30px;">
+        <h4>
+        {% if lang === "hr" %}
+        News from Omladinski klub ŽOZ
+        {% else %}
+        News from Youth club ŽOZ
+        {% endif %}
+        </h4>
+    </header>      
+    {% if lang === "hr" %}  
+        {% for aktivnost in aktivnostihr %}
+            {% if aktivnost.stranica === "OmladinskiKlub" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateHr }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for aktivnost in aktivnostien %}
+            {% if aktivnost.stranica === "OmladinskiKlub" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateEn }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if stranica.id === "ckp5sn82o1gwm0b09jp0nonn8" %}
+    <header class="listing-header" style="margin-top:30px;">
+        <h4>
+        {% if lang === "hr" %}
+        Novosti iz Ženske sekcije ŽOZ
+        {% else %}
+        News from Seniors of ŽOZ
+        {% endif %}
+        </h4>
+    </header>      
+    {% if lang === "hr" %}  
+        {% for aktivnost in aktivnostihr %}
+            {% if aktivnost.stranica === "GeriKlub" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateHr }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for aktivnost in aktivnostien %}
+            {% if aktivnost.stranica === "GeriKlub" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateEn }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if stranica.id === "ckqgn9gk00bao0b08qzh64nij" %}
+    <header class="listing-header" style="margin-top:30px;">
+        <h4>
+        {% if lang === "hr" %}
+        Novosti iz Makabi Zagreb kluba
+        {% else %}
+        News from Makabi club Zagreb
+        {% endif %}
+        </h4>
+    </header>      
+    {% if lang === "hr" %}  
+        {% for aktivnost in aktivnostihr %}
+            {% if aktivnost.stranica === "MakabiZagreb" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateHr }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for aktivnost in aktivnostien %}
+            {% if aktivnost.stranica === "MakabiZagreb" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateEn }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
