@@ -31,6 +31,10 @@ async function getOsvrti() {
                             html
                             text
                         }
+                        fotogalerija {
+                            handle
+                            url
+                        }
                     }
                 }`
             })
@@ -66,7 +70,8 @@ async function getOsvrti() {
             sadrzaj: item.sadrzajOsvrta.html,
             sadrzajtekst: item.sadrzajOsvrta.text.replace(/\n /, "\n"),
             isjecak: item.isjecak,
-            datum: item.datum
+            datum: item.datum,
+            fotogalerija: item.fotogalerija
         };
     }).filter(Boolean);
 

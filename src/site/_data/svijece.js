@@ -79,7 +79,7 @@ async function getSvijece() {
             zavrsetak: item.zavrsetakSabata
         };
     }).filter(Boolean);
-    console.log(formatsvijece);
+
     // return formatted blogposts
     return formatsvijece;
 }
