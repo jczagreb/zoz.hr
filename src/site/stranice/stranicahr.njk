@@ -13,16 +13,16 @@ eleventyComputed:
     p_id: "{{ stranica.navigacija }}"
 ---
 {% if stranica.banner %}
-    <div class="nav-backed-header parallax" style="background-image:url(https://media.graphcms.com/output=format:webp/{{ stranica.banner.handle }});">
+    <div class="nav-backed-header parallax stranica-banner" style="background-image:url(https://media.graphcms.com/output=format:webp/{{ stranica.banner.handle }});">
 {% elseif stranica.boja %}
-    <div class="nav-backed-header parallax" style="background-color:{{ stranica.boja }};">
+    <div class="nav-backed-header parallax stranica-banner" style="background-color:{{ stranica.boja }};">
 {% else %}
-    <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+    <div class="nav-backed-header parallax stranica-banner" style="background-image:url(/images/banner.jpg);">
 {% endif %}
     <div class="container">
         <div class="row">
         <div class="col-md-12">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb stranica-breadcrumb">
             <li><a href="/hr">Početna</a></li>
             <li class="active">{{ stranica.naslov }}</li>
             </ol>

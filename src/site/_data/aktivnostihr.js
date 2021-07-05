@@ -9,7 +9,7 @@ async function getAktivnosti() {
     let sveaktivnosti = [];
     const daterange = new Date();
     daterange.setMonth(daterange.getMonth() - 6);
-    console.log(daterange);
+
     try {
         // initiate fetch
         const graphcms = await fetch("https://api-eu-central-1.graphcms.com/v2/cklnybnwlodm801xu62dm373a/master", {
