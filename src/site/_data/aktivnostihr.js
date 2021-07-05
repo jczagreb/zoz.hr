@@ -8,8 +8,8 @@ async function getAktivnosti() {
     // Objave array
     let sveaktivnosti = [];
     const daterange = new Date();
-    daterange.setTime(daterange.getTime() - 6 * 30 * 24 * 60 * 60);
-
+    daterange.setMonth(daterange.getMonth() - 6);
+    console.log(daterange);
     try {
         // initiate fetch
         const graphcms = await fetch("https://api-eu-central-1.graphcms.com/v2/cklnybnwlodm801xu62dm373a/master", {
