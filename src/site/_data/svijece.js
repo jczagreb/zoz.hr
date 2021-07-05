@@ -30,6 +30,7 @@ async function getSvijece() {
                         paljenjeSabatnihSvijeca
                         zalazakSunca
                         pocetakSabata
+                        sabatSluzba
                         parasa
                         haftara
                         izrekeOtaca
@@ -73,6 +74,7 @@ async function getSvijece() {
             paljenje: item.paljenjeSabatnihSvijeca,
             zalazak: item.zalazakSunca,
             pocetak: item.pocetakSabata,
+            sluzba: item.sabatSluzba,
             parasa: item.parasa,
             haftara: item.haftara,
             izreke: item.izrekeOtaca,

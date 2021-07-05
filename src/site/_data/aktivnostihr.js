@@ -7,6 +7,8 @@ async function getAktivnosti() {
 
     // Objave array
     let sveaktivnosti = [];
+    const daterange = new Date();
+    daterange.setTime(daterange.getTime() - 6 * 30 * 24 * 60 * 60);
 
     try {
         // initiate fetch
@@ -17,8 +19,9 @@ async function getAktivnosti() {
                 Accept: "application/json",
             },
             body: JSON.stringify({
-                query: `{
-                    najaveAktivnosti(orderBy: publishedAt_DESC, stage: PUBLISHED) {
+                variables: { daterange },
+                query: `query SveAktivnosti($daterange: DateTime!){
+                    najaveAktivnosti(orderBy: publishedAt_DESC, stage: PUBLISHED, where: {publishedAt_gt: $daterange}) {
                         naslov
                         stranica
                         publishedAt
