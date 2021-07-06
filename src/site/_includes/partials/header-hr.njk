@@ -116,8 +116,11 @@
                   </li>
                   <li><a href="#" class="sf-with-ul">Baština</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
-                      <li><a href="/hr/folklor">Folklor</a></li>
-                      <li><a href="/hr/kuhinja">Kuhinja</a></li>
+                      {% for nav in stranicehr %}
+                        {% if nav.navigacija === "AktivnostiBastina" %}
+                          <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                        {% endif %}
+                      {% endfor%}
                     </ul>
                   </li>
                 </ul>

@@ -1,18 +1,83 @@
 <!-- Start Footer -->
-  <footer class="site-footer-bottom">
+{% if p_id != "home" %}
+
+<footer class="site-footer" style="padding:0!important;">
+  <!-- Start Notice Bar -->
+  <div class="notice-bar">
     <div class="container">
       <div class="row">
-        <div class="copyrights-col-left col-md-6 col-sm-6">
-          <p>&copy; 2021 Židovska općina Zagreb. A "serverless" website, developed by <a href="https://staticweb.dev/" target="_blank" rel="noopener">Staticweb</a></p>
-        </div>
-        <div class="copyrights-col-right col-md-6 col-sm-6">
-          <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden;">
-            <li style="float:right;"><a href="/hr/feed.xml" style="display: block;text-align: center;padding: 0 16px;text-decoration: none;"><img src="/images/rss-icon.png" border="0" width="16" height="16"> RSS feed</a></li>
-            <li style="float:right;"><a href="/hr/politika-zastite-osobnih-podataka" style="display: block;text-align: center;padding: 0 16px;text-decoration: none;">Politika zaštite osobnih podataka</a></li>
-            <li style="float:right;"><a href="/hr/uvjeti-koristenja" style="display: block;text-align: center;padding: 0 16px;text-decoration: none;">Uvjeti korištenja</a></li>
-          </ul>          
-        </div>
+          <div class="col-md-4">
+            {% for nav in stranicehr %}
+              {% if (nav.navigacija === "Sigurnost") and (nav.red === 1) %}
+                <a href="/hr/{{ nav.slug }}" class="btn btn-warning" type="button" style="margin-left:auto;margin-right:auto;display:block;width: 250px;">{{ nav.naslov }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="col-md-4">
+            {% for nav in stranicehr %}
+              {% if (nav.navigacija === "Sigurnost") and (nav.red === 2) %}
+                <a href="/hr/{{ nav.slug }}" class="btn btn-info" type="button" style="margin-left:auto;margin-right:auto;display:block;width: 250px;">{{ nav.naslov }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="col-md-4">
+            <a href="#popup-box" data-fancybox="prijava" class="btn btn-danger" type="button" style="margin-left:auto;margin-right:auto;display:block;width: 250px;">Prijavite antisemitizam</a>
+            <div id="popup-box" style="display:none;">
+              <form name="antisemitizam" method="POST" action="/hr/hvala" enctype="application/x-www-form-urlencoded" netlify-honeypot="bot-fld" data-netlify="true">
+                <h3>Prijavite antisemitizam</h3>
+                <div class="row">
+                  <div class="form-group honeypot">
+                      <input name="bot-fld" type="hidden" id="shoney">
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <label>Vaše ime *</label>
+                      <input type="text" maxlength="50" class="form-control" name="name">
+                    </div>
+                    <div class="col-md-6">
+                      <label>Vaša email adresa *</label>
+                      <input type="email" maxlength="50" class="form-control" name="email">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>Sadržaj prijave *</label>
+                      <textarea maxlength="5000" rows="10" class="form-control" name="prijava" style="height: 138px;"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary submit">Prijavi antisemitizam</button>
+                  </div>
+                </div>
+              </form>
+          </div>
+          </div>
       </div>
     </div>
-  </footer>
+  </div>
+  <!-- End Notice Bar --> 
+</footer>
+
+{% endif %}
+
+<footer class="site-footer-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="copyrights-col-left col-md-6 col-sm-6">
+        <p>&copy; 2021 Židovska općina Zagreb. A "serverless" website, developed by <a href="https://staticweb.dev/" target="_blank" rel="noopener">Staticweb</a></p>
+      </div>
+      <div class="copyrights-col-right col-md-6 col-sm-6">
+        <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden;">
+          <li style="float:right;"><a href="/hr/feed.xml" style="display: block;text-align: center;padding: 0 16px;text-decoration: none;"><img src="/images/rss-icon.png" border="0" width="16" height="16"> RSS feed</a></li>
+          <li style="float:right;"><a href="/hr/politika-zastite-osobnih-podataka" style="display: block;text-align: center;padding: 0 16px;text-decoration: none;">Politika zaštite osobnih podataka</a></li>
+          <li style="float:right;"><a href="/hr/uvjeti-koristenja" style="display: block;text-align: center;padding: 0 16px;text-decoration: none;">Uvjeti korištenja</a></li>
+        </ul>          
+      </div>
+    </div>
+  </div>
+</footer>
   <!-- End Footer --> 
