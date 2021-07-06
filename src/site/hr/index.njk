@@ -32,12 +32,14 @@ p_id: home
         <div class="col-md-4">
           <a href="#popup-box" data-fancybox="osvrt" class="btn btn-danger" type="button" style="margin-left:auto;margin-right:auto;display:block;width: 250px;">Prijavite antisemitizam</a>
           <div id="popup-box" style="display:none;">
-            <form name="antisemitizam" action="/hr/hvala/" method="post" netlify-honeypot="bot-fld" data-netlify-recaptcha="true" netlify>
+            <form name="antisemitizam" action="/hr/hvala" method="post" netlify-honeypot="bot-fld" data-netlify-recaptcha="true" data-netlify="true">
               <h3>Prijavite antisemitizam</h3>
               <div class="row">
                 <div class="form-group honeypot">
                     <input name="bot-fld" type="hidden" id="shoney">
                 </div>
+              </div>
+              <div>
                 <div class="form-group">
                   <div class="col-md-6">
                     <label>Vaše ime *</label>
@@ -59,7 +61,7 @@ p_id: home
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary submit">Prijavi</button>
+                  <button type="submit" class="btn btn-primary submit">Prijavi antisemitizam</button>
                 </div>
               </div>
             </form>
