@@ -30,7 +30,6 @@
     <script src="/plugins/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider --> 
     <script src="/plugins/countdown/js/jquery.countdown.min.js"></script> <!-- Jquery Timer -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-    {% if p_type != "static"%}
     <script src="/js/search.js"></script> <!-- Search function --> 
     <script>
     $(document).ready(function() {
@@ -41,6 +40,14 @@
         });
     });
     </script>
-    {% endif %}
+    <script>
+      $(document).ready(function() {
+          $(".antisemitizam")
+          .fancybox({
+          padding: 0,
+          width: 530
+          });
+      });
+    </script>
   </body>
 </html>
