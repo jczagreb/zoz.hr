@@ -2982,7 +2982,7 @@ span.progress-bar-tooltip:after {
 .header_search .header_search_content {
     position: absolute;
     top: 55px;
-	right: 118px;
+	right: 16px;
     width: 400px;
     background: #fff;
     border-top: 5px solid;
