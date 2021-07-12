@@ -75,6 +75,19 @@ async function getOsvrti() {
         };
     }).filter(Boolean);
 
+    if (osvrti === undefined || osvrti.length == 0) {
+        osvrti.push({
+            'naslov': 'prazno',
+            'slug': 'prazno',
+            'lang': 'en',
+            'foto': 'prazno',
+            'sadrzaj': 'prazno',
+            'sadrzajtekst': 'prazno',
+            'isjecak': 'prazno',
+            'datum': 'prazno'
+        });
+    }
+
     // return formatted blogposts
     return osvrti;
 }

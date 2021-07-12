@@ -10,143 +10,22 @@
     </ul>
 
     {% if p_id === "najava" %}
-
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Zadnje novosti</h3>
-            </div>
-            <ul>
-                {% for item in novostihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Zadnji osvrti</h3>
-            </div>
-            <ul>
-                {% for item in osvrtihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-                {% endfor %}
-            </ul>
-        </div>
-
+        {% include "partials/sidebar-novosti.njk" %}
+        {% include "partials/sidebar-osvrti.njk" %}
     {% elseif p_id === "novost" %}
-
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Nadolazeći događaji</h3>
-            </div>
-            <ul>
-                {% for item in dogadjanjahr %}
-
-                {% if item.naziv != "prazno" %}
-
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>    
-
-                {% else %}
-
-                <p><em>Na žalost trenutno nemamo najavljenih događanja</em></p>
-
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Zadnji osvrti</h3>
-            </div>
-            <ul>
-                {% for item in osvrtihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-                {% endfor %}
-            </ul>
-        </div>
-
-    {% elseif (p_id === "osvrt") or (p_id === "knjiga") or (p_id === "knjige") %}
-        
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Nadolazeći događaji</h3>
-            </div>
-            <ul>
-                {% for item in dogadjanjahr %}
-
-                {% if item.naziv != "prazno" %}
-
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>    
-
-                {% else %}
-
-                <p><em>Na žalost trenutno nemamo najavljenih događanja</em></p>
-
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Zadnje novosti</h3>
-            </div>
-            <ul>
-                {% for item in novostihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-                {% endfor %}
-            </ul>
-        </div>
+        {% include "partials/sidebar-dogadjaji.njk" %}
+        {% include "partials/sidebar-osvrti.njk" %}
+    {% elseif (p_id === "osvrt") %}
+        {% include "partials/sidebar-dogadjaji.njk" %}
+        {% include "partials/sidebar-novosti.njk" %}
+    {% elseif (p_id === "knjiga") or (p_id === "knjige") %}
+        {% include "partials/sidebar-dogadjaji.njk" %}
+        {% include "partials/sidebar-novosti.njk" %}
+        {% include "partials/sidebar-osvrti.njk" %}
     {% elseif (p_id === "publikacija") or (p_id === "Kontakti") %}
-        
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Nadolazeći događaji</h3>
-            </div>
-            <ul>
-                {% for item in dogadjanjahr %}
-
-                {% if item.naziv != "prazno" %}
-
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>    
-
-                {% else %}
-
-                <p><em>Na žalost trenutno nemamo najavljenih događanja</em></p>
-
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Zadnje novosti</h3>
-            </div>
-            <ul>
-                {% for item in novostihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="widget sidebar-widget">
-            <div class="sidebar-widget-title">
-                <h3>Zadnji osvrti</h3>
-            </div>
-            <ul>
-                {% for item in osvrtihr %}
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
-                    <li><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-                {% endfor %}
-            </ul>
-        </div>
-    
-
+        {% include "partials/sidebar-dogadjaji.njk" %}
+        {% include "partials/sidebar-novosti.njk" %}
+        {% include "partials/sidebar-osvrti.njk" %}
     {% elseif p_id === "ONamaUstanove"%}
 
         <div class="widget sidebar-widget">

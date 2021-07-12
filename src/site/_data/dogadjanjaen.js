@@ -20,7 +20,7 @@ async function getNajave() {
             body: JSON.stringify({
                 variables: { today },
                 query: `query SveNajave($today: DateTime!) {
-                    najave (orderBy: datumIVrijemeDogadanja_ASC, stage: PUBLISHED, where: {datumIVrijemeDogadanja_gt: $today}, locales: [en,hr]) {
+                    najave (orderBy: datumIVrijemeDogadanja_ASC, stage: PUBLISHED, where: {datumIVrijemeDogadanja_gt: $today}, locales: [en]) {
                         nazivDogadanja
                         datumIVrijemeDogadanja
                         datumIVrijemeZavrsetkaDogadaja

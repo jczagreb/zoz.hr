@@ -18,7 +18,7 @@ async function getOsvrti() {
             },
             body: JSON.stringify({
                 query: `{
-                    osvrti(stage: PUBLISHED, orderBy: datum_DESC, locales: [en,hr]) {
+                    osvrti(stage: PUBLISHED, orderBy: datum_DESC, locales: [en]) {
                         datum
                         naslov
                         slug
@@ -69,6 +69,19 @@ async function getOsvrti() {
             datum: item.datum
         };
     }).filter(Boolean);
+
+    if (osvrti === undefined || osvrti.length == 0) {
+        osvrti.push({
+            'naslov': 'prazno',
+            'slug': 'prazno',
+            'lang': 'en',
+            'foto': 'prazno',
+            'sadrzaj': 'prazno',
+            'sadrzajtekst': 'prazno',
+            'isjecak': 'prazno',
+            'datum': 'prazno'
+        });
+    }
 
     // return formatted blogposts
     return osvrti;

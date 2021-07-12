@@ -18,7 +18,7 @@ async function getNovosti() {
             },
             body: JSON.stringify({
                 query: `{
-                    novosti(stage: PUBLISHED, orderBy: datum_DESC, locales: [en,hr]) {
+                    novosti(stage: PUBLISHED, orderBy: datum_DESC, locales: [en]) {
                         naslov
                         slug
                         publishedAt
@@ -70,6 +70,19 @@ async function getNovosti() {
         };
     }).filter(Boolean);
 
+    if (novosti === undefined || novosti.length == 0) {
+        novosti.push({
+            prazno: "prazno",
+            naslov: "prazno",
+            slug: "prazno",
+            lang: "prazno",
+            foto: "prazno",
+            sadrzaj: "prazno",
+            sadrzajtekst: "prazno",
+            isjecak: "prazno",
+            datum: "prazno"
+        });
+    }
     // return formatted blogposts
     return novosti;
 }

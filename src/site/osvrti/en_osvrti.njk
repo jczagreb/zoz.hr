@@ -44,7 +44,11 @@ eleventyComputed:
     <div class="container">
       <div class="row">
         <div class="col-md-9 posts-archive">
+
           {% for item in pagination.items %}
+        
+          {% if item.naslov != "prazno" %}
+        
           <article class="post">
             <div class="row">
               <div class="col-md-4 col-sm-4"> <a href="/en/opinions/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a> </div>
@@ -56,6 +60,13 @@ eleventyComputed:
               </div>
             </div>
           </article>
+
+          {% else %}
+
+          <header><h3>Currently we don't have opinions in english</h3></header>
+          
+          {% endif %}
+          
           {% endfor %}
           <ul class="pagination">
             

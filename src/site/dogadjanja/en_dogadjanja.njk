@@ -45,15 +45,7 @@ eleventyComputed:
         <div class="row">
             <div class="col-md-9"> 
                 <!-- Events Listing -->
-                <div class="listing events-listing">
-                    <header class="listing-header">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                        <h3>Upcoming events</h3>
-                    </div>
-                    </div>
-                    </header>
-                    <section class="listing-cont">
+                    <section class="listing-cont" style="border-top:none">
                     <ul>
                     {% for item in pagination.items %}
 
@@ -78,14 +70,13 @@ eleventyComputed:
 
                     {% else %}
 
-                    <h4 style="margin-top:50px;">Currently we don't have any upcoming events</h4>
+                    <header><h3>Currently we don't have any upcoming events</h3>
 
                     {% endif %}
 
                     {% endfor %}
                     </ul>
                     </section>
-                </div>
             </div>
 
             {% include "partials/sidebar-page-en.njk" %}

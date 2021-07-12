@@ -1,0 +1,47 @@
+{% if lang === "hr" %}
+    
+<div class="widget sidebar-widget">
+    <div class="sidebar-widget-title">
+        <h3>Zadnje novosti</h3>
+    </div>
+    <ul>
+        {% for item in novostihr %}
+
+        {% if item.naslov != "prazno" %}
+
+            <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+            <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+        
+        {% else %}
+
+        <p><em>Trenutno nemamo objavljenih novosti</em></p>
+        
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+{% else %}
+
+<div class="widget sidebar-widget">
+    <div class="sidebar-widget-title">
+        <h3>Latest news</h3>
+    </div>
+    <ul>
+        {% for item in novostien %}
+
+        {% if item.naslov != "prazno" %}
+
+            <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+            <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
+        
+        {% else %}
+
+        <p><em>Currently we don't have any news in English</em></p>
+        
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+{% endif %}

@@ -44,6 +44,9 @@ eleventyComputed:
     <div class="container">
       <div class="row">
         <div class="col-md-9 posts-archive">
+
+        {% if pagination.items[0].prazno != "prazno" %}
+
           {% for item in pagination.items %}
           <article class="post">
             <div class="row">
@@ -63,6 +66,12 @@ eleventyComputed:
             </div>
           </article>
           {% endfor %}
+
+        {% else %}
+
+          <header><h3>Currently we don't have any news in English</h3></header>
+
+        {% endif %}
           
           {% include "partials/pagination.njk" %}
           
