@@ -108,33 +108,25 @@ p_id: home
               <h3>Najave događanja</h3>
             </div>
             <ul>
-
-            {% if dogadjanjahr|length %}
-
             {% for item in dogadjanjahr | limit(5) %}
-
-              <li class="item event-item clearfix">
-                <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
-                <div class="event-detail">
-                  <h4><a href="/hr/najave/{{ item.slug }}" style="color: #0CC9E8;">{{ item.naziv }}</a></h4>
-                  <span class="event-dayntime meta-data">{{item.datum | dateHr('cccc') }}
-                  
-                  {%if (item.datum | dateHr('HH:mm')) != "00:00" %}
-                    | {{item.datum | dateHr('HH:mm') }}h 
-                  {% endif %}  
-                  
-                  </span>
-                </div>
-              </li>
-              
+              {% if item.naziv != "prazno" %}
+                <li class="item event-item clearfix">
+                  <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
+                  <div class="event-detail">
+                    <h4><a href="/hr/najave/{{ item.slug }}" style="color: #0CC9E8;">{{ item.naziv }}</a></h4>
+                    <span class="event-dayntime meta-data">{{item.datum | dateHr('cccc') }}
+                    
+                    {%if (item.datum | dateHr('HH:mm')) != "00:00" %}
+                      | {{item.datum | dateHr('HH:mm') }}h 
+                    {% endif %}  
+                    
+                    </span>
+                  </div>
+                </li>
+              {% else %}
+                <p>Trenutno nemamo događanja u najavi</p>
+              {% endif %}
             {% endfor %}
-
-            {% else %}
-
-              <p>Na žalost trenutno nemamo najavljenih događanja</p>
-
-            {% endif %}
-
             </ul>
           </div>
           <div class="widget sidebar-widget">
@@ -157,22 +149,14 @@ p_id: home
               <h3>Osvrti</h3>
             </div>
             <ul>
-
-            {% if osvrtihr | length %}
-
             {% for item in osvrtihr | limit(5) %}
-
+              {% if item.naslov != "prazno" %}
               <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
               <li><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></li>    
-              
+              {% else %}
+                <p>Trenutno nemamo objavljenih osvrta</p>
+              {% endif %}
             {% endfor %}
-
-            {% else %}
-
-              <p>Na žalost trenutno nemamo osvrta</p>
-
-            {% endif %}
-
             </ul>
           </div>
         </div>
