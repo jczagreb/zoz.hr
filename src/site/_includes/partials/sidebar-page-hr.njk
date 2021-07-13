@@ -9,6 +9,15 @@
         </li>
     </ul>
 
+    {% if stranica.id === "ckp5suurk1kjv0b58it51iwdc" %}
+    <ul class="ds-btn" style="margin-bottom:30px;">
+        <li>
+            <a class="btn btn-lg btn-success" style="display:block" href="#">
+            <i class="fa fa-bell pull-left"></i><span>Židovski blagdani<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
+        </li>
+    </ul>   
+    {% endif %}
+
     {% if p_id === "najava" %}
         {% include "partials/sidebar-novosti.njk" %}
         {% include "partials/sidebar-osvrti.njk" %}
