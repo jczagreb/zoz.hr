@@ -718,8 +718,9 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 }
 .site-header .menu-toggle{
 	font-size:18px;
-	margin:30px 10px 0 0;
+	margin:50px 10px 0 0;
 	float:right;
+	color: #000;
 }
 .site-header .menu-toggle:focus{
 	outline:0;
@@ -1192,7 +1193,7 @@ html[xmlns] .slides {
 	margin-bottom:-81px;
 	left:0;
 	z-index:1;
-	height:500px;
+	height:400px;
 	width:100%;
 	overflow:hidden;
 }
@@ -2719,7 +2720,10 @@ span.progress-bar-tooltip:after {
 }
 @media only screen and (max-width: 992px) {
 	.top-navigation li{
-		font-size:18px;
+		font-size:12px;
+	}
+	.hero-slider {
+		height: 150px;
 	}
 	.notice-bar .btn-block, .notice-bar .counter{
 		margin-top:20px;
