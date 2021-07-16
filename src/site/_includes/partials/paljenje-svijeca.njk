@@ -10,15 +10,15 @@
     </header>      
     {% if lang === "hr" %}  
          <ul>
-            <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>Petak {{ svijece[0].petak | dateHr }}</span>
-            <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>Shishi {{ svijece[0].petakhebrew  }}</span>
+            <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4"><i class="fa fa-calendar"></i>Petak {{ svijece[0].petak | dateHr }}</span>
+            <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i>Shishi {{ svijece[0].petakhebrew  }}</span>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">PlagHaminha: {{ svijece[0].plaghaminha }}</li>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">Paljenje šabatnih svijeća: {{ svijece[0].paljenje }}</li>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">Zalazak sunca: {{ svijece[0].zalazak }}</li>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: none;">Početak Šabata: {{ svijece[0].pocetak }}</li>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ svijece[0].sluzba }}</li>
-            <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>Subota {{ svijece[0].sabat | dateHr }}</span>
-            <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>Shabbat {{ svijece[0].sabathebrew }}</span>
+            <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i>Subota {{ svijece[0].sabat | dateHr }}</span>
+            <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i>Shabbat {{ svijece[0].sabathebrew }}</span>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">Paljenje šabatnih svijeća: {{ svijece[0].paljenje }}</li>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">Paraša: {{ svijece[0].parasa }}</li>
             <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">Haftara: {{ svijece[0].haftara }}</li>
@@ -29,7 +29,7 @@
         {% for aktivnost in aktivnostien %}
             {% if aktivnost.stranica === "NedjeljnaSkola" %}
                 <ul>
-                    <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateEn }}</span>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateEn }}</span>
                     <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
                 </ul>
             {% endif %}

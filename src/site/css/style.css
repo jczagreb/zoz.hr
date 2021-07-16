@@ -671,7 +671,7 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 	width:100%;
 }
 .site-header .topbar{
-	background-color:rgba(255,255,255,.8);
+	background-color:rgba(255,255,255);
 	height:80px;
 	position:relative;
 	z-index:3;

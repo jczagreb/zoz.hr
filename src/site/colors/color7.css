@@ -1,8 +1,8 @@
 .text-primary, .btn-primary .badge, .btn-link,a.list-group-item.active > .badge,.nav-pills > .active > a > .badge, p.drop-caps:first-child:first-letter, .accent-color, .events-listing .event-detail h4 a, .featured-sermon h4 a, .page-header h1, .post-more, ul.nav-list-primary > li a:hover, .widget_recent_comments a, .navigation .megamenu-container .megamenu-sub-title, .cause-item .progress-label, .payment-to-cause a, .products-list li .product-price, .products-list li .product-details h3 a:hover{
-	color:#0CC9E8;
+	color:#00A1E4;
 }
 a:hover{
-	color:#0CC9E8;
+	color:#00A1E4;
 }
 .events-listing .event-detail h4 a:hover, .featured-sermon h4 a:hover, .featured-gallery p, .post-more:hover, .widget_recent_comments a:hover{
 	opacity:.9
@@ -41,17 +41,17 @@ a.list-group-item.active,
 a.list-group-item.active:hover,
 a.list-group-item.active:focus,
 .panel-primary > .panel-heading, .carousel-indicators .active, .owl-theme .owl-controls .owl-page.active span, .owl-theme .owl-controls.clickable .owl-page:hover span, hr.sm, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .title-note, .timer-col #days, .featured-block strong, .featured-gallery, .nav-backed-header, .next-prev-nav a, .event-description .panel-heading, .media-box .media-box-wrapper, .staff-item .social-icons a, .accordion-heading .accordion-toggle.active, .accordion-heading:hover .accordion-toggle, .accordion-heading:hover .accordion-toggle.inactive, .nav-tabs li a:hover, .nav-tabs li a:active, .nav-tabs li.active a, .fc-event, .timeline > li > .timeline-badge, .header-style3 .toprow, .featured-star, .featured-event-time, .goingon-events-floater-inner, .products-list .product-image .add-to-cart{
-  background-color: #0CC9E8;
+  background-color: #00A1E4;
 }
 .mejs-controls .mejs-time-rail .mejs-time-loaded{
-  background: #0CC9E8;
+  background: #00A1E4;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary, .next-prev-nav a:hover, .staff-item .social-icons a:hover{
-  background: #0CC9E8;
+  background: #00A1E4;
   opacity:.9
 }
 .nav .open > a,
@@ -71,16 +71,16 @@ a.list-group-item.active:hover,
 a.list-group-item.active:focus,
 .panel-primary,
 .panel-primary > .panel-heading, .fc-event{
-	border-color:#0CC9E8;
+	border-color:#00A1E4;
 }
 .panel-primary > .panel-heading + .panel-collapse .panel-body{
-	border-top-color:#0CC9E8;
+	border-top-color:#00A1E4;
 }
 .panel-primary > .panel-footer + .panel-collapse .panel-body{
-	border-bottom-color:#0CC9E8;
+	border-bottom-color:#00A1E4;
 }
 blockquote{
-	border-left-color:#0CC9E8;
+	border-left-color:#00A1E4;
 }
 
 /* Color Scheme Specific Classes */

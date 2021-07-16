@@ -113,7 +113,7 @@ p_id: home
                 <li class="item event-item clearfix">
                   <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
                   <div class="event-detail">
-                    <h4><a href="/hr/najave/{{ item.slug }}" style="color: #0CC9E8;">{{ item.naziv }}</a></h4>
+                    <h4><a href="/hr/najave/{{ item.slug }}" style="color: #00A1E4;">{{ item.naziv }}</a></h4>
                     <span class="event-dayntime meta-data">{{item.datum | dateHr('cccc') }}
                     
                     {%if (item.datum | dateHr('HH:mm')) != "00:00" %}
@@ -137,7 +137,7 @@ p_id: home
 
             {% for item in novostihr | limit(5) %}
 
-              <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+              <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
               <li><a href="/hr/novosti/{{ item.slug }}">{{ item.naslov }}</a></li>    
               
             {% endfor %}
@@ -151,7 +151,7 @@ p_id: home
             <ul>
             {% for item in osvrtihr | limit(5) %}
               {% if item.naslov != "prazno" %}
-              <span class="meta-data" style="margin: 5px 0 0 0;color:#0CC9E8;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+              <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
               <li><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></li>    
               {% else %}
                 <p>Trenutno nemamo objavljenih osvrta</p>
