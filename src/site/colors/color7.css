@@ -84,3 +84,7 @@ blockquote{
 }
 
 /* Color Scheme Specific Classes */
+
+.btn-info:hover {
+	background-color: #0091cd!important;
+}
