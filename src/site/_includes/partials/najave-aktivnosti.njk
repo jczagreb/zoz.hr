@@ -91,6 +91,37 @@
     {% endif %}
 {% endif %}
 
+{% if stranica.id === "ckqr0x31k1fbf0b50hn1ypptz" %}
+    <header class="listing-header" style="margin-top:50px;">
+        <h4>
+        {% if lang === "hr" %}
+        Mišpoha novosti
+        {% else %}
+        Mishpocha news
+        {% endif %}
+        </h4>
+    </header>      
+    {% if lang === "hr" %}  
+        {% for aktivnost in aktivnostihr %}
+            {% if aktivnost.stranica === "mispoha" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateHr }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for aktivnost in aktivnostien %}
+            {% if aktivnost.stranica === "mispoha" %}
+                <ul>
+                    <span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i>{{ aktivnost.datum | dateEn }}</span>
+                    <li style="margin-top:10px;padding-bottom:5px;border-bottom: 1px solid #eceae4;">{{ aktivnost.naslov }}</li>  
+                </ul>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
 {% if stranica.id === "ckqgn9gk00bao0b08qzh64nij" %}
     <header class="listing-header" style="margin-top:50px;">
         <h4>
