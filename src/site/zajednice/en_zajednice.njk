@@ -1,0 +1,95 @@
+---
+title: Novosti
+description: Novosti
+layout: default
+lang: en
+pagination:
+  data: zajedniceen
+  size: 10
+  alias: novosti
+permalink: "/en/from-other-communities{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+  p_title: "News from Židovska općine Zagreb"
+  p_description: "News from Židovska općine Zagreb"
+  p_id: "zajednice"
+---
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="/en">Home</a></li>
+          <li class="active">Articles from other communities</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Nav Backed Header --> 
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size:30px!important;">Articles from other communities</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 posts-archive">
+
+        {% if pagination.items[0].prazno != "prazno" %}
+
+          {% for item in pagination.items %}
+
+          {% if item.naslov != "prazno" %}
+
+          <article class="post">
+            <div class="row">
+              <div class="col-md-4 col-sm-4">
+              {% if item.foto %}
+                <img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a>
+              {% else %}
+                <img src="/images/novosti.jpg" alt="" class="img-thumbnail"></a>
+              {% endif %}
+              </div>
+              <div class="col-md-8 col-sm-8">
+                <h3><a href="/en/news/{{ item.slug }}">{{ item.naslov }}</a></h3>
+                <span class="post-meta meta-data"> <span style="font-size:1.2em;"><i class="fa fa-calendar"></i> {{ item.datum | dateEn('dd. LLLL yyyy.') }}</span></span>
+                <p>{{ item.isjecak }}</p>
+                <p><a href="/en/news/{{ item.slug }}" class="btn btn-primary">Continue reading <i class="fa fa-long-arrow-right"></i></a></p>
+              </div>
+            </div>
+          </article>
+
+          {% else %}
+
+          <header><h3>Currently we don't have any articles from other communities</h3></header>
+
+          {% endif %}
+
+          {% endfor %}
+
+        {% else %}
+
+          <header><h3>Currently we don't have any news in English</h3></header>
+
+        {% endif %}
+          
+          {% include "partials/pagination.njk" %}
+          
+        </div>
+
+        {% include "partials/sidebar-page-en.njk" %}
+
+      </div>
+    </div>
+  </div>
+</div>

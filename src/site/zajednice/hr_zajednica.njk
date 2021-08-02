@@ -1,0 +1,74 @@
+---
+layout: default
+lang: hr
+pagination:
+  data: zajednicehr
+  size: 1
+  alias: novost
+  addAllPagesToCollections: true
+permalink: /hr/iz-drugih-zajednica/{{ novost.slug }}/index.html
+eleventyComputed:
+  p_title: "{{ novost.naslov }}"
+  p_description: "{{ novost.isjecak }}"
+  p_type: "novost"
+  p_image: "https://media.graphcms.com/resize=width:1200/{{ novost.foto.handle }}}"
+  p_textcount: "{{ novost.sadrzajtekst | wordCount }}"
+  p_tekst: "{{ novost.sadrzajtekst }}"
+  p_datum: "{{ novost.datum }}"
+  p_id: "zajednice"
+---
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+            <li><a href="/hr">Početna</a></li>
+            <li><a href="/hr/novosti">Članci iz drugih zajednica</a></li>
+            <li class="active">{{ novost.naslov }}</li>
+            </ol>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Start Page Header -->
+<div class="page-header">
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-sm-10 col-xs-8">
+            <h1 style="font-size:30px!important;">Članci iz drugih zajednica</h1>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-4"> <a href="/hr/iz-drugih-zajednica" class="pull-right btn btn-primary">Svi članci</a> </div>
+    </div>
+</div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<div class="main" role="main">
+    <div id="content" class="content full">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <header class="single-post-header clearfix">
+                <h2 class="post-title">{{ novost.naslov }}</h2>
+                </header>
+                <article class="post-content">
+                    <div class="featured-image">
+                    {% if item.foto %}
+                        <img src="https://media.graphcms.com/resize=fit:clip,width:1200,height:635/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a>
+                    {% else %}
+                        <img src="/images/novosti.jpg" alt="" class="img-thumbnail"></a>
+                    {% endif %}
+                    </div>
+                    <span class="post-meta meta-data"><span style="font-size:1.2em;"><i class="fa fa-calendar"></i> Datum objave {{ novost.datum | dateHr }}</span></span>
+                    <br/>
+                    
+                    {{ novost.sadrzaj | safe }}
+                    
+                </article>
+            </div>
+
+            {% include "partials/sidebar-page-hr.njk" %}
+
+        </div>
+    </div>
+</div>

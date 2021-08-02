@@ -3,10 +3,10 @@ const fetch = require("node-fetch");
 const slugify = require('slugify');
 
 // get Objave
-async function getOsvrti() {
+async function getNovosti() {
 
     // Objave array
-    let sviosvrti = [];
+    let svenovosti = [];
 
     try {
         // initiate fetch
@@ -18,22 +18,18 @@ async function getOsvrti() {
             },
             body: JSON.stringify({
                 query: `{
-                    osvrti(stage: PUBLISHED, orderBy: datum_DESC, locales: hr) {
-                        datum
+                    izDrugihZajednicas(stage: PUBLISHED, orderBy: datum_DESC, locales: hr) {
                         naslov
                         slug
+                        publishedAt
                         locale
                         naslovnaFotografija{
                             handle
                         }
                         isjecak
-                        sadrzajOsvrta {
+                        sadrzaj {
                             html
                             text
-                        }
-                        fotogalerija {
-                            handle
-                            url
                         }
                     }
                 }`
@@ -53,34 +49,32 @@ async function getOsvrti() {
         }
 
         // update blogpost array with the data from the JSON response
-        sviosvrti = sviosvrti.concat(response.data.osvrti);
+        svenovosti = svenovosti.concat(response.data.izDrugihZajednicas);
 
     } catch (error) {
         throw new Error(error);
     }
 
     // format blogposts objects
-    const osvrti = sviosvrti.map((item) => {
+    const novosti = svenovosti.map((item) => {
 
         return {
             naslov: item.naslov,
             slug: item.slug,
             lang: item.locale,
             foto: item.naslovnaFotografija,
-            sadrzaj: item.sadrzajOsvrta.html,
-            sadrzajtekst: item.sadrzajOsvrta.text.replace(/\n /, "\n"),
+            sadrzaj: item.sadrzaj.html,
+            sadrzajtekst: item.sadrzaj.text.replace(/\n /, "\n"),
             isjecak: item.isjecak,
-            datum: item.datum,
-            fotogalerija: item.fotogalerija
+            datum: item.publishedAt
         };
     }).filter(Boolean);
 
-    if (osvrti === undefined || osvrti.length == 0) {
-        osvrti.push({
+    if (novosti === undefined || novosti.length == 0) {
+        novosti.push({
             'naslov': 'prazno',
             'slug': 'prazno',
             'lang': 'hr',
-            'foto': 'prazno',
             'sadrzaj': 'prazno',
             'sadrzajtekst': 'prazno',
             'isjecak': 'prazno',
@@ -89,8 +83,8 @@ async function getOsvrti() {
     }
 
     // return formatted blogposts
-    return osvrti;
+    return novosti;
 }
 
 // export for 11ty
-module.exports = getOsvrti;
+module.exports = getNovosti;
