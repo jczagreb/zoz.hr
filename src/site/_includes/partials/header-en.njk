@@ -51,6 +51,11 @@
                       {% endfor%}
                     </ul>
                   </li>
+                  {% for nav in straniceen %}
+                    {% if nav.navigacija === "ONama" %}
+                      <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                    {% endif %}
+                  {% endfor%}
                 </ul>
               </li>
               <li><a href="#" class="sf-with-ul">Current events</a>

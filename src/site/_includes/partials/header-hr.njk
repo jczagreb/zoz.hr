@@ -53,6 +53,11 @@
                       {% endfor%}
                     </ul>
                   </li>
+                  {% for nav in stranicehr %}
+                    {% if nav.navigacija === "ONama" %}
+                      <li><a href="/hr/{{ nav.slug }}">{{ nav.naslov }}</a></li>
+                    {% endif %}
+                  {% endfor%}
                 </ul>
               </li>
               <li><a href="#" class="sf-with-ul">Aktualno</a>
