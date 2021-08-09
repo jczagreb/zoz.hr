@@ -5,23 +5,32 @@
     <ul class="ds-btn" style="margin-bottom:30px;">
         <li>
             <a class="btn btn-lg btn-povijest" href="#">
-            <i class="fa fa-history pull-left" style="font-size:2em;"></i><span>Povijest ŽOZ-a<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
+            <i class="fa fa-history pull-left" style="font-size:1.8em;"></i><span>Povijest ŽOZ-a<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
         </li>
     </ul>
     <ul class="ds-btn" style="margin-bottom:30px;">
         <li>
             <a class="btn btn-lg btn-info" style="display:block" href="#">
-            <i class="fa fa-calendar pull-left"></i><span>Kalendar 2021. / 5781.<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
+            <i class="fa fa-calendar pull-left" style="font-size:1.8em;"></i><span>Kalendar 2021/5781<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
         </li>
     </ul>
 
-    {% if stranica.id === "ckp5suurk1kjv0b58it51iwdc" %}
+    {% if (p_id === "Aktivnosti") or (p_id === "AktivnostiEdukacija") or (p_id === "AktivnostiKultura") or (p_id === "AktivnostiTradicija") or (p_id === "AktivnostiBastina") or (p_id === "Zidovstvo") or (p_id === "pera") or (p_id === "pero") %}
     <ul class="ds-btn" style="margin-bottom:30px;">
         <li>
             <a class="btn btn-lg btn-blagdani" href="/images/vodic-za-ros-hasana.pdf" target="_blank">
-            <i class="fa fa-bell pull-left"></i><span>Židovski blagdani<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
+            <i class="fa fa-bell pull-left" style="font-size:1.8em;"></i><span>Židovski blagdani<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
         </li>
     </ul>   
+    {% endif %}
+
+    {% if (p_id === "najava") or (p_id === "novost") or (p_id === "osvrt") or (p_id === "zajednica") or (p_id === "zajednice") %}
+    <ul class="ds-btn" style="margin-bottom:30px;">
+        <li>
+            <a class="btn btn-lg btn-success" href="{{ collections.hakol[0].pdf.url }}" target="_blank" style="display:block">
+            <i class="fa fa-file-text pull-left" style="font-size:1.8em;"></i><span>Novi broj Ha-Kola<br><small style="font-size:85%;text-transform:none;font-weight:400">Preuzmite u PDF formatu</small></span></a> 
+        </li>
+    </ul>
     {% endif %}
 
     {% if p_id === "najava" %}

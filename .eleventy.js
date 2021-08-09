@@ -81,6 +81,19 @@ module.exports = function (config) {
   config.addPlugin(wordCount);
   config.addPlugin(metagen);
 
+  config.addCollection("hakol", async (collections) => {
+    const getHakol = require("./src/site/_data/publikacije.js");
+    const hakol = await getHakol();
+
+    const kolekcija = [];
+      for (const pub of hakol) {
+        if (pub.izdanje === "HaKol") {
+            kolekcija.push(pub); 
+          }
+      }
+      return kolekcija;
+  });
+
   /* minify the html output */
   if (env != 'dev') {
     config.addTransform("htmlmin", require("./src/utils/minify-html.js"));

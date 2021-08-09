@@ -5,15 +5,24 @@
     <ul class="ds-btn" style="margin-bottom:30px;">
         <li>
             <a class="btn btn-lg btn-povijest" style="display:block;background-color:#667885;color:#fff;" href="#">
-            <i class="fa fa-history pull-left" style="font-size:2em;"></i><span>History of ŽOZ<br><small style="font-size:85%;text-transform:none;font-weight:400">Download as PDF</small></span></a> 
+            <i class="fa fa-history pull-left" style="font-size:1.8em;"></i><span>History of ŽOZ<br><small style="font-size:85%;text-transform:none;font-weight:400">Download as PDF</small></span></a> 
         </li>
     </ul>
     <ul class="ds-btn" style="margin-bottom:30px;">
         <li>
             <a class="btn btn-lg btn-info" style="display:block" href="#">
-            <i class="fa fa-calendar pull-left"></i><span>Calendar 2021. / 5781.<br><small style="font-size:85%;text-transform:none;font-weight:400">Download as PDF</small></span></a> 
+            <i class="fa fa-calendar pull-left" style="font-size:1.8em;"></i><span>Calendar 2021/5781<br><small style="font-size:85%;text-transform:none;font-weight:400">Download as PDF</small></span></a> 
         </li>
     </ul>
+
+    {% if (p_id === "Aktivnosti") or (p_id === "AktivnostiEdukacija") or (p_id === "AktivnostiKultura") or (p_id === "AktivnostiTradicija") or (p_id === "AktivnostiBastina") or (p_id === "Zidovstvo") or (p_id === "pera") or (p_id === "pero") %}
+    <ul class="ds-btn" style="margin-bottom:30px;">
+        <li>
+            <a class="btn btn-lg btn-blagdani" href="/images/vodic-za-ros-hasana.pdf" target="_blank">
+            <i class="fa fa-bell pull-left" style="font-size:1.8em;"></i><span>Jewish holidays<br><small style="font-size:85%;text-transform:none;font-weight:400">Download as PDF</small></span></a> 
+        </li>
+    </ul>   
+    {% endif %}
 
     {% if p_id === "najava" %}
         {% include "partials/sidebar-novosti.njk" %}
@@ -36,14 +45,14 @@
 
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
-                <h3>Sve ustanove</h3>
+                <h3>All institutions</h3>
             </div>
             <ul>
                 {% for item in straniceen %}
 
                 {% if item.navigacija === "ONamaUstanove" %}
 
-                    <li><a href="/hr/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <li><a href="/en/{{ item.slug }}">{{ item.naslov }}</a></li>    
 
                 {% endif %}
 
@@ -55,14 +64,14 @@
 
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
-                <h3>Sve udruge</h3>
+                <h3>All associations</h3>
             </div>
             <ul>
                 {% for item in straniceen %}
 
                 {% if item.navigacija === "ONamaUdruge" %}
 
-                    <li><a href="/hr/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <li><a href="/en/{{ item.slug }}">{{ item.naslov }}</a></li>    
 
                 {% endif %}
 
@@ -74,14 +83,14 @@
 
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
-                <h3>Svi partneri</h3>
+                <h3>All partners</h3>
             </div>
             <ul>
                 {% for item in straniceen %}
 
                 {% if item.navigacija === "ONamaPartneri" %}
 
-                    <li><a href="/hr/{{ item.slug }}">{{ item.naslov }}</a></li>    
+                    <li><a href="/en/{{ item.slug }}">{{ item.naslov }}</a></li>    
 
                 {% endif %}
 
