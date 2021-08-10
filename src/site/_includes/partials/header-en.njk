@@ -92,19 +92,10 @@
                       {% endfor%}
                     </ul>
                   </li>
-                  <li><a href="#" class="sf-with-ul">Culture</a>
+                  <li><a href="#" class="sf-with-ul">Culture and tradition</a>
                     <ul class="dropdown" style="display: none; left: -40px;">
                       {% for nav in straniceen %}
                         {% if nav.navigacija === "AktivnostiKultura" %}
-                          <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
-                        {% endif %}
-                      {% endfor%}
-                    </ul>
-                  </li>
-                  <li><a href="#" class="sf-with-ul">Tradition</a>
-                    <ul class="dropdown" style="display: none; left: -40px;">
-                      {% for nav in straniceen %}
-                        {% if nav.navigacija === "AktivnostiTradicija" %}
                           <li><a href="/en/{{ nav.slug }}">{{ nav.naslov }}</a></li>
                         {% endif %}
                       {% endfor%}
