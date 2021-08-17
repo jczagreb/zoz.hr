@@ -18,7 +18,7 @@ async function getNovosti() {
             },
             body: JSON.stringify({
                 query: `{
-                    novosti(stage: PUBLISHED, orderBy: datum_DESC, locales: hr) {
+                    novosti(stage: PUBLISHED, orderBy: publishedAt_DESC, locales: hr) {
                         naslov
                         slug
                         publishedAt
