@@ -54,7 +54,7 @@ eleventyComputed:
               <div class="col-md-4 col-sm-4"> <a href="/en/books/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:150/output=format:webp/{{ item.naslovnica.handle }}" alt="" class="img-thumbnail"></a> </div>
               <div class="col-md-8 col-sm-8">
                 <h3><a href="/en/books/{{ item.slug }}">{{ item.naziv }}</a></h3>
-                <span class="post-meta meta-data"> <span style="font-size:1.2em;">Author: {{ item.autor }}. {% if item.isbn %}ISBN: {{ item.isbn }}.{% endif %} {% if item.cip %}CIP: {{ item.cip }}.{% endif %}</span></span>
+                <span class="post-meta meta-data"> <span style="font-size:1.2em;">Author: {{ item.autor }}. {% if item.godina %}Published: {{ item.godina }}{% endif %} {% if item.isbn %}ISBN: {{ item.isbn }}.{% endif %} {% if item.cip %}CIP: {{ item.cip }}.{% endif %}</span></span>
                 <p><a href="/en/books/{{ item.slug }}" class="btn btn-primary">More about this book<i class="fa fa-long-arrow-right"></i></a></p>
               </div>
             </div>

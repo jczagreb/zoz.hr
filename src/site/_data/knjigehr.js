@@ -18,8 +18,9 @@ async function getKnjige() {
             },
             body: JSON.stringify({
                 query: `{
-                    knjiges (stage: PUBLISHED, locales: hr) {
+                    knjiges (stage: PUBLISHED, locales: hr, orderBy: godina_DESC) {
                         autor
+                        godina
                         brojStranica
                         cip
                         isbn
@@ -64,6 +65,7 @@ async function getKnjige() {
         return {
             naziv: item.naziv,
             slug: item.slug,
+            godina: item.godina,
             lang: item.locale,
             autor: item.autor,
             brojStranica: item.brojStranica,
@@ -81,6 +83,7 @@ async function getKnjige() {
         formatknjige.push({
             'naziv': 'prazno',
             'slug': 'prazno',
+            'godina': 'prazno',
             'lang': 'hr',
             'autor': 'prazno',
             'cip': 'prazno',

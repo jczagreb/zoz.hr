@@ -56,6 +56,9 @@ eleventyComputed:
                                     <ul class="info-table">
                                         <li style="padding: 10px 10px!important;"><strong>Naziv knjige:</strong><span style="margin-left:20px;">{{ knjiga.naziv }}</span></li>
                                         <li style="padding: 10px 10px!important;"><strong>Autor:</strong><span style="margin-left:20px;">{{ knjiga.autor }}</span></li>
+                                        {% if knjiga.godina %}
+                                        <li style="padding: 10px 10px!important;"><strong>Godina izdanja:</strong><span style="margin-left:20px;">{{ knjiga.godina }}</span></li>
+                                        {% endif %}
                                         {% if knjiga.isbn %}
                                         <li style="padding: 10px 10px!important;"><strong>ISBN:</strong><span style="margin-left:20px;">{{ knjiga.isbn }}</span></li>
                                         {% endif %}

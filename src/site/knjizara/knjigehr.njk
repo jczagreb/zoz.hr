@@ -55,7 +55,7 @@ eleventyComputed:
               <div class="col-md-4 col-sm-4"> <a href="/hr/knjige/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:clip,width:150/output=format:webp/{{ item.naslovnica.handle }}" alt="" class="img-thumbnail"></a> </div>
               <div class="col-md-8 col-sm-8">
                 <h3><a href="/hr/knjige/{{ item.slug }}">{{ item.naziv }}</a></h3>
-                <span class="post-meta meta-data"> <span style="font-size:1.2em;">Autor: {{ item.autor }}. {% if item.isbn %}ISBN: {{ item.isbn }}.{% endif %} {% if item.cip %}CIP: {{ item.cip }}.{% endif %}</span></span>
+                <span class="post-meta meta-data"> <span style="font-size:1.2em;">Autor: {{ item.autor }}. {% if item.godina %}Godina izdanja: {{ item.godina }}{% endif %} {% if item.isbn %}ISBN: {{ item.isbn }}.{% endif %} {% if item.cip %}CIP: {{ item.cip }}.{% endif %}</span></span>
                 <p><a href="/hr/knjige/{{ item.slug }}" class="btn btn-primary">Više o knjizi <i class="fa fa-long-arrow-right"></i></a></p>
               </div>
             </div>
