@@ -105,6 +105,7 @@ module.exports = function (config) {
   config.addPassthroughCopy("./src/site/js");
   config.addPassthroughCopy("./src/site/plugins");
   config.addPassthroughCopy("./src/site/colors");
+  config.addPassthroughCopy("./src/site/_redirects");
 
   /* make the seed target act like prod */
   env = (env=="seed") ? "prod" : env;
