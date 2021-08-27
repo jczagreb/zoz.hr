@@ -49,33 +49,35 @@ eleventyComputed:
               <!-- Events Listing -->
               <section class="listing-cont" style="border-top:none">
 
-                {% for item in pagination.items %}
+              {% for item in pagination.items %}
 
-                {% if item.naziv != "prazno" %}
-                
-                  <div class="item event-item" style="width:100%">
-                  <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
-                  <div class="event-detail">
-                      <h4><a href="/hr/najave/{{ item.slug }}" style="color:#000;">{{ item.naziv }}</a></h4>
-                      <span class="event-dayntime meta-data" style="color:#0CC9E8;">{{item.datum | dateHr('cccc') }} 
-                      
-                      {%if (item.datum | dateHr('HH:mm')) != "00:00" %}
-                        | {{item.datum | dateHr('HH:mm') }}h 
-                      {% endif %}  
-                      
-                      | {{ item.lokacija }}</span> </div>
-                  <div class="to-event-url">
-                      <div><a href="/hr/najave/{{ item.slug }}" class="btn btn-default btn-sm">Detalji</a></div>
-                  </div>
-                  </div>
+              {% if item.naziv != "prazno" %}
+              
+                <div class="item event-item" style="width:100%">
+                <div class="event-date"> <span class="date">{{item.datum | dateHr('dd') }}</span> <span class="month">{{item.datum | dateHr('LLL') }}</span> </div>
+                <div class="event-detail">
+                    <h4><a href="/hr/najave/{{ item.slug }}" style="color:#000;">{{ item.naziv }}</a></h4>
+                    <span class="event-dayntime meta-data" style="color:#0CC9E8;">{{item.datum | dateHr('cccc') }} 
+                    
+                    {%if (item.datum | dateHr('HH:mm')) != "00:00" %}
+                      | {{item.datum | dateHr('HH:mm') }}h 
+                    {% endif %}  
+                    
+                    | {{ item.lokacija }}</span>
+                </div>
 
-                {% else %}
+                <div class="to-event-url">
+                    <div><a href="/hr/najave/{{ item.slug }}" class="btn btn-default btn-sm">Detalji</a></div>
+                </div>
+                </div>
 
-                  <h3>Trenutno nemamo događanja u najavi</h3>
+              {% else %}
 
-                {% endif %}
+                <h3>Trenutno nemamo događanja u najavi</h3>
 
-                {% endfor %}
+              {% endif %}
+
+              {% endfor %}
 
               </section>
           </div>
