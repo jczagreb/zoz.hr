@@ -31,6 +31,10 @@ async function getNovosti() {
                             html
                             text
                         }
+                        fotogalerija {
+                            handle
+                            url
+                        }
                     }
                 }`
             })
@@ -66,7 +70,8 @@ async function getNovosti() {
             sadrzaj: item.sadrzaj.html,
             sadrzajtekst: item.sadrzaj.text.replace(/\n /, "\n"),
             isjecak: item.isjecak,
-            datum: item.publishedAt
+            datum: item.publishedAt,
+            fotogalerija: item.fotogalerija
         };
     }).filter(Boolean);
 

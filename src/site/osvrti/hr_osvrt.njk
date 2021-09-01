@@ -52,7 +52,13 @@ eleventyComputed:
                 <h2 class="post-title">{{ osvrt.naslov }}</h2>
                 </header>
                 <article class="post-content">
-                    <div class="featured-image"> <img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:635/output=format:webp/{{ osvrt.foto.handle }}" alt=""> </div>
+                    <div class="featured-image">
+                    {% if item.foto %}
+                        <img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:635/output=format:webp/{{ osvrt.foto.handle }}" alt="" class="img-thumbnail">
+                    {% else %}
+                        <img src="/images/osvrti.jpg" alt="" class="img-thumbnail">
+                    {% endif %}
+                     </div>
                     <span class="post-meta meta-data"><span style="font-size:1.2em;"><i class="fa fa-calendar"></i> Datum objave {{ osvrt.datum | dateHr }}</span></span>
                     <br/>
                     

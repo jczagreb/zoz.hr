@@ -65,6 +65,29 @@ eleventyComputed:
                     {{ novost.sadrzaj | safe }}
                     
                 </article>
+
+                {% if osvrt.fotogalerija | length %}
+
+                <div style="width:570px;margin:50px auto 0 auto;">
+                    <a data-src="{{ osvrt.fotogalerija[0].url }}" data-fancybox="osvrt">
+                        <figure class="caption">
+                            <img src="https://media.graphcms.com/resize=fit:crop,width:600,height:200/output=format:webp/{{ osvrt.fotogalerija[0].url }}" class="img-fluid">
+                            <figcaption class="caption-text">Open the photo gallery</figcaption>
+                        </figure>
+                    </a>
+                </div>
+                {% for foto in osvrt.fotogalerija %}
+
+                {% if loop.index > 1 %}
+
+                <a data-src="{{ foto.url }}" data-fancybox="osvrt"></a>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% endif %}
+
             </div>
 
             {% include "partials/sidebar-page-en.njk" %}
