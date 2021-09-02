@@ -18,7 +18,7 @@ async function getKnjige() {
             },
             body: JSON.stringify({
                 query: `{
-                    knjiges (stage: PUBLISHED, locales: [en,hr], orderBy: godina_DESC) {
+                    knjiges (stage: PUBLISHED, locales: en, orderBy: godina_DESC) {
                         autor
                         godina
                         brojStranica
@@ -26,7 +26,7 @@ async function getKnjige() {
                         isbn
                         izdavac
                         jezik
-                        naslovnica {
+                        naslovnica(locales: hr) {
                             handle
                         }
                         naziv
