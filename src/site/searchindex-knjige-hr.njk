@@ -1,0 +1,13 @@
+---
+permalink: /searchindex-knjige-hr.json
+eleventyExcludeFromCollections: true
+---
+
+[
+{% for knjiga in knjigehr %}
+{
+"title":"{{ knjiga.naziv }}",
+"url":"/hr/knjige/{{ knjiga.slug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %}
+]

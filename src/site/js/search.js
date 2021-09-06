@@ -21,6 +21,10 @@ $(function () {
         fetch('/searchindex-osvrti-hr.json')
             .then(blob => blob.json())
             .then(data => osvrti.push(...data));
+        var knjige = [];
+        fetch('/searchindex-knjige-hr.json')
+            .then(blob => blob.json())
+            .then(data => knjige.push(...data));
     } else {
         var novosti = [];
         fetch('/searchindex-novosti-en.json')
@@ -34,6 +38,10 @@ $(function () {
         fetch('/searchindex-osvrti-en.json')
             .then(blob => blob.json())
             .then(data => osvrti.push(...data));
+        var knjige = [];
+        fetch('/searchindex-knjige-en.json')
+            .then(blob => blob.json())
+            .then(data => knjige.push(...data));
     }
 
     //search functions
@@ -53,6 +61,12 @@ $(function () {
         return osvrti.filter(rezOsvrti => {
             const regex = new RegExp(wordToMatch, 'gi');
             return rezOsvrti.title.match(regex);
+        });
+    }
+    function findRezKnjige(wordToMatch, knjige) {
+        return knjige.filter(rezKnjige => {
+            const regex = new RegExp(wordToMatch, 'gi');
+            return rezKnjige.title.match(regex);
         });
     }
 
@@ -129,12 +143,35 @@ $(function () {
             suggosvrti.innerHTML = '';
         }
 
+        // knjige
+        const matchKnjige = findRezKnjige(this.value, knjige);
+        if ((matchKnjige.length > 0) && (searchInput.value.length > 2)) {
+
+            var elem3 = $('.header_search_content');
+            if (!elem3.hasClass('on')) {
+                elem3.addClass('on');
+            }
+
+            document.getElementById('knjigebanner').style.display = "block";
+            const htmlknjige = matchKnjige.map(rezKnjige => {
+                const regex = new RegExp(this.value, 'gi');
+                const knjigetitle = rezKnjige.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezKnjige.url + '">' + knjigetitle + '</a></span>';
+            }).join('');
+            suggknjige.innerHTML = htmlknjige;
+        }
+        else {
+            document.getElementById('knjigebanner').style.display = "none";
+            suggknjige.innerHTML = '';
+        }
+
     }
 
     const searchInput = document.querySelector('#searchInput');
     const suggnovosti = document.querySelector('#suggNovosti');
     const suggnajave = document.querySelector('#suggNajave');
     const suggosvrti = document.querySelector('#suggOsvrti');
+    const suggknjige = document.querySelector('#suggKnjige');
 
     searchInput.addEventListener('keyup', displayRez, { passive: true });
 
