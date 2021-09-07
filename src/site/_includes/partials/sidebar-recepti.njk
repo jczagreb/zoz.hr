@@ -1,0 +1,47 @@
+{% if lang === "hr" %}
+
+<div class="widget sidebar-widget">
+	<div class="sidebar-widget-title">
+		<h3>Najave događanja</h3>
+	</div>
+	<ul>
+		{% for item in dogadjanjahr %}
+
+		{% if item.naziv != "prazno" %}
+
+		<span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+		<li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>
+
+		{% else %}
+
+		<p><em>Trenutno nemamo događanja u najavi</em></p>
+
+		{% endif %}
+		{% endfor %}
+	</ul>
+</div>
+
+{% else %}
+
+<div class="widget sidebar-widget">
+	<div class="sidebar-widget-title">
+		<h3>Upcoming events</h3>
+	</div>
+	<ul>
+		{% for item in dogadjanjaen %}
+
+		{% if item.naziv != "prazno" %}
+
+		<span class="meta-data" style="margin: 5px 0 0 0;color:#00A1E4;"><i class="fa fa-calendar"></i> {{ item.datum | dateHr }}</span>
+		<li><a href="/hr/najave/{{ item.slug }}">{{ item.naziv }}</a></li>
+
+		{% else %}
+
+		<p><em>Currently we don't have any upcoming events</em></p>
+
+		{% endif %}
+		{% endfor %}
+	</ul>
+</div>
+
+{% endif %}

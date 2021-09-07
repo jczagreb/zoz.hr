@@ -50,7 +50,7 @@
         {% include "partials/sidebar-dogadjaji.njk" %}
         {% include "partials/sidebar-novosti.njk" %}
         {% include "partials/sidebar-osvrti.njk" %}
-    {% elseif p_id === "ONamaUstanove"%}
+    {% elseif p_id === "ONamaUstanove" %}
 
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
@@ -69,7 +69,7 @@
             </ul>
         </div>
 
-    {% elseif p_id === "ONamaUdruge"%}
+    {% elseif p_id === "ONamaUdruge" %}
 
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
@@ -88,7 +88,7 @@
             </ul>
         </div>
 
-    {% elseif p_id === "ONamaPartneri"%}
+    {% elseif p_id === "ONamaPartneri" %}
 
         <div class="widget sidebar-widget">
             <div class="sidebar-widget-title">
@@ -106,7 +106,17 @@
                 {% endfor %}
             </ul>
         </div>
-
+    {% elseif p_id === "recept" %}
+        <div class="widget sidebar-widget">
+            <div class="sidebar-widget-title">
+                <h3>Tagovi</h3>
+            </div>
+            <div class="tag-cloud">
+            <a href="/hr/recepti" style="margin:0">Svi recepti</a>
+            <hr>
+            <a href="#">Faith</a> <a href="#">Heart</a> <a href="#">Love</a> <a href="#">Praise</a> <a href="#">Sin</a> <a href="#">Soul</a> <a href="#">Missions</a> <a href="#">Worship</a> <a href="#">Faith</a> <a href="#">Heart</a> <a href="#">Love</a> <a href="#">Praise</a> <a href="#">Sin</a> <a href="#">Soul</a> <a href="#">Missions</a> <a href="#">Worship</a>
+            </div>
+        </div>
     {% endif %}
 
     {% include "partials/paljenje-svijeca.njk" %}
