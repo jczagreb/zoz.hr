@@ -20,53 +20,53 @@ eleventyComputed:
 <div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
     <div class="container">
         <div class="row">
-        <div class="col-md-12">
-            <ol class="breadcrumb">
-            <li><a href="/hr">Početna</a></li>
-            <li><a href="/hr/osvrti">Osvrti</a></li>
-            <li class="active">{{ osvrt.naslov }}</li>
-            </ol>
-        </div>
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="/hr">Početna</a></li>
+                    <li><a href="/hr/osvrti">Osvrti</a></li>
+                    <li class="active">{{ osvrt.naslov }}</li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>
 <!-- Start Page Header -->
 <div class="page-header">
-<div class="container">
-    <div class="row">
-    <div class="col-md-10 col-sm-10 col-xs-8">
-        <h1 style="font-size:30px!important;">Osvrti Židovske općine Zagreb</h1>
-    </div>
-    <div class="col-md-2 col-sm-2 col-xs-4"> <a href="/hr/osvrti" class="pull-right btn btn-primary">Svi osvrti</a> </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-sm-10 col-xs-8">
+                <h1 style="font-size:30px!important;">Osvrti Židovske općine Zagreb</h1>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-4"> <a href="/hr/osvrti" class="pull-right btn btn-primary">Svi osvrti</a> </div>
+        </div>
     </div>
 </div>
-</div>
-<!-- End Page Header --> 
+<!-- End Page Header -->
 <!-- Start Content -->
 <div class="main" role="main">
     <div id="content" class="content full">
         <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <header class="single-post-header clearfix">
-                <h2 class="post-title">{{ osvrt.naslov }}</h2>
-                </header>
-                <article class="post-content">
-                    <div class="featured-image">
-                    {% if item.foto %}
-                        <img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:635/output=format:webp/{{ osvrt.foto.handle }}" alt="" class="img-thumbnail">
-                    {% else %}
-                        <img src="/images/osvrti.jpg" alt="" class="img-thumbnail">
-                    {% endif %}
-                     </div>
-                    <span class="post-meta meta-data"><span style="font-size:1.2em;"><i class="fa fa-calendar"></i> Datum objave {{ osvrt.datum | dateHr }}</span></span>
-                    <br/>
-                    
-                    {{ osvrt.sadrzaj | safe }}
-                    
-                </article>
+            <div class="row">
+                <div class="col-md-9">
+                    <header class="single-post-header clearfix">
+                        <h2 class="post-title">{{ osvrt.naslov }}</h2>
+                    </header>
+                    <article class="post-content">
+                        <div class="featured-image">
+                            {% if item.foto %}
+                            <img src="https://media.graphcms.com/resize=fit:crop,width:1200,height:635/output=format:webp/{{ osvrt.foto.handle }}" alt="" class="img-thumbnail">
+                            {% else %}
+                            <img src="/images/osvrti.jpg" alt="" class="img-thumbnail">
+                            {% endif %}
+                        </div>
+                        <span class="post-meta meta-data"><span style="font-size:1.2em;"><i class="fa fa-calendar"></i> Datum objave {{ osvrt.datum | dateHr }}</span></span>
+                        <br />
 
-                {% if osvrt.fotogalerija | length %}
+                        {{ osvrt.sadrzaj | safe }}
+
+                    </article>
+
+                    {% if osvrt.fotogalerija | length %}
 
                     <div style="width:570px;margin:50px auto 0 auto;">
                         <a data-src="{{ osvrt.fotogalerija[0].url }}" data-fancybox="osvrt">
@@ -78,20 +78,20 @@ eleventyComputed:
                     </div>
                     {% for foto in osvrt.fotogalerija %}
 
-                        {% if loop.index > 1 %}
+                    {% if loop.index > 1 %}
 
-                            <a data-src="{{ foto.url }}" data-fancybox="osvrt"></a>
+                    <a data-src="{{ foto.url }}" data-fancybox="osvrt"></a>
 
-                        {% endif %}
-                        
+                    {% endif %}
+
                     {% endfor %}
 
-                {% endif %}
+                    {% endif %}
+
+                </div>
+
+                {% include "partials/sidebar-page-hr.njk" %}
 
             </div>
-
-            {% include "partials/sidebar-page-hr.njk" %}
-
         </div>
     </div>
-</div>

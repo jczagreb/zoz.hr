@@ -84,8 +84,7 @@ $(function () {
 
             document.getElementById('novostibanner').style.display = "block";
             const htmlnovosti = matchNovosti.map(rezNovosti => {
-                const regex = new RegExp(this.value, 'gi');
-                const novostititle = rezNovosti.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const novostititle = rezNovosti.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezNovosti.url + '">' + novostititle + '</a></span>';
             }).join('');
             suggnovosti.innerHTML = htmlnovosti;
@@ -110,8 +109,7 @@ $(function () {
 
             document.getElementById('najavebanner').style.display = "block";
             const htmlnajave = matchNajave.map(rezNajave => {
-                const regex = new RegExp(this.value, 'gi');
-                const najavetitle = rezNajave.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const najavetitle = rezNajave.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezNajave.url + '">' + najavetitle + '</a></span>';
             }).join('');
             suggnajave.innerHTML = htmlnajave;
@@ -132,8 +130,7 @@ $(function () {
 
             document.getElementById('osvrtibanner').style.display = "block";
             const htmlosvrti = matchOsvrti.map(rezOsvrti => {
-                const regex = new RegExp(this.value, 'gi');
-                const osvrtititle = rezOsvrti.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const osvrtititle = rezOsvrti.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezOsvrti.url + '">' + osvrtititle + '</a></span>';
             }).join('');
             suggosvrti.innerHTML = htmlosvrti;
@@ -154,8 +151,7 @@ $(function () {
 
             document.getElementById('knjigebanner').style.display = "block";
             const htmlknjige = matchKnjige.map(rezKnjige => {
-                const regex = new RegExp(this.value, 'gi');
-                const knjigetitle = rezKnjige.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const knjigetitle = rezKnjige.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezKnjige.url + '">' + knjigetitle + '</a></span>';
             }).join('');
             suggknjige.innerHTML = htmlknjige;

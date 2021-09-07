@@ -26,7 +26,7 @@ eleventyComputed:
     </div>
   </div>
 </div>
-<!-- End Nav Backed Header --> 
+<!-- End Nav Backed Header -->
 <!-- Start Page Header -->
 <div class="page-header">
   <div class="container">
@@ -37,26 +37,22 @@ eleventyComputed:
     </div>
   </div>
 </div>
-<!-- End Page Header --> 
+<!-- End Page Header -->
 <!-- Start Content -->
 <div class="main" role="main">
   <div id="content" class="content full">
     <div class="container">
       <div class="row">
         <div class="col-md-9 posts-archive">
-
           {% for item in pagination.items %}
-        
-          {% if item.naslov != "prazno" %}
-          
           <article class="post">
             <div class="row">
               <div class="col-md-4 col-sm-4"> <a href="/hr/osvrti/{{ item.slug }}">
-              {% if item.foto %}
-                <img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a> </div>
-              {% else %}
-                <img src="/images/osvrti.jpg" alt="" class="img-thumbnail"></a>
-              {% endif %}
+                  {% if item.foto %}
+                  <img src="https://media.graphcms.com/resize=fit:clip,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a>
+                  {% else %}
+                  <img src="/images/osvrti.jpg" alt="" class="img-thumbnail"></a>
+                  {% endif %}
               </div>
               <div class="col-md-8 col-sm-8">
                 <h3><a href="/hr/osvrti/{{ item.slug }}">{{ item.naslov }}</a></h3>
@@ -66,19 +62,10 @@ eleventyComputed:
               </div>
             </div>
           </article>
-
-          {% else %}
-
-          <header><h3>Trenutno nemamo objavljenih osvrta</h3></header>
-          
-          {% endif %}
-
           {% endfor %}
-          <ul class="pagination">
-          
+
           {% include "partials/pagination.njk" %}
-          
-          </ul>
+
         </div>
 
         {% include "partials/sidebar-page-hr.njk" %}
