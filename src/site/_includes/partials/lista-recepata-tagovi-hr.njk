@@ -1,0 +1,42 @@
+<!-- Start Content -->
+<div class="main" role="main">
+	<div id="content" class="content full">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 posts-archive causes-archive">
+
+					{% for item in pagination.items %}
+
+					{% if item.nazivRecepta != "prazno" %}
+
+					<article class="post cause-item">
+						<div class="row">
+							<div class="col-md-4 col-sm-4">
+								<a href="/hr/recepti/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:crop,width:218,height:145/output=format:webp/{{ item.naslovnaFotografija.handle }}" alt="" class="img-thumbnail"></a>
+							</div>
+							<div class="col-md-8 col-sm-8">
+								<h3><a href="/hr/recepti/{{ item.slug }}">{{ item.nazivRecepta }}</a></h3>
+								<hr>
+								<p style="padding-top:10px;">{{ item.kratakOpis}}</p>
+							</div>
+						</div>
+					</article>
+
+					{% else %}
+
+					<header><h3>Trenutno nemamo recepata sa ovim tagom</h3></header>
+
+					{% endif %}
+
+					{% endfor %}
+
+					{% include "partials/pagination.njk" %}
+
+				</div>
+
+				{% include "partials/sidebar-page-hr.njk" %}
+
+			</div>
+		</div>
+	</div>
+</div>

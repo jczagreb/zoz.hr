@@ -1,0 +1,63 @@
+---js
+{
+  pagination: {
+    data: "tagovi",
+    size: 8,
+	alias: "item",
+    addAllPagesToCollections: true,
+    before: function(data) {
+      const svirecepti = [];
+	  
+      for (const tag of data) {
+		if ( tag.slug === "jednostavni-koser-recepti" ) {
+			for (const item of tag.recept) {
+				svirecepti.push(item);
+			}
+		}
+	  }
+	  if (!svirecepti.length) {
+	  	svirecepti.push({
+		  nazivRecepta: "prazno",
+		  slug: "prazno"
+		  }) 
+	  }
+
+      return svirecepti;
+    }
+  },
+  layout: "default",
+  title: "Recepti",
+  description: "Recepti",
+  lang: "hr",
+  permalink: "/hr/recepti/jednostavni-koser-recepti{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  eleventyComputed: {
+    p_title: "Židovski recepti - Jednostavni Košer recepti",
+    p_description: "Židovski recepti - Jednostavni Košer recepti",
+    p_id: "recept"
+  }
+}
+---
+<div class="nav-backed-header parallax" style="background-image:url(/images/banner.jpg);">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ol class="breadcrumb">
+					<li><a href="/hr">Početna</a></li>
+					<li class="active">Recepti - Jednostavni Košer recepti</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Start Page Header -->
+<div class="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-sm-10 col-xs-8">
+				<h1 style="font-size:30px!important;">Recepti - Jednostavni Košer recepti</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "partials/lista-recepata-tagovi-hr.njk" %}

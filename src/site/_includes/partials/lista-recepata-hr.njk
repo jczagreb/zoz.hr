@@ -1,0 +1,45 @@
+<!-- Start Content -->
+<div class="main" role="main">
+	<div id="content" class="content full">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 posts-archive causes-archive">
+
+					{% for item in pagination.items %}
+
+					<article class="post cause-item">
+						<div class="row">
+							<div class="col-md-4 col-sm-4">
+								<a href="/hr/recepti/{{ item.slug }}"><img src="https://media.graphcms.com/resize=fit:crop,width:218,height:145/output=format:webp/{{ item.foto.handle }}" alt="" class="img-thumbnail"></a>
+								<div class="progress-label">
+									{% for tag in item.tagovi | reverse %}
+									<label class="cause-days-togo label label-default pull-right" style="display: inline;padding: .6em .6em .6em;font-size: 85%;font-weight: bold;line-height: 1;color: #ffffff;text-align: center;white-space: nowrap;vertical-align: baseline;border-radius: .25em;background-color:#00A1E4;margin-left:10px;">
+										<a href="/hr/recepti/{{ tag.slug }}">
+											{{ tag.naziv }}
+										</a>
+									</label>
+									{% endfor %}
+								</div>
+								<div class="progress" style="background:none!important;">
+								</div>
+							</div>
+							<div class="col-md-8 col-sm-8">
+								<h3><a href="/hr/recepti/{{ item.slug }}">{{ item.naziv }}</a></h3>
+								<hr>
+								<p style="padding-top:10px;">{{ item.kratakopis}}</p>
+							</div>
+						</div>
+					</article>
+
+					{% endfor %}
+
+					{% include "partials/pagination.njk" %}
+
+				</div>
+
+				{% include "partials/sidebar-page-hr.njk" %}
+
+			</div>
+		</div>
+	</div>
+</div>

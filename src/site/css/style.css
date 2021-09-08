@@ -3142,3 +3142,6 @@ a.btn-blagdani:hover {
 	color: #000;
 	background-color: #e6c200!important;
 }
+.activetag {
+	color:red;
+}

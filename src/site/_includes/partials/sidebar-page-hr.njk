@@ -112,9 +112,11 @@
                 <h3>Tagovi</h3>
             </div>
             <div class="tag-cloud">
-            <a href="/hr/recepti" style="margin:0">Svi recepti</a>
-            <hr>
-            <a href="#">Faith</a> <a href="#">Heart</a> <a href="#">Love</a> <a href="#">Praise</a> <a href="#">Sin</a> <a href="#">Soul</a> <a href="#">Missions</a> <a href="#">Worship</a> <a href="#">Faith</a> <a href="#">Heart</a> <a href="#">Love</a> <a href="#">Praise</a> <a href="#">Sin</a> <a href="#">Soul</a> <a href="#">Missions</a> <a href="#">Worship</a>
+                <a href="/hr/recepti" style="margin:0">Svi recepti</a>
+                <hr>
+                {% for tag in tagovi %}
+                    <a href="/hr/recepti/{{ tag.slug }}" class="{{ 'activetag' if ('/'+tag.slug) in page.url }}">{{ tag.naziv }}</a>
+                {% endfor %}
             </div>
         </div>
     {% endif %}
