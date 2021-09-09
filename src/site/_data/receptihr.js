@@ -25,6 +25,9 @@ async function getRecepti() {
 							handle
 						}
 						kratakOpis
+                        sastojci {
+                            html
+                        }
 						detaljanOpisRecepta {
 							html
 						}
@@ -67,7 +70,8 @@ async function getRecepti() {
             naziv: item.nazivRecepta,
             slug: item.slug,
 			foto: item.naslovnaFotografija,
-			kratakopis: item.kratakOpis,
+            kratakopis: item.kratakOpis,
+            sastojci: item.sastojci,
 			opis: item.detaljanOpisRecepta,
 			tagovi: item.receptiTagovi,
 			fotogalerija: item.fotogalerija,

@@ -1,0 +1,134 @@
+---
+layout: default
+pagination:
+  data: receptihr
+  size: 1
+  alias: recept
+  addAllPagesToCollections: true
+permalink: /hr/recepti/{{ recept.slug }}/index.html
+eleventyComputed:
+    lang: "{{ recept.lang }}"
+    p_title: "{{ recept.naslov }}"
+    p_description: "{{ recept.naslov }}"
+    p_id: "recept"
+    cms_id: "{{ recept.id }}"
+---
+<div class="nav-backed-header parallax stranica-banner" style="background-image:url(/images/banner.jpg);">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb stranica-breadcrumb">
+            <li><a href="/hr">Početna</a></li>
+			<li><a href="/hr/recepti">Recepti</a></li>
+            <li class="active">{{ recept.naziv }}</li>
+            </ol>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Start Page Header -->
+<div class="page-header">
+<div class="container">
+    <div class="row">
+    <div class="col-md-10 col-sm-10 col-xs-8">
+        <h1 style="font-size:30px!important;">{{ recept.naziv }}</h1>
+    </div>
+	<div class="col-md-2 col-sm-2 col-xs-4"><a href="/hr/recepti" class="pull-right btn btn-primary">Svi recepti</a> </div>
+    </div>
+</div>
+</div>
+<!-- End Page Header --> 
+<!-- Start Content -->
+<!-- Start Content -->
+  <div class="main" role="main">
+    <div id="content" class="content full">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <article class="post-content cause-item" style="border-top:0;padding-top:10px;s">
+                
+                
+                
+                <div class="row">
+                	<div class="col-md-7">
+              			<img src="https://media.graphcms.com/resize=fit:clip,width:415/output=format:webp/{{ recept.foto.handle }}" class="img-responsive" style="margin-top:0">
+                    </div>
+                	<div class="col-md-5">
+						<div class="list-group" style="border: 1px solid #abacae;padding:10px;background-color:#eee">
+                          {{ recept.sastojci.html | safe }}
+						</div>
+                    </div>
+                </div>
+                <div class="spacer-30"></div>
+                {{ recept.opis.html | safe }}
+            </article>
+            <!-- Payment Modal Window -->
+            <div class="modal fade" id="PaymentModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="PaymentModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Donate to: <span class="accent-color payment-to-cause"></span></h4>
+                  </div>
+                  <div class="modal-body">
+                  	<form>
+                    	<div class="row">
+                        	<div class="col-md-6">
+                                <label>How much would you like to donate?</label>
+                                <div class="input-group margin-20">
+                                    <span class="input-group-addon">$</span>
+                                    <select name="donation amount" class="form-control">
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="Custom">100+</option>
+                                    </select>
+                                </div>
+                            </div>
+                        	<div class="col-md-6 custom-donate-amount">
+                                <label>Enter custom donation amount</label>
+                                <div class="input-group margin-20">
+                                    <span class="input-group-addon">$</span>
+                        			<input type="text" name="Custom Donation Amount" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    	<div class="row">
+                        	<div class="col-md-6">
+                        		<input type="text" name="fname" class="form-control" placeholder="First name (Required)">
+                            </div>
+                        	<div class="col-md-6">
+                        		<input type="text" name="lname" class="form-control" placeholder="Last name">
+                            </div>
+                      	</div>
+                    	<div class="row">
+                        	<div class="col-md-6">
+                        		<input type="email" name="email" class="form-control" placeholder="Your email (Required)">
+                            </div>
+                        	<div class="col-md-6">
+                        		<input type="phone" name="phone" class="form-control" placeholder="Your phone">
+                            </div>
+                       	</div>
+                    	<div class="row">
+                        	<div class="col-md-6">
+                        		<textarea rows="3" cols="5" class="form-control" placeholder="Your Address"></textarea>
+                            </div>
+                        	<div class="col-md-6">
+                        		<textarea rows="3" cols="5" class="form-control" placeholder="Additional Notes"></textarea>
+                            </div>
+                       	</div>
+                        <input type="submit" name="donate" class="btn btn-primary btn-lg btn-block" value="Donate Now">
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <p class="small short">If you would prefer to call in your donation, please call 1800.785.876</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Start Sidebar -->
+		{% include "partials/sidebar-page-hr.njk" %}
+      </div>
+    </div>
+  </div>

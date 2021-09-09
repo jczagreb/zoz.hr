@@ -3145,3 +3145,16 @@ a.btn-blagdani:hover {
 .activetag {
 	color:red;
 }
+.list-group :not(:first-child) {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 0 0 5px 0;
+}
+.progress-label a {
+	color:#fff;
+	text-decoration: none;
+}
+.progress-label a:hover {
+	color: yellow;
+	text-decoration: none;
+}
